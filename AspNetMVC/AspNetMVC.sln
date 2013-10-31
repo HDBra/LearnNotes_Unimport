@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetMVC", "AspNetMVC\AspNetMVC.csproj", "{1281471C-8B70-4B59-BCF9-819AE69532B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetMVC.Tests", "AspNetMVC.Tests\AspNetMVC.Tests.csproj", "{B7B5FB78-859D-414A-AD4D-5F2EC4DD499D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1281471C-8B70-4B59-BCF9-819AE69532B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1281471C-8B70-4B59-BCF9-819AE69532B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1281471C-8B70-4B59-BCF9-819AE69532B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1281471C-8B70-4B59-BCF9-819AE69532B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7B5FB78-859D-414A-AD4D-5F2EC4DD499D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7B5FB78-859D-414A-AD4D-5F2EC4DD499D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7B5FB78-859D-414A-AD4D-5F2EC4DD499D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7B5FB78-859D-414A-AD4D-5F2EC4DD499D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
