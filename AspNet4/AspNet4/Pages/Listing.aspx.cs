@@ -28,7 +28,7 @@ namespace AspNet4.Pages
             get
             {
                 int page;
-                page = int.TryParse(Request.QueryString["page"], out page) ? page : 1;
+                page = GetPageFromRequest();
                 return page > MaxPage ? MaxPage : page;
             }
         }
@@ -40,5 +40,13 @@ namespace AspNet4.Pages
                 return (int)Math.Ceiling((decimal)repo.Products.Count() / pageSize);
             }
         }
+
+        private int GetPageFromRequest()
+        {
+            int page;
+            string reqValue = (string) RouteData.Values["page"] ?? Request.QueryString["page"];
+            return reqValue != null && int.TryParse(reqValue, out page) ? page : 1;
+        }
+
     }
 }

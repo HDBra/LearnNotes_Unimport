@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
+using AspNet4.App_Start;
 
 namespace AspNet4
 {
@@ -12,7 +14,7 @@ namespace AspNet4
 
         protected void Application_Start(object sender, EventArgs e)
         {
-
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
 
         protected void Session_Start(object sender, EventArgs e)
