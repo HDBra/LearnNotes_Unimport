@@ -38,6 +38,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -58,15 +64,34 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Pages\Listing.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Repository\EFDbContext.cs" />
+    <Compile Include="Models\Repository\Repository.cs" />
+    <Compile Include="Pages\Listing.aspx.cs">
+      <DependentUpon>Listing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Listing.aspx.designer.cs">
+      <DependentUpon>Listing.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Store.Master.Master.cs">
+      <DependentUpon>Store.Master.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Store.Master.Master.designer.cs">
+      <DependentUpon>Store.Master.Master</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="packages.config" />
+    <Content Include="Pages\Store.Master.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -78,7 +103,6 @@
     <Folder Include="App_Start\" />
     <Folder Include="Content\" />
     <Folder Include="Controls\" />
-    <Folder Include="Models\Repository\" />
     <Folder Include="Pages\Admin\" />
     <Folder Include="Pages\Helpers\" />
     <Folder Include="Scripts\" />
