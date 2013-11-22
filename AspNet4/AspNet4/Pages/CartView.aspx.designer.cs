@@ -10,7 +10,7 @@
 namespace AspNet4.Pages {
     
     
-    public partial class Listing {
+    public partial class CartView {
         
         /// <summary>
         /// Repeater1 control.

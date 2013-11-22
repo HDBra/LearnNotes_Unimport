@@ -73,3 +73,88 @@ DIV.pager {
             background-color: #353535;
             color: White;
         }
+
+DIV#categories A {
+    font: bold 1.1em "Arial Narrow","Franklin Gothic Medium",Arial;
+    display: block;
+    text-decoration: none;
+    padding: .6em;
+    color: Black;
+    border-bottom: 1px solid silver;
+}
+
+    DIV#categories A.selected {
+        background-color: #666;
+        color: White;
+    }
+
+    DIV#categories A:hover {
+        background-color: #CCC;
+    }
+
+    DIV#categories A.selected:hover {
+        background-color: #666;
+    }
+
+DIV.item BUTTON {
+    color: White;
+    background-color: #333;
+    border: 1px solid black;
+    float: right;
+}
+
+
+H2 {
+    margin-top: 0.3em;
+}
+
+#cartTable {
+    width: 90%;
+}
+
+    #cartTable TFOOT TD {
+        border-top: 1px dotted gray;
+        font-weight: bold;
+    }
+
+    #cartTable thead th {
+        text-align: right;
+    }
+
+        #cartTable thead th:first-child {
+            text-align: center;
+        }
+
+        #cartTable thead th:nth-child(2) {
+            text-align: left;
+        }
+
+    #cartTable tbody td {
+        text-align: right;
+    }
+
+        #cartTable tbody td:first-child {
+            text-align: center;
+        }
+
+        #cartTable tbody td:nth-child(2) {
+            text-align: left;
+        }
+
+    #cartTable tfoot tr td {
+        text-align: right;
+    }
+
+p.actionButtons {
+    text-align: center;
+}
+
+.actionButtons A, button.actionButtons {
+    font: .8em Arial;
+    color: White;
+    margin: .5em;
+    text-decoration: none;
+    padding: .15em 1.5em .2em 1.5em;
+    background-color: #353535;
+    border: 1px solid black;
+}

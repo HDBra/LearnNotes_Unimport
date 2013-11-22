@@ -1,5 +1,7 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Store.Master.cs" Inherits="AspNet4.Pages.Store_Master" %>
 
+<%@ Register TagPrefix="SS" TagName="CatLinks" Src="~/Controls/CategoryList.ascx" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -14,7 +16,7 @@
             <div class="title">SPORTS STORE</div>
         </div>
         <div id="categories">
-            We will put something useful here later
+            <SS:CatLinks runat="server" />
         </div>
         <div>
             <asp:ContentPlaceHolder ID="bodyContent" runat="server">

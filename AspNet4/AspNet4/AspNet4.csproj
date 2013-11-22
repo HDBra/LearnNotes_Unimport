@@ -64,18 +64,36 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Styles.css" />
+    <Content Include="Controls\CategoryList.ascx" />
     <Content Include="Global.asax" />
+    <Content Include="Pages\CartView.aspx" />
     <Content Include="Pages\Listing.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controls\CategoryList.ascx.cs">
+      <DependentUpon>CategoryList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\CategoryList.ascx.designer.cs">
+      <DependentUpon>CategoryList.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Repository\EFDbContext.cs" />
     <Compile Include="Models\Repository\Repository.cs" />
+    <Compile Include="Pages\CartView.aspx.cs">
+      <DependentUpon>CartView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\CartView.aspx.designer.cs">
+      <DependentUpon>CartView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Helpers\SessionHelper.cs" />
     <Compile Include="Pages\Listing.aspx.cs">
       <DependentUpon>Listing.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -103,9 +121,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Controls\" />
     <Folder Include="Pages\Admin\" />
-    <Folder Include="Pages\Helpers\" />
     <Folder Include="Scripts\" />
   </ItemGroup>
   <PropertyGroup>
