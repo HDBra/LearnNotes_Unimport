@@ -1,4 +1,5 @@
-﻿using AspNet4.Models;
+﻿using System.Web.Routing;
+using AspNet4.Models;
 using AspNet4.Models.Repository;
 using AspNet4.Pages.Helpers;
 using System;
@@ -48,6 +49,14 @@ namespace AspNet4.Pages
             get
             {
                 return SessionHelper.Get<string>(Session, SessionKey.RETURN_URL);
+            }
+        }
+
+        public string CheckoutUrl
+        {
+            get
+            {
+                return RouteTable.Routes.GetVirtualPath(null, "checkout", null).VirtualPath;
             }
         }
     }

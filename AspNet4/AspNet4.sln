@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNet4", "AspNet4\AspNet4.csproj", "{648CC173-8739-4E38-ABB9-DD6039F195DA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebForms", "WebForms\WebForms.csproj", "{8C26D9FA-9B4B-49DA-8ED1-6F872B7A2EDE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{648CC173-8739-4E38-ABB9-DD6039F195DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{648CC173-8739-4E38-ABB9-DD6039F195DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{648CC173-8739-4E38-ABB9-DD6039F195DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C26D9FA-9B4B-49DA-8ED1-6F872B7A2EDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C26D9FA-9B4B-49DA-8ED1-6F872B7A2EDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C26D9FA-9B4B-49DA-8ED1-6F872B7A2EDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C26D9FA-9B4B-49DA-8ED1-6F872B7A2EDE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
