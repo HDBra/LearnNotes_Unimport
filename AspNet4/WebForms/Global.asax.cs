@@ -24,7 +24,13 @@ namespace WebForms
 
         protected void Application_BeginRequest(object sender, EventArgs e)
         {
+            EventCollection.Add(EventSource.Application, "BeginRequest");
 
+        }
+
+        protected void Application_EndRequest(object sender, EventArgs e)
+        {
+            EventCollection.Add(EventSource.Application, "EndRequest");
         }
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)
