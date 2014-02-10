@@ -116,8 +116,16 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="Global.asax" />
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />
+    <Content Include="Images\aster.png" />
+    <Content Include="Images\border.png" />
+    <Content Include="Images\daffodil.png" />
+    <Content Include="Images\peony.png" />
+    <Content Include="Images\primula.png" />
+    <Content Include="Images\rose.png" />
+    <Content Include="Images\snowdrop.png" />
     <Content Include="Scripts\jquery-2.1.0.js" />
     <Content Include="Scripts\jquery-2.1.0.min.js" />
+    <Content Include="Styles\Style.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

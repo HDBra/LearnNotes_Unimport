@@ -7,13 +7,64 @@
 <html>
 <head>
     <script type="text/javascript" src="~/Scripts/jquery-2.1.0.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("img:odd").mouseenter(function (e) { $(this).css("opacity", 0.5); }).mouseout(function (e) { $(this).css("opacity", 1.0); });
+        });
+    </script>
     <link rel="stylesheet" href="~/Styles/Style.css" type="text/css" />
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
 </head>
 <body>
     <div>
-        
+        <h1>Jacqui's Flower Shop</h1>
+        <form method="post">
+            <div id="oblock">
+                <div class="dtable">
+                    <div id="row1" class="drow">
+                        <div class="dcell">
+                            <img src="~/Images/aster.png" />
+                            <label for="aster">Aster:</label>
+                            <input name="aster" value="0" required />
+                        </div>
+                        <div class="dcell">
+                            <img src="~/Images/daffodil.png" />
+                            <label for="daffodil">Daffodil:</label>
+                            <input name="daffodil" value="0" required />
+                        </div>
+                        <div class="dcell">
+                            <img src="~/Images/rose.png" />
+                            <label for="rose">Rose:</label>
+                            <input name="rose" value="0" required />
+                        </div>
+                    </div>
+
+                    <div id="row2" class="drow">
+                        <div class="dcell">
+                            <img src="~/Images/peony.png" />
+                            <label for="peony">Peony:</label>
+                            <input name="peony" value="0" required />
+                        </div>
+                        <div class="dcell">
+                            <img src="~/Images/primula.png" />
+                            <label for="primula">Primula:</label>
+                            <input name="primula" value="0" required />
+                        </div>
+                        <div class="dcell">
+                            <img src="~/Images/snowdrop.png" />
+                            <label for="snowdrop">Snowdrop:</label>
+                            <input name="snowdrop" value="0" required />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="buttonDiv">
+                <button type="submit">Place Order</button>
+            </div>
+
+        </form>
     </div>
 </body>
 </html>
