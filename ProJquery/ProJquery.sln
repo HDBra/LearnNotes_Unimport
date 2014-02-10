@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProJquery", "ProJquery\ProJquery.csproj", "{4E37ADDE-CA7A-43BC-9015-6D10CCD1FD71}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProJquery", "ProJquery\ProJquery.csproj", "{83F1BF63-52D1-4004-AD17-1F3D68AA8593}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +9,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4E37ADDE-CA7A-43BC-9015-6D10CCD1FD71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4E37ADDE-CA7A-43BC-9015-6D10CCD1FD71}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4E37ADDE-CA7A-43BC-9015-6D10CCD1FD71}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4E37ADDE-CA7A-43BC-9015-6D10CCD1FD71}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83F1BF63-52D1-4004-AD17-1F3D68AA8593}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83F1BF63-52D1-4004-AD17-1F3D68AA8593}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83F1BF63-52D1-4004-AD17-1F3D68AA8593}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83F1BF63-52D1-4004-AD17-1F3D68AA8593}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
