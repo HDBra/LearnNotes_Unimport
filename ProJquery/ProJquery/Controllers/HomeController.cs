@@ -16,5 +16,10 @@ namespace ProJquery.Controllers
             return View();
         }
 
+
+        public ActionResult Css()
+        {
+            return View();
+        }
     }
 }
