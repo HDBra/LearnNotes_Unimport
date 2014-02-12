@@ -9,7 +9,12 @@
     <script type="text/javascript" src="~/Scripts/jquery-2.1.0.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            $("img:odd").mouseenter(function (e) { $(this).css("opacity", 0.5); }).mouseout(function (e) { $(this).css("opacity", 1.0); });
+            var jq1 = $("img:odd");
+            console.log("No context: " + jq1.context.tagName);
+            var jq2 = $("img:odd", $(".drow"));
+            console.log("Multiple context elements: " + jq2.context.tagName);
+            var jq3 = $("img:odd", document.getElementById("oblock"));
+            console.log("Single context element: " + jq3.context.tagName);
         });
     </script>
     <link rel="stylesheet" href="~/Styles/Style.css" type="text/css" />

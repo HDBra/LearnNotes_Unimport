@@ -21,5 +21,10 @@ namespace ProJquery.Controllers
         {
             return View();
         }
+
+        public ActionResult Standard()
+        {
+            return View();
+        }
     }
 }
