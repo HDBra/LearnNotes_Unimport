@@ -118,10 +118,14 @@
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />
     <Content Include="Images\aster.png" />
     <Content Include="Images\border.png" />
+    <Content Include="Images\carnation.png" />
     <Content Include="Images\daffodil.png" />
+    <Content Include="Images\leftarrows.png" />
     <Content Include="Images\lily.png" />
+    <Content Include="Images\orchid.png" />
     <Content Include="Images\peony.png" />
     <Content Include="Images\primula.png" />
+    <Content Include="Images\rightarrows.png" />
     <Content Include="Images\rose.png" />
     <Content Include="Images\snowdrop.png" />
     <Content Include="Scripts\jquery-2.1.0.js" />
