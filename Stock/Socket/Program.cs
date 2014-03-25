@@ -30,13 +30,11 @@ namespace Socket
                         string address = ApiNet + item;
                         string result = webClient.DownloadString(address);
                         string[] message = (result.Split(new char[] { '=' }, 2)[1]).Trim().Trim(';', '\"').Split(',');
-                        list.Add(string.Format("{0}{1}{2}{3}{4}", item.PadRight(12), message[2].PadRight(12), message[3].PadRight(13), Math.Round(((double.Parse(message[3]) - double.Parse(message[2])) / double.Parse(message[2])),5).ToString().PadRight(12),DateTime.Now.ToLongTimeString()));
+                        list.Add(string.Format("{3}{1}{2}{0}{4}", item.PadRight(12), message[2].PadRight(12), message[3].PadRight(13), Math.Round(((double.Parse(message[3]) - double.Parse(message[2])) / double.Parse(message[2])),5).ToString().PadRight(12),DateTime.Now.ToLongTimeString()));
                         if (item == "sz000100"&&double.Parse(message[2]) >= 2.0)
                         {
 
                             SetWindowPos(FindWindow("ConsoleWindowClass", "Stock checker"), -1, 0, 0, 0, 0, 1 | 2);
-                            //Console.WindowHeight = Console.WindowWidth = 100 + new Random().Next(100);
-
                         }
                     }
                 }
@@ -58,7 +56,7 @@ namespace Socket
         [DllImport("user32.dll", CharSet = CharSet.Auto)] 
         private static extern System.IntPtr GetForegroundWindow();
 
-        static string[] Stocks = { "sh000001", "sh600060", "sz000100", "sh600839", "sz000016", "sh601328" };
+        static string[] Stocks = { "sh000001", "sh600060", "sz000100", "sh600839", "sz000016","sz000725", "sh601688", "sh601328", "sz000930"};
         const string ApiNet = @"http://hq.sinajs.cn/list=";
     }
 }
