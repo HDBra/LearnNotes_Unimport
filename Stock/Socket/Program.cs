@@ -13,15 +13,19 @@ namespace Socket
     {
         static void Main(string[] args)
         {
+            /*
+             * fwghso: from where group having select orderby
+             * snbao: String Number Boolean Array Object
+             * avl:|size(node.left)-size(node.right)|<=1
+             * treap:assign node a priority, node.priority<=node.right.priority
+             */
             Console.Title = "Stock checker";
-            //Console.OutputEncoding = Console.InputEncoding = Encoding.BigEndianUnicode;
             WebClient webClient = new WebClient();
             webClient.Encoding = Encoding.GetEncoding("gbk");
             Console.WindowWidth = 60;
             Console.WindowHeight = 8;
             while (true)
             {
-                //Console.Clear();
                 List<string> list = new List<string>();
                 try
                 {
