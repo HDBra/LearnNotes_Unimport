@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -13,11 +15,27 @@ namespace Socket
     {
         static void Main(string[] args)
         {
+            string s = @"\\mt-data\training_archive\mtmain_backend\ENU_TAM_GENERAL\vCurrent\2014_03_28_08H_13m_37S";
+            var r = Regex.IsMatch(Path.GetFileName(s), @"^\d{4}_\d{2}_\d{2}_\d{2}h_\d{2}m_\d{2}s$");
+            Console.WriteLine(r);
             /*
-             * fwghso: from where group having select orderby
-             * snbao: String Number Boolean Array Object
+             * local service: onCreate onStartCommand onDestory
+             * remote service: onCreate onBind onDestory
+             * Activity: onCreate onStart onResume onPause onStop onDestory
+             * Fragment: onAttach onCreate onCreateView onActivityCreated onStart onResume onPause onStop onDestoryView onDestory onDetach
+             * #id .class element element#id element.class [attr] [attr="value"] [attr*="value"] element[attr] element[attr="value"] element[attr*="value"] ,group  descendant >children ~all siblings +first sibling
+             * snbao:String Number Boolean Array Object
+             * fwghso: FROM WHERE GROUP HAVING SELECT ORDERBY
+             * selection sort quick sort merge sort heap sort insertion sort counting sort radix sort bucket sort
              * avl:|size(node.left)-size(node.right)|<=1
-             * treap:assign node a priority, node.priority<=node.right.priority
+             * sbt: size(node.left)>=size(node.right.left) size(node.right.right)  size(node.right)>=size(node.left.right) size(node.left.left)
+             * treap:assign a node a priority, node.priority<=node.left.priority node.priority<=node.right.priority node.key<= node.right.key node.key>=node.left.key the nodes are inserted as if they come in sequence of priority
+             * splay tree: move the lastest visited node to the root.
+             * rbt: the tree have red or black two color . if a node is red, then its chilren can't be red. all path from a node to its leaf have same black depth.
+             * b tree:define t as min degree. each nonroot node have [t-1,2t-1] keys have [t,2t] nodes all leaf have same depth
+             * dynamic programming:optimal subproblem & subproblem override
+             * greedy algorithm: choose the best choice for now & hope it works for all
+             * 
              */
             Console.Title = "Stock checker";
             WebClient webClient = new WebClient();
@@ -63,7 +81,7 @@ namespace Socket
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         private static extern System.IntPtr GetForegroundWindow();
 
-        static string[] Stocks = { "sh000001", "sh600060", "sz000100", "sh600839", "sz000016", "sz000725", "sh601688", "sh601328", "sz000930" };
+        static string[] Stocks = { "sh000001", "sh600060", "sz000100", "sh600839", "sz000016", "sz000725", "sh601688", "sh601328", "sz000930", "sh600308" };
         const string ApiNet = @"http://hq.sinajs.cn/list=";
     }
 }
