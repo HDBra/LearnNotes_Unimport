@@ -15,27 +15,12 @@ namespace Socket
     {
         static void Main(string[] args)
         {
-            string s = @"\\mt-data\training_archive\mtmain_backend\ENU_TAM_GENERAL\vCurrent\2014_03_28_08H_13m_37S";
-            var r = Regex.IsMatch(Path.GetFileName(s), @"^\d{4}_\d{2}_\d{2}_\d{2}h_\d{2}m_\d{2}s$");
-            Console.WriteLine(r);
+            string s = @"D:\clustertmp\enu_tam_general_bak20130415\data\Tech_00000432_4.tam.snt";
+            string f = Path.GetFileNameWithoutExtension(s);
+            f += ".wbr.gz";
             /*
-             * local service: onCreate onStartCommand onDestory
-             * remote service: onCreate onBind onDestory
-             * Activity: onCreate onStart onResume onPause onStop onDestory
-             * Fragment: onAttach onCreate onCreateView onActivityCreated onStart onResume onPause onStop onDestoryView onDestory onDetach
-             * #id .class element element#id element.class [attr] [attr="value"] [attr*="value"] element[attr] element[attr="value"] element[attr*="value"] ,group  descendant >children ~all siblings +first sibling
-             * snbao:String Number Boolean Array Object
-             * fwghso: FROM WHERE GROUP HAVING SELECT ORDERBY
-             * selection sort quick sort merge sort heap sort insertion sort counting sort radix sort bucket sort
-             * avl:|size(node.left)-size(node.right)|<=1
-             * sbt: size(node.left)>=size(node.right.left) size(node.right.right)  size(node.right)>=size(node.left.right) size(node.left.left)
-             * treap:assign a node a priority, node.priority<=node.left.priority node.priority<=node.right.priority node.key<= node.right.key node.key>=node.left.key the nodes are inserted as if they come in sequence of priority
-             * splay tree: move the lastest visited node to the root.
-             * rbt: the tree have red or black two color . if a node is red, then its chilren can't be red. all path from a node to its leaf have same black depth.
-             * b tree:define t as min degree. each nonroot node have [t-1,2t-1] keys have [t,2t] nodes all leaf have same depth
-             * dynamic programming:optimal subproblem & subproblem override
-             * greedy algorithm: choose the best choice for now & hope it works for all
-             * 
+             * local service:onCreate onStartCommand onDestory
+             * remote service:
              */
             Console.Title = "Stock checker";
             WebClient webClient = new WebClient();

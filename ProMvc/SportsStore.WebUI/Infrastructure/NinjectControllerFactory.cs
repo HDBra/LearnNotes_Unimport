@@ -8,6 +8,8 @@ using System.Web.Mvc;
 using SportsStore.Domain.Abstract;
 using SportsStore.Domain.Entities;
 using SportsStore.Domain.Concrete;
+using SportsStore.WebUI.Infrastructure.Abstract;
+using SportsStore.WebUI.Infrastructure.Concrete;
 
 namespace SportsStore.WebUI.Infrastructure
 {
@@ -29,6 +31,11 @@ namespace SportsStore.WebUI.Infrastructure
         private void AddBindings()
         {
             ninjectKernel.Bind<IProductsRepository>().To<EFProductRepository>();
+            EmailSettings emailSettings = new EmailSettings { WriteAsFile = true};
+
+            ninjectKernel.Bind<IOrderProcessor>().To<EmailOrderProcessor>().WithConstructorArgument("settings", emailSettings);
+
+            ninjectKernel.Bind<IAuthProvider>().To<FormsAuthProvider>();
         }
     }
 }
