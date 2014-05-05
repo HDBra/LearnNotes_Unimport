@@ -15,12 +15,22 @@ namespace Socket
     {
         static void Main(string[] args)
         {
-            string s = @"D:\clustertmp\enu_tam_general_bak20130415\data\Tech_00000432_4.tam.snt";
-            string f = Path.GetFileNameWithoutExtension(s);
-            f += ".wbr.gz";
             /*
-             * local service:onCreate onStartCommand onDestory
-             * remote service:
+             * #id .class element element#id element.class [attr] [attr="value"] [attr*="value"] element[attr] element[attr="value"] element[attr*="value"] ,group  descendant >children ~allsibling +first sibling
+             * fwghso:from where group having select orderby
+             * snbao:String Number Boolean Array Object
+             * onCreate onStart onResume onPause onStop onDestory
+             * onAttach oncreate oncreateview onActivityCreated onstart onresume onpause onstop ondestoryview ondestory ondetach
+             * activity servie contentprovider broadcastreceiver
+             * avl:|size(node.left)-size(node.right)|<=1
+             * sbt:size(node.left)>=size(node.right.left) size(node.right.right)  size(node.right)>=size(node.left.right) size(node.left.left)
+             * rbt: the root is black.if a node is red, then its children can't be red. all paths from a node to its leaf have same black depth.
+             * treap:assign each node a priority, node.priority<=node.children.priority,  node.left.key=<node.key<=node.right.key
+             * splay tree: move the lastest visited node to the root.
+             * b tree:define t (t>=2) as min degree. each nonroot node has [t-1,2t-1] key & [t,2t] children. all leaf are at same depth.
+             * greedy algorithm: choose the best choice for now & hope it works for all.
+             * dynamic programming: optimal subproblems & subproblems override
+             * heapsort quicksort merge sort insertion sort selection sort bubblesort bucket sort countingsort radix sort
              */
             Console.Title = "Stock checker";
             WebClient webClient = new WebClient();
