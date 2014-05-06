@@ -9,6 +9,7 @@ namespace SportsStore.WebUI.Utils
 {
     public static class RouteUtils
     {
+        #region 
         /// <summary>
         /// get route data from current request
         /// </summary>
@@ -30,5 +31,21 @@ namespace SportsStore.WebUI.Utils
             route.DataTokens["UseNamespaceFallback"] = fallback;
         }
 
+        /// <summary>
+        /// the default is match a file on disk then use route
+        /// </summary>
+        /// <param name="routes"></param>
+        /// <param name="route"></param>
+        public static void RouteExistingFile(RouteCollection routes, bool route = true)
+        {
+            routes.RouteExistingFiles = route;
+        }
+        #endregion
+
+        #region generating outgoing file
+
+
+
+        #endregion
     }
 }
