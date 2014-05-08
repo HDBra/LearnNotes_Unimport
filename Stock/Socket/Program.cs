@@ -34,6 +34,7 @@ namespace Socket
              */
             Console.Title = "Stock checker";
             WebClient webClient = new WebClient();
+            
             webClient.Encoding = Encoding.GetEncoding("gbk");
             Console.WindowWidth = 60;
             Console.WindowHeight = 8;
