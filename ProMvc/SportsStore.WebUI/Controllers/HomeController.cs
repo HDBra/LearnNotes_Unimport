@@ -14,7 +14,7 @@ namespace SportsStore.WebUI.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            return RedirectToAction("index", "Cart");
         }
 
     }
