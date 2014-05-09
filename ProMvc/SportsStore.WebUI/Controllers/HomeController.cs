@@ -12,9 +12,9 @@ namespace SportsStore.WebUI.Controllers
         //
         // GET: /Home/
 
-        public ActionResult Index()
+        public ViewResult Index()
         {
-            return RedirectToAction("index", "Cart");
+            return View();
         }
 
     }
