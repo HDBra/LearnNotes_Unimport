@@ -15,7 +15,7 @@ namespace SportsStore.WebUI
 
             routes.MapRoute("NewRoute", "App/Do{action}", new { controller = "Home" });
 
-            routes.MapRoute("startPage", "{controller}/{action}/{id}", new { controller = "Home", action = "Index", id = UrlParameter.Optional });
+            routes.MapRoute("startPage", "{controller}/{action}/{id}", new { controller = "Home", action = "Index", id = UrlParameter.Optional }, new string[] { "SportsStore.WebUI.Controllers" });
 
         }
     }

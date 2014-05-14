@@ -32,6 +32,7 @@ namespace Socket
              * dynamic programming: optimal subproblems & subproblems override
              * heapsort quicksort merge sort insertion sort selection sort bubblesort bucket sort countingsort radix sort
              */
+
             Console.Title = "Stock checker";
             WebClient webClient = new WebClient();
             
