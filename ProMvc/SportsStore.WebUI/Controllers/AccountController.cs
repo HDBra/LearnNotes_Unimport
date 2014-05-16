@@ -17,6 +17,7 @@ namespace SportsStore.WebUI.Controllers
             authProvider = auth;
         }
 
+
         public ActionResult Login()
         {
             return View();

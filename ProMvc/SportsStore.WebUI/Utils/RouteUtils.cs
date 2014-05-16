@@ -44,8 +44,6 @@ namespace SportsStore.WebUI.Utils
 
         #region generating outgoing file
 
-
-
         #endregion
     }
 }
