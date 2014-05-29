@@ -3,7 +3,6 @@
 @{
     ViewBag.Title = "CreatePerson";
     Layout = null;
-    Html.EnableClientValidation(false);
 }
 
 <!DOCTYPE html>
@@ -12,12 +11,36 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>CreatePerson</title>
+    <style type="text/css">
+        label {
+            display: inline-block;
+            width: 100px;
+        }
+
+        .dataElem {
+            margin: 5px;
+        }
+    </style>
 </head>
     <body>
         <h2>Create Person</h2>
-
-        <div>
         
-        </div>
+        @using(Html.BeginForm())
+        {
+            <div class="dataElem">
+                <label>PersonId</label>
+                @Html.TextBox("personId")
+            </div>
+            <div class="dataElem">
+                <label>First Name</label>
+                @Html.TextBox("firstName")
+            </div>
+            <div class="dataElem">
+                <label>Last Name</label>
+                @Html.TextBox("lastName")
+            </div>
+            
+            <input type="submit" value="Submit"/>
+        }
     </body>
 </html>

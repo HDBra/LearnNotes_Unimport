@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Newtonsoft.Json;
 
 namespace SportsStore.WebUI.Utils
 {
@@ -19,5 +20,13 @@ namespace SportsStore.WebUI.Utils
             }
             return new MvcHtmlString(tag.ToString());
         }
+
+        public static MvcHtmlString DisplayMessage(this HtmlHelper html, string msg)
+        {
+            string result = string.Format("This is the message:<p>{0}</p>",html.Encode(msg));
+            return new MvcHtmlString(result);
+        }
+
+
     }
 }

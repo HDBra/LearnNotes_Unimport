@@ -13,16 +13,13 @@
         <title>Index</title>
     </head>
     <body>
-        <div>
-            Here are the fruits: @Html.ListArrayItems((string[]) ViewBag.Fruits)
+        <p>This is the content from the view:</p>
+        <div style="border:thin solid black;padding: 10px;">
+            Here is the message: <p>@Model</p>            
         </div>
-        <div>
-            Here are the cities: @Html.ListArrayItems((string[]) ViewBag.Cities)
-        </div>
-    
-        <div>
-            Here is the message:
-            <p>@Model</p>
+        <p>This is the content from the helper method:</p>
+        <div style="border: thin solid black; padding: 10px;">
+            @Html.DisplayMessage(Model)
         </div>
     </body>
 </html>
