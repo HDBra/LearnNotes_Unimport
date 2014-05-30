@@ -1,8 +1,10 @@
-﻿@model SportsStore.WebUI.Models.Person
+﻿@using SportsStore.WebUI.Models
+@model SportsStore.WebUI.Models.Person
 
 @{
     ViewBag.Title = "CreatePerson";
     Layout = null;
+    Html.EnableClientValidation(false);
 }
 
 <!DOCTYPE html>
@@ -29,15 +31,19 @@
         {
             <div class="dataElem">
                 <label>PersonId</label>
-                @Html.TextBox("personId")
+                @Html.TextBoxFor(x=>x.PersonId)
             </div>
             <div class="dataElem">
                 <label>First Name</label>
-                @Html.TextBox("firstName")
+                @Html.TextBoxFor(x=>x.FirstName)
             </div>
             <div class="dataElem">
                 <label>Last Name</label>
-                @Html.TextBox("lastName")
+                @Html.TextBoxFor(x=>x.LastName)
+            </div>
+            <div class="dataElem">
+                <label>Role</label>
+                @Html.DropDownListFor(m=>m.Role,new SelectList(Enum.GetNames(typeof(Role))))
             </div>
             
             <input type="submit" value="Submit"/>
