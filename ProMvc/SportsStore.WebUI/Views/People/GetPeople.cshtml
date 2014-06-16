@@ -1,0 +1,73 @@
+﻿@using SportsStore.WebUI.Models
+@model string
+
+@{
+    Layout = null;
+    AjaxOptions ajaxOpts = new AjaxOptions()
+    {
+        UpdateTargetId = "tableBody",
+        Url = Url.Action("GetPeopleData"),
+        LoadingElementId = "loading",
+        LoadingElementDuration = 1000,
+        Confirm = "Do you wish to request new data?"
+    };
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>GetPeople</title>
+        <link rel="stylesheet" href="../../Content/Style.css"/>
+        <script src="../../Scripts/jquery-1.8.2.js" type="text/javascript"></script>
+        <script src="../../Scripts/jquery.unobtrusive-ajax.js" type="text/javascript"></script>
+        <script type="text/javascript">
+            function processData(data) {
+                var target = $("#tableBody");
+                target.empty();
+                for (var i = 0; i < data.length; i++) {
+                    var person = data[i];
+                    target.append("<tr><td>"+person.FirstName+"</td><td>")+person.LastName+"</td><td>"+person.Role+"</td></tr>");
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div>
+            <h2>Get People</h2>
+            
+            <div id="loading" class="load" style="display:none">
+                <p>loading Data...</p>
+            </div>
+
+            <table>
+                <thead><tr><th>First</th><th>Last</th><th>Role</th></tr></thead>
+                <tbody id="tableBody">
+                    @Html.Action("GetPeopleData", new {selectedRole = Model})
+                </tbody>
+            </table>
+            
+            @using (Ajax.BeginForm(ajaxOpts))
+            {
+                <div>
+                    @Html.DropDownList("selectedRole", new SelectList(new[] {"All"}.Concat(Enum.GetNames(typeof (Role)))))
+                    <button type="submit">Submit</button>
+                </div>
+            }
+        </div>
+        
+        <div>
+            @foreach (string role in Enum.GetNames(typeof (Role)))
+            {
+                <div class="ajaxLink">
+                    @Ajax.ActionLink(role,"GetPeople",new{selectedRole=role},new AjaxOptions()
+                    {
+                        UpdateTargetId = "tableBody",Url = Url.Action("GetPeopleDataJson",new {selectedRole = role}),
+                        OnSuccess = "processData"
+                    })
+                </div>
+            }
+        </div>
+    </body>
+</html>

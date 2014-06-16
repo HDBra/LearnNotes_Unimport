@@ -1,0 +1,12 @@
+﻿@using SportsStore.WebUI.Models
+@model IEnumerable<SportsStore.WebUI.Models.Person>
+
+@foreach (Person p in Model)
+{
+    <tr>
+        <td>@p.FirstName</td>
+        <td>@p.LastName</td>
+        <td>@p.Role</td>
+    </tr>
+}
+

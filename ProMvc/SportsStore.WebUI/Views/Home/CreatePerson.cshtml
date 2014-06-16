@@ -25,26 +25,12 @@
     </style>
 </head>
     <body>
-        <h2>Create Person</h2>
+        <h2>Create Person:@Html.LabelForModel()</h2>
         
         @using(Html.BeginForm())
         {
-            <div class="dataElem">
-                <label>PersonId</label>
-                @Html.TextBoxFor(x=>x.PersonId)
-            </div>
-            <div class="dataElem">
-                <label>First Name</label>
-                @Html.TextBoxFor(x=>x.FirstName)
-            </div>
-            <div class="dataElem">
-                <label>Last Name</label>
-                @Html.TextBoxFor(x=>x.LastName)
-            </div>
-            <div class="dataElem">
-                <label>Role</label>
-                @Html.DropDownListFor(m=>m.Role,new SelectList(Enum.GetNames(typeof(Role))))
-            </div>
+
+            @Html.EditorForModel()
             
             <input type="submit" value="Submit"/>
         }

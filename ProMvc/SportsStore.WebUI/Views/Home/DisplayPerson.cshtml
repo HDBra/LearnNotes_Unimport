@@ -1,0 +1,49 @@
+﻿@model SportsStore.WebUI.Models.Person
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>DisplayPerson</title>
+        <style type="text/css">
+        label {
+            display: inline-block;
+            width: 100px;
+        }
+
+        .dataElem {
+            margin: 5px;
+        }
+    </style>
+    </head>
+    <body>
+        <div>
+            <h2>DisplayPerson</h2>
+            <div class="dataElem">
+                @Html.Label("PersonId")
+                @Html.Display("PersonId")
+            </div>
+            <div class="dataElem">
+                @Html.Label("FirstName")
+                @Html.Display("FirstName")
+            </div>
+            <div class="dataElem">
+                @Html.LabelFor(m => m.LastName)
+                @Html.DisplayFor(m => m.LastName)
+            </div>
+            <div class="dataElem">
+                @Html.LabelFor(m => m.Role)
+                @Html.DisplayFor(m => m.Role)
+            </div>
+            <div class="dataElem">
+                @Html.LabelFor(m => m.BirthDate)
+                @Html.DisplayFor(m => m.BirthDate)
+            </div>
+        </div>
+    </body>
+</html>

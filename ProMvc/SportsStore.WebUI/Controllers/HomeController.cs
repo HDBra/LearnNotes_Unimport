@@ -1,16 +1,54 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using SportsStore.WebUI.Models;
 
 namespace SportsStore.WebUI.Controllers
 {
     public class HomeController : Controller
     {
-        public ViewResult Index()
+        private Person[] personData =
         {
-            ViewBag.Fruits = new[] {"Apple", "Orange", "Pear"};
-            ViewBag.Cities = new[] {"New York", "London", "Paris"};
-            string message = "This is an HTML element: <input>";
-            return View((object) message);
+            new Person
+            {
+                PersonId = 1,
+                FirstName = "Adam",
+                LastName = "Freeman",
+                Role = Role.Admin
+            },
+            new Person
+            {
+                PersonId = 2,
+                FirstName = "Steven",
+                LastName = "Sanderson",
+                Role = Role.Admin
+            },
+            new Person
+            {
+                PersonId = 3,
+                FirstName = "Jacqui",
+                LastName = "Griffyth",
+                Role = Role.User
+            },
+            new Person
+            {
+                PersonId = 4,
+                FirstName = "John",
+                LastName = "Smith",
+                Role = Role.User
+            },
+            new Person
+            {
+                PersonId = 5,
+                FirstName = "Anne",
+                LastName = "Jones",
+                Role = Role.Guest
+            }
+        };
+
+        public ActionResult Index(int id = 1)
+        {
+            Person dataItem = personData.Where(p => p.PersonId == id).First();
+            return View(dataItem);
         }
 
         public ActionResult CreatePerson()
@@ -21,7 +59,7 @@ namespace SportsStore.WebUI.Controllers
         [HttpPost]
         public ActionResult CreatePerson(Person person)
         {
-            return View(person);
+            return View("Index", person);
         }
     }
 }

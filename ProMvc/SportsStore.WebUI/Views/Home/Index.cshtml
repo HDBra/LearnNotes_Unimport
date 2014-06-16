@@ -1,5 +1,4 @@
-﻿@using SportsStore.WebUI.Utils
-@model string
+﻿@model SportsStore.WebUI.Models.Person
 
 @{
     Layout = null;
@@ -13,13 +12,16 @@
         <title>Index</title>
     </head>
     <body>
-        <p>This is the content from the view:</p>
-        <div style="border:thin solid black;padding: 10px;">
-            Here is the message: <p>@Model</p>            
-        </div>
-        <p>This is the content from the helper method:</p>
-        <div style="border: thin solid black; padding: 10px;">
-            @Html.DisplayMessage(Model)
+        <div>
+            <h2>Person</h2>
+            @using (Html.BeginForm())
+            {
+                <div>@Html.LabelFor(m => m.PersonId)@Html.EditorFor(m => m.PersonId)</div>
+                <div>@Html.LabelFor(m => m.FirstName)@Html.EditorFor(m => m.FirstName)</div>
+                <div>@Html.LabelFor(m => m.LastName)@Html.EditorFor(m => m.LastName)</div>
+                <div>@Html.LabelFor(m => m.Role)@Html.EditorFor(m => m.Role)</div>
+                <button type="submit">Submit</button>
+            }
         </div>
     </body>
 </html>
