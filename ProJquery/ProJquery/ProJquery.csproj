@@ -128,8 +128,11 @@
     <Content Include="Images\rightarrows.png" />
     <Content Include="Images\rose.png" />
     <Content Include="Images\snowdrop.png" />
+    <Content Include="Scripts\handlebars-jquery.js" />
+    <Content Include="Scripts\handlebars-v1.3.0.js" />
     <Content Include="Scripts\jquery-2.1.0.js" />
     <Content Include="Scripts\jquery-2.1.0.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Styles\Style.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
