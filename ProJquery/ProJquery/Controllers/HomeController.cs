@@ -26,5 +26,10 @@ namespace ProJquery.Controllers
         {
             return View();
         }
+
+        public ActionResult Internel()
+        {
+            return View();
+        }
     }
 }
