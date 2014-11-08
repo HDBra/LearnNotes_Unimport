@@ -33,7 +33,7 @@ namespace Socket
              * heapsort quicksort merge sort insertion sort selection sort bubblesort bucket sort countingsort radix sort
              */
 
-            Console.Title = "Stock checker";
+            Console.Title = "ontop";
             WebClient webClient = new WebClient();
             
             webClient.Encoding = Encoding.GetEncoding("gbk");
@@ -50,14 +50,10 @@ namespace Socket
                         string result = webClient.DownloadString(address);
                         string[] message = (result.Split(new char[] { '=' }, 2)[1]).Trim().Trim(';', '\"').Split(',');
                         list.Add(string.Format("{3}{1}{2}{0}{4}", item.PadRight(12), message[2].PadRight(12), message[3].PadRight(13), Math.Round(((double.Parse(message[3]) - double.Parse(message[2])) / double.Parse(message[2])), 5).ToString().PadRight(12), DateTime.Now.ToLongTimeString()));
-                        SetWindowPos(FindWindow("ConsoleWindowClass", "Stock checker"), -1, 0, 0, 0, 0, 1 | 2);
+                        SetWindowPos(FindWindow("ConsoleWindowClass", Console.Title), -1, 0, 0, 0, 0, 1 | 2);
 
-                        double bleu = Math.Round(((double.Parse(message[3]) - double.Parse(message[2])) / double.Parse(message[2])), 5);
-                        if (item == "sh000001" && Math.Abs(bleu)>0.01)
-                        {
-                            Thread.Sleep(2000);
-                            Console.Beep();
-                        }
+                        Console.WindowWidth = 60;
+                        Console.WindowHeight = 8;
                     }
                 }
                 catch (Exception ex)
@@ -65,8 +61,10 @@ namespace Socket
                     Console.WriteLine(ex);
                 }
                 list.ForEach(Console.WriteLine);
+                Console.WindowWidth = 60;
+                Console.WindowHeight = 8;
                 Console.WriteLine("===============================================");
-                Thread.Sleep(900);
+                Thread.Sleep(1600);
             }
         }
 
@@ -78,7 +76,7 @@ namespace Socket
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         private static extern System.IntPtr GetForegroundWindow();
 
-        static string[] Stocks = { "sh000001", "sh600060", "sz000100", "sh600839", "sz000016", "sz000725", "sh601688", "sh601328", "sz000930", "sh600308", "sh600269" };
+        static string[] Stocks = { "sh000001", "sh600269","sh601328","sz000898" };
         const string ApiNet = @"http://hq.sinajs.cn/list=";
     }
 }
