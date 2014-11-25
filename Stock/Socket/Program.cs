@@ -37,8 +37,8 @@ namespace Socket
             WebClient webClient = new WebClient();
             
             webClient.Encoding = Encoding.GetEncoding("gbk");
-            Console.WindowWidth = 60;
-            Console.WindowHeight = 8;
+            Console.WindowWidth = 10;
+            Console.WindowHeight = 4;
             while (true)
             {
                 List<string> list = new List<string>();
@@ -49,11 +49,13 @@ namespace Socket
                         string address = ApiNet + item;
                         string result = webClient.DownloadString(address);
                         string[] message = (result.Split(new char[] { '=' }, 2)[1]).Trim().Trim(';', '\"').Split(',');
-                        list.Add(string.Format("{3}{1}{2}{0}{4}", item.PadRight(12), message[2].PadRight(12), message[3].PadRight(13), Math.Round(((double.Parse(message[3]) - double.Parse(message[2])) / double.Parse(message[2])), 5).ToString().PadRight(12), DateTime.Now.ToLongTimeString()));
+                        //list.Add(string.Format("{3}{1}{2}{0}{4}", item.PadRight(12), message[2].PadRight(12), message[3].PadRight(13), Math.Round(((double.Parse(message[3]) - double.Parse(message[2])) / double.Parse(message[2])), 5).ToString().PadRight(12), DateTime.Now.ToLongTimeString()));
+                        list.Add(Math.Round(((double.Parse(message[3]) - double.Parse(message[2])) / double.Parse(message[2])), 5).ToString().PadRight(12));
                         SetWindowPos(FindWindow("ConsoleWindowClass", Console.Title), -1, 0, 0, 0, 0, 1 | 2);
 
-                        Console.WindowWidth = 60;
-                        Console.WindowHeight = 8;
+                        Console.WindowWidth = 10;
+                        Console.WindowHeight = 4;
+                        
                     }
                 }
                 catch (Exception ex)
@@ -61,8 +63,8 @@ namespace Socket
                     Console.WriteLine(ex);
                 }
                 list.ForEach(Console.WriteLine);
-                Console.WindowWidth = 60;
-                Console.WindowHeight = 8;
+                Console.WindowWidth = 10;
+                Console.WindowHeight = 4;
                 Console.WriteLine("===============================================");
                 Thread.Sleep(1600);
             }
@@ -76,7 +78,7 @@ namespace Socket
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         private static extern System.IntPtr GetForegroundWindow();
 
-        static string[] Stocks = { "sh000001", "sh600269","sh601328","sz000898" };
+        static string[] Stocks = { "sh000001","sh601328", "sh601898" };
         const string ApiNet = @"http://hq.sinajs.cn/list=";
     }
 }
