@@ -54,7 +54,7 @@ namespace Socket
                         SetWindowPos(FindWindow("ConsoleWindowClass", Console.Title), -1, 0, 0, 0, 0, 1 | 2);
 
                         Console.WindowWidth = 10;
-                        Console.WindowHeight = 4;
+                        Console.WindowHeight = 5;
                         
                     }
                 }
@@ -64,7 +64,7 @@ namespace Socket
                 }
                 list.ForEach(Console.WriteLine);
                 Console.WindowWidth = 10;
-                Console.WindowHeight = 4;
+                Console.WindowHeight = 5;
                 Console.WriteLine("===============================================");
                 Thread.Sleep(1600);
             }
@@ -78,7 +78,7 @@ namespace Socket
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         private static extern System.IntPtr GetForegroundWindow();
 
-        static string[] Stocks = { "sh000001","sh600019"};
+        static string[] Stocks = { "sh000001","sh600308","sz000488"};
         const string ApiNet = @"http://hq.sinajs.cn/list=";
     }
 }
