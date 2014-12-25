@@ -9,11 +9,6 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <f:PageManager ID="mainPageManager" AjaxAspnetControls="Label1,Literal1" runat="server" />
-       
-        <f:DropDownList Label="DropDownList1" AutoPostBack="False" Required="True" EnableSimulateTree="True" ShowRedStar="True" ID="ddlBox" Resizable="True" runat="server">
-        </f:DropDownList>
-
     </form>
 </body>
 </html>
