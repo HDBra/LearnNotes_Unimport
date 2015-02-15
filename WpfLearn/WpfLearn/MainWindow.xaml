@@ -2,7 +2,11 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+    <StackPanel>
+        <Label>A button stack</Label>
+        <Button>Button1</Button>
+        <Button>Button2</Button>
+        <Button>Button3</Button>
+        <Button>Button4</Button>
+    </StackPanel>
 </Window>
