@@ -1,0 +1,21 @@
+﻿<Window x:Class="WpfLearn.UI.Grid"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Grid">
+    <Grid UseLayoutRounding="True" ShowGridLines="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+        <Button Grid.Row="0" Grid.Column="0" Grid.RowSpan="2">Top Left</Button>
+        <Button Grid.Row="0" Grid.Column="1">Middle Left</Button>
+        <Button Grid.Row="1" Grid.Column="2">Bottom Right</Button>
+        <Button Grid.Row="1" Grid.Column="1">Bottom Middle</Button>
+    </Grid>
+</Window>
