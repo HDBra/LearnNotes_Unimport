@@ -33,6 +33,7 @@ namespace WpfLearn.Events
         private void LblTarget_OnDrop(object sender, DragEventArgs e)
         {
             LblTarget.Content = e.Data.GetData(DataFormats.Text);
+
         }
     }
 }
