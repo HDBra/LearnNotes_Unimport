@@ -10,10 +10,9 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfLearn
+namespace WpfLearn.Events
 {
     /// <summary>
     /// MainWindow.xaml 的交互逻辑
@@ -25,5 +24,14 @@ namespace WpfLearn
             InitializeComponent();
         }
 
+        /// <summary>
+        /// 页面加载时的初始化工作
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }

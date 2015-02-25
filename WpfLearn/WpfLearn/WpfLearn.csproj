@@ -53,6 +53,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Events\DragDrop.xaml.cs">
+      <DependentUpon>DragDrop.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Events\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\Canvas.xaml.cs">
       <DependentUpon>Canvas.xaml</DependentUpon>
     </Compile>
@@ -84,6 +90,14 @@
       <DependentUpon>WrapPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utils\WpfUtils.cs" />
+    <Page Include="Events\DragDrop.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Events\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
