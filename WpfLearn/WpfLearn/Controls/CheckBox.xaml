@@ -1,0 +1,8 @@
+﻿<Window x:Class="WpfLearn.Controls.CheckBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="CheckBox" Height="300" Width="300">
+    <Grid>
+        <CheckBox>A check box</CheckBox>
+    </Grid>
+</Window>

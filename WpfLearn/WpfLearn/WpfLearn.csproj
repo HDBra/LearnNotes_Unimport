@@ -53,6 +53,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\CheckBox.xaml.cs">
+      <DependentUpon>CheckBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\RadioButton.xaml.cs">
+      <DependentUpon>RadioButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ToolTips.xaml.cs">
+      <DependentUpon>ToolTips.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Events\DragDrop.xaml.cs">
       <DependentUpon>DragDrop.xaml</DependentUpon>
     </Compile>
@@ -90,6 +99,18 @@
       <DependentUpon>WrapPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utils\WpfUtils.cs" />
+    <Page Include="Controls\CheckBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\RadioButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ToolTips.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Events\DragDrop.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -1,0 +1,30 @@
+﻿<Window x:Class="WpfLearn.Controls.ToolTips"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ToolTips" Height="300" Width="300">
+    <Grid>
+        <StackPanel>
+            <Button ToolTip="hello tooltip">Click</Button>
+            <Button>
+                <Button.ToolTip>
+                    <StackPanel>
+                        <Image Source="../Images/Desert.jpg"></Image>
+                        <TextBlock>Hello tip</TextBlock>
+                    </StackPanel>
+                </Button.ToolTip>
+                <Button.Content>Click 2</Button.Content>
+            </Button>
+            <Button>
+                <Button.ToolTip>
+                    <ToolTip HasDropShadow="True" Background="Lime" Foreground="Magenta">
+                        <StackPanel>
+                            <Image Source="../Images/Desert.jpg"></Image>
+                            <TextBlock>Hello tip</TextBlock>
+                        </StackPanel>
+                    </ToolTip>
+                </Button.ToolTip>
+                <Button.Content>Click 2</Button.Content>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Window>
