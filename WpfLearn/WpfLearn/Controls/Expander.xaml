@@ -1,0 +1,20 @@
+﻿<Window x:Class="WpfLearn.Controls.Expander"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Expander" Height="300" Width="300">
+    <Grid>
+        <StackPanel>
+            <Expander Margin="5" Padding="5" Header="Region One">
+                <Button Padding="3">Hidden Button One</Button>
+            </Expander>
+            <Expander Margin="5" Padding="5" Header="Region Two" >
+                <TextBlock TextWrapping="Wrap">
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit ...
+                </TextBlock>
+            </Expander>
+            <Expander ExpandDirection="Up" Margin="5" Padding="5" Header="Region Three">
+                <Button Padding="3">Hidden Button Two</Button>
+            </Expander>
+        </StackPanel>
+    </Grid>
+</Window>

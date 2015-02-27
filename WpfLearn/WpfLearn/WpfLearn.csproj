@@ -56,8 +56,23 @@
     <Compile Include="Controls\CheckBox.xaml.cs">
       <DependentUpon>CheckBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Expander.xaml.cs">
+      <DependentUpon>Expander.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GroupBox.xaml.cs">
+      <DependentUpon>GroupBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Popup.xaml.cs">
+      <DependentUpon>Popup.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\RadioButton.xaml.cs">
       <DependentUpon>RadioButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ScrollViewer.xaml.cs">
+      <DependentUpon>ScrollViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\TabControl.xaml.cs">
+      <DependentUpon>TabControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\ToolTips.xaml.cs">
       <DependentUpon>ToolTips.xaml</DependentUpon>
@@ -103,7 +118,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\Expander.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\GroupBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Popup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\RadioButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ScrollViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TabControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

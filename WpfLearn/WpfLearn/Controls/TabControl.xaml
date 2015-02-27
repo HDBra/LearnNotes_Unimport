@@ -1,0 +1,28 @@
+﻿<Window x:Class="WpfLearn.Controls.TabControl"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="TabControl" Height="300" Width="300">
+    <Grid>
+        <TabControl TabStripPlacement="Bottom" Margin="5">
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock>Hello</TextBlock>
+                    </StackPanel>
+                </TabItem.Header>
+                <StackPanel Margin="3">
+                    <CheckBox Margin="3">Setting One</CheckBox>
+                    <CheckBox Margin="3">Setting Two</CheckBox>
+                    <CheckBox Margin="3">Setting Three</CheckBox>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Tab Two">
+                <StackPanel Margin="3">
+                    <CheckBox Margin="3">Setting On1e</CheckBox>
+                    <CheckBox Margin="3">Setting Tw1o</CheckBox>
+                    <CheckBox Margin="3">Setting Th1ree</CheckBox>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
