@@ -1,0 +1,12 @@
+﻿<Window x:Class="WpfLearn.Controls.ComboBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ComboBox" Height="300" Width="300">
+    <Grid>
+        <ComboBox SelectedIndex="0">
+            <ComboBoxItem>Green</ComboBoxItem>
+            <ComboBoxItem>Yellow</ComboBoxItem>
+            <ComboBoxItem>Gray</ComboBoxItem>
+        </ComboBox>
+    </Grid>
+</Window>

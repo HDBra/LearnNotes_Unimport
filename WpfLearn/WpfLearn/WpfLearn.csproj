@@ -56,11 +56,17 @@
     <Compile Include="Controls\CheckBox.xaml.cs">
       <DependentUpon>CheckBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ComboBox.xaml.cs">
+      <DependentUpon>ComboBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Expander.xaml.cs">
       <DependentUpon>Expander.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\GroupBox.xaml.cs">
       <DependentUpon>GroupBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ListBox.xaml.cs">
+      <DependentUpon>ListBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\Popup.xaml.cs">
       <DependentUpon>Popup.xaml</DependentUpon>
@@ -121,11 +127,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\ComboBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\Expander.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\GroupBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ListBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

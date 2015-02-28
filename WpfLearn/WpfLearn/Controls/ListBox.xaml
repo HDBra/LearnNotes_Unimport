@@ -1,0 +1,15 @@
+﻿<Window x:Class="WpfLearn.Controls.ListBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ListBox" Height="300" Width="300">
+    <Grid>
+        <ListBox>
+            <ListBox.Items>
+                <ListBoxItem>Red</ListBoxItem>
+                <ListBoxItem>Black</ListBoxItem>
+                <ListBoxItem>Green</ListBoxItem>
+                <ListBoxItem><TextBlock>Helo</TextBlock></ListBoxItem>
+            </ListBox.Items>
+        </ListBox>
+    </Grid>
+</Window>
