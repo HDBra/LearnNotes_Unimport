@@ -53,6 +53,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Bindings\ElementBinding.xaml.cs">
+      <DependentUpon>ElementBinding.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Bindings\ObjectBinding.xaml.cs">
+      <DependentUpon>ObjectBinding.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\CheckBox.xaml.cs">
       <DependentUpon>CheckBox.xaml</DependentUpon>
     </Compile>
@@ -133,6 +139,14 @@
     </Compile>
     <Compile Include="Utils\ResourceUtils.cs" />
     <Compile Include="Utils\WpfUtils.cs" />
+    <Page Include="Bindings\ElementBinding.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Bindings\ObjectBinding.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\CheckBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
