@@ -59,6 +59,9 @@
     <Compile Include="Controls\ComboBox.xaml.cs">
       <DependentUpon>ComboBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Date.xaml.cs">
+      <DependentUpon>Date.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Expander.xaml.cs">
       <DependentUpon>Expander.xaml</DependentUpon>
     </Compile>
@@ -71,11 +74,17 @@
     <Compile Include="Controls\Popup.xaml.cs">
       <DependentUpon>Popup.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ProgressBar.xaml.cs">
+      <DependentUpon>ProgressBar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\RadioButton.xaml.cs">
       <DependentUpon>RadioButton.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\ScrollViewer.xaml.cs">
       <DependentUpon>ScrollViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Slider.xaml.cs">
+      <DependentUpon>Slider.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\TabControl.xaml.cs">
       <DependentUpon>TabControl.xaml</DependentUpon>
@@ -122,12 +131,17 @@
     <Compile Include="UI\WrapPanel.xaml.cs">
       <DependentUpon>WrapPanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utils\ResourceUtils.cs" />
     <Compile Include="Utils\WpfUtils.cs" />
     <Page Include="Controls\CheckBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\ComboBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Date.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -147,11 +161,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\ProgressBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\RadioButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\ScrollViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Slider.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -257,6 +279,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Desert.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <SplashScreen Include="splash.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

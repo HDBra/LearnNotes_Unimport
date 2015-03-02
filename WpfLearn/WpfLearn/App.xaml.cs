@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Threading;
 
 namespace WpfLearn
 {
@@ -13,5 +14,54 @@ namespace WpfLearn
     /// </summary>
     public partial class App : Application
     {
+        /// <summary>
+        /// 在应用程序开始时执行
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void App_OnStartup(object sender, StartupEventArgs e)
+        {
+            //命令行参数
+            String[] args = e.Args;
+        }
+
+        /// <summary>
+        /// 应用程序退出时执行
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void App_OnExit(object sender, ExitEventArgs e)
+        {
+            //
+        }
+
+        /// <summary>
+        /// 当某个窗口激活的时候执行
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void App_OnActivated(object sender, EventArgs e)
+        {
+            //
+        }
+        /// <summary>
+        /// 窗口变为不激活时执行
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void App_OnDeactivated(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+        /// <summary>
+        /// UI 线程所有未被处理的异常
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void App_OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
+        {
+            //将其置为true，如果程序仍然是有效状态并且能够继续执行时
+            e.Handled = true;
+        }
     }
 }
