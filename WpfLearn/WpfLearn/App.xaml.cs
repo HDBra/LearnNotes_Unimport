@@ -63,5 +63,15 @@ namespace WpfLearn
             //将其置为true，如果程序仍然是有效状态并且能够继续执行时
             e.Handled = true;
         }
+
+        /// <summary>
+        /// 当用户在注销或关闭操作系统关闭 Windows 会话发送
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void App_OnSessionEnding(object sender, SessionEndingCancelEventArgs e)
+        {
+            //当用户在注销或关闭操作系统关闭 Windows 会话
+        }
     }
 }

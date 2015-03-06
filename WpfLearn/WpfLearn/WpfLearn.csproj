@@ -59,6 +59,9 @@
     <Compile Include="Bindings\ObjectBinding.xaml.cs">
       <DependentUpon>ObjectBinding.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Commands\CommandTest.xaml.cs">
+      <DependentUpon>CommandTest.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\CheckBox.xaml.cs">
       <DependentUpon>CheckBox.xaml</DependentUpon>
     </Compile>
@@ -144,6 +147,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Bindings\ObjectBinding.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Commands\CommandTest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

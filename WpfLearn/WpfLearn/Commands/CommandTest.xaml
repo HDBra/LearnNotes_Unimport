@@ -1,0 +1,17 @@
+﻿<Window x:Class="WpfLearn.Commands.CommandTest"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="CommandTest" Height="300" Width="300">
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.New" Executed="CommandBinding_OnExecuted"></CommandBinding>
+    </Window.CommandBindings>
+
+    <StackPanel>
+        <Menu>
+            <MenuItem Header="File">
+                <MenuItem Command="New"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <Button Command="ApplicationCommands.New">New</Button>
+    </StackPanel>
+</Window>
