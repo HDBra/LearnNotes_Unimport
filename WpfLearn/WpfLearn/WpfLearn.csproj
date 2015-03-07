@@ -104,6 +104,9 @@
     <Compile Include="Controls\ToolTips.xaml.cs">
       <DependentUpon>ToolTips.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Transform\RotateTransform.xaml.cs">
+      <DependentUpon>RotateTransform.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Events\DragDrop.xaml.cs">
       <DependentUpon>DragDrop.xaml</DependentUpon>
     </Compile>
@@ -207,6 +210,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\ToolTips.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Transform\RotateTransform.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

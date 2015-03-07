@@ -5,6 +5,9 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Threading;
 
 namespace WpfLearn
@@ -73,5 +76,35 @@ namespace WpfLearn
         {
             //当用户在注销或关闭操作系统关闭 Windows 会话
         }
+
+
+        #region EventSetters
+
+        /// <summary>
+        /// 鼠标进入
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TextBolck_OnMouseEnter(object sender, MouseEventArgs e)
+        {
+            if (sender is TextBlock)
+            {
+                TextBlock tb = sender as TextBlock;
+                tb.Background = new SolidColorBrush(Colors.LightGoldenrodYellow);
+            }
+        }
+
+        private void TextBolck_OnMouseLeave(object sender, MouseEventArgs e)
+        {
+            if (sender is TextBlock)
+            {
+                TextBlock tb = sender as TextBlock;
+                tb.Background = null;
+            }
+        }
+
+        #endregion
+
+
     }
 }
