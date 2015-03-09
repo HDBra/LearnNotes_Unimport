@@ -54,7 +54,7 @@ namespace WpfLearn
         /// <param name="e"></param>
         private void App_OnDeactivated(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+
         }
         /// <summary>
         /// UI 线程所有未被处理的异常
