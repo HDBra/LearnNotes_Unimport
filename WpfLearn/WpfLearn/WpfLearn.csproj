@@ -53,6 +53,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Bindings\Db\ObjectBingding.xaml.cs">
+      <DependentUpon>ObjectBingding.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Bindings\ElementBinding.xaml.cs">
       <DependentUpon>ElementBinding.xaml</DependentUpon>
     </Compile>
@@ -110,6 +113,7 @@
     <Compile Include="Controls\Transform\RotateTransform.xaml.cs">
       <DependentUpon>RotateTransform.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Deletable\Product.cs" />
     <Compile Include="Events\DragDrop.xaml.cs">
       <DependentUpon>DragDrop.xaml</DependentUpon>
     </Compile>
@@ -148,6 +152,10 @@
     </Compile>
     <Compile Include="Utils\ResourceUtils.cs" />
     <Compile Include="Utils\WpfUtils.cs" />
+    <Page Include="Bindings\Db\ObjectBingding.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Bindings\ElementBinding.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -317,6 +325,9 @@
   </ItemGroup>
   <ItemGroup>
     <SplashScreen Include="splash.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

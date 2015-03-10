@@ -91,6 +91,7 @@ namespace WpfLearn
             {
                 TextBlock tb = sender as TextBlock;
                 tb.Background = new SolidColorBrush(Colors.LightGoldenrodYellow);
+                
             }
         }
 
