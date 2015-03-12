@@ -113,6 +113,9 @@
     <Compile Include="Controls\Transform\RotateTransform.xaml.cs">
       <DependentUpon>RotateTransform.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Treeview.xaml.cs">
+      <DependentUpon>Treeview.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Deletable\Product.cs" />
     <Compile Include="Events\DragDrop.xaml.cs">
       <DependentUpon>DragDrop.xaml</DependentUpon>
@@ -229,6 +232,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\Transform\RotateTransform.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Treeview.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

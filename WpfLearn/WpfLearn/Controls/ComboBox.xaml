@@ -4,6 +4,11 @@
         Title="ComboBox" Height="300" Width="300">
     <Grid>
         <ComboBox SelectedIndex="0">
+            <ComboBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel></VirtualizingStackPanel>
+                </ItemsPanelTemplate>
+            </ComboBox.ItemsPanel>
             <ComboBoxItem>Green</ComboBoxItem>
             <ComboBoxItem>Yellow</ComboBoxItem>
             <ComboBoxItem>Gray</ComboBoxItem>

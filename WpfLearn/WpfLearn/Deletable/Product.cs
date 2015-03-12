@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace WpfLearn.Deletable
 {
+    /// <summary>
+    /// 如果是集合使用 ObservableCollection<T>,来实现自动通知
+    /// 或者使用DataTable.DefaultView
+    /// </summary>
     public class Product:INotifyPropertyChanged
     {
         private string modelNumber;

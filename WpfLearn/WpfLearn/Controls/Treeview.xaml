@@ -1,0 +1,8 @@
+﻿<Window x:Class="WpfLearn.Controls.Treeview"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Treeview" Height="300" Width="300">
+    <Grid>
+        <TreeView VirtualizingStackPanel.IsVirtualizing="True"></TreeView>
+    </Grid>
+</Window>
