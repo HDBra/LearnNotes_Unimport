@@ -4,7 +4,7 @@
         Title="ProgressBar" Height="300" Width="300">
     <Grid>
         <StackPanel>
-            <ProgressBar Height="12" IsIndeterminate="True"></ProgressBar>
+            <ProgressBar Height="12" IsIndeterminate="False"></ProgressBar>
             <ProgressBar></ProgressBar>
         </StackPanel>
     </Grid>
