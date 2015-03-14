@@ -83,6 +83,12 @@
     <Compile Include="Controls\ListBox.xaml.cs">
       <DependentUpon>ListBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ListBox2.xaml.cs">
+      <DependentUpon>ListBox2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ListBox3.xaml.cs">
+      <DependentUpon>ListBox3.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Popup.xaml.cs">
       <DependentUpon>Popup.xaml</DependentUpon>
     </Compile>
@@ -192,6 +198,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\ListBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ListBox2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ListBox3.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
