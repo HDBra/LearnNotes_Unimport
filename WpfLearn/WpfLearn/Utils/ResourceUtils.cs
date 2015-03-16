@@ -34,10 +34,6 @@ namespace WpfLearn.Utils
         {
             return new BitmapImage(new Uri(resUri,UriKind.Relative));
         }
-
-
-
-
     }
 }
 

@@ -89,6 +89,9 @@
     <Compile Include="Controls\ListBox3.xaml.cs">
       <DependentUpon>ListBox3.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ListBox4.xaml.cs">
+      <DependentUpon>ListBox4.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Popup.xaml.cs">
       <DependentUpon>Popup.xaml</DependentUpon>
     </Compile>
@@ -123,6 +126,8 @@
       <DependentUpon>Treeview.xaml</DependentUpon>
     </Compile>
     <Compile Include="Deletable\Product.cs" />
+    <Compile Include="Deletable\ProductStyleSelector.cs" />
+    <Compile Include="Deletable\SingleCriteriaHighlightTemplateSelector.cs" />
     <Compile Include="Events\DragDrop.xaml.cs">
       <DependentUpon>DragDrop.xaml</DependentUpon>
     </Compile>
@@ -206,6 +211,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\ListBox3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ListBox4.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

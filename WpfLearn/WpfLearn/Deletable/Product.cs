@@ -12,9 +12,10 @@ namespace WpfLearn.Deletable
     /// 如果是集合使用 ObservableCollection<T>,来实现自动通知
     /// 或者使用DataTable.DefaultView
     /// </summary>
-    public class Product:INotifyPropertyChanged,INotifyDataErrorInfo
+    public class Product : INotifyPropertyChanged
     {
         private string modelNumber;
+
         public string ModelNumber
         {
             get { return modelNumber; }
@@ -26,6 +27,7 @@ namespace WpfLearn.Deletable
         }
 
         private string modelName;
+
         public string ModelName
         {
             get { return modelName; }
@@ -37,6 +39,7 @@ namespace WpfLearn.Deletable
         }
 
         private decimal unitCost;
+
         public decimal UnitCost
         {
             get { return unitCost; }
@@ -48,6 +51,7 @@ namespace WpfLearn.Deletable
         }
 
         private string description;
+
         public string Description
         {
             get { return description; }
@@ -65,7 +69,14 @@ namespace WpfLearn.Deletable
             UnitCost = unitCost;
             Description = description;
         }
-        #region 接口实现
+
+
+        public Product()
+        {
+            
+        }
+
+    #region 接口实现
         public event PropertyChangedEventHandler PropertyChanged;
 
 
@@ -79,16 +90,5 @@ namespace WpfLearn.Deletable
         }
         #endregion
 
-        public IEnumerable GetErrors(string propertyName)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool HasErrors
-        {
-            get { throw new NotImplementedException(); }
-        }
-
-        public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
     }
 }
