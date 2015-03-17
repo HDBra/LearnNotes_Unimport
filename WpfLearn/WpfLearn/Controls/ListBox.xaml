@@ -4,6 +4,11 @@
         Title="ListBox" Height="300" Width="300">
     <Grid>
         <ListBox AlternationCount="2" >
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
             <ListBox.ItemContainerStyle>
                 <Style>
                     <Setter Property="ListBoxItem.Background" Value="LightSteelBlue"></Setter>
@@ -12,6 +17,9 @@
                     <Style.Triggers>
                         <Trigger Property="ItemsControl.AlternationIndex" Value="1">
                             <Setter Property="ListBoxItem.Background" Value="LightBlue" />
+                        </Trigger>
+                        <Trigger Property="ListBoxItem.IsSelected" Value="True">
+                            <Setter Property="ListBoxItem.Background" Value="DarkRed" />
                         </Trigger>
                     </Style.Triggers>
                 </Style>

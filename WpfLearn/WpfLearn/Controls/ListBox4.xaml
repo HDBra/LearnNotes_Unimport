@@ -4,7 +4,12 @@
         xmlns:deletable="clr-namespace:WpfLearn.Deletable"
         Title="ListBox4" Height="300" Width="300" Initialized="OnInitialized">
     <StackPanel>
-        <ListBox Name="LstProducts" BorderThickness="0" HorizontalContentAlignment="Stretch">
+        <ListBox Name="LstProducts" BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Stretch">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <DataTemplate.Triggers> 
