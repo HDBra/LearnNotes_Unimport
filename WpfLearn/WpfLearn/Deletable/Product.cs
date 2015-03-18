@@ -76,6 +76,15 @@ namespace WpfLearn.Deletable
             
         }
 
+        public static List<Product> GetProducts()
+        {
+            List<Product> products = new List<Product>();
+            products.Add(new Product("1", "Tools", 10, "desc"));
+            products.Add(new Product("2", "ModelName111", 10, "desc"));
+            products.Add(new Product("3", "ModelName111", 10, "desc"));
+            return products;
+        } 
+
     #region 接口实现
         public event PropertyChangedEventHandler PropertyChanged;
 

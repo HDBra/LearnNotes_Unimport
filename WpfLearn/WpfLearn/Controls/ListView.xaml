@@ -1,0 +1,33 @@
+﻿<Window x:Class="WpfLearn.Controls.ListView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ListView" Height="300" Width="300" Initialized="ListView_OnInitialized">
+    <Grid>
+        <ListView Margin="5" Name="lstProducts" AlternationCount="2" SelectionMode="Multiple">
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
+                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Path=ModelName}"></GridViewColumn>
+                        <GridViewColumn Header="Number" DisplayMemberBinding="{Binding Path=ModelNumber}"></GridViewColumn>
+                        <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Path=UnitCost}"></GridViewColumn>
+                    </GridView.Columns>
+                </GridView>
+            </ListView.View>
+            <ListView.ItemContainerStyle>
+                <Style>
+                    <Setter Property="ListViewItem.Background" Value="LightSteelBlue"></Setter>
+                    <Setter Property="ListViewItem.Padding" Value="0 30 0 30"></Setter>
+                    <Setter Property="ListViewItem.Height" Value="40"></Setter>
+                    <Style.Triggers>
+                        <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                            <Setter Property="ListViewItem.Background" Value="LightBlue" />
+                        </Trigger>
+                        <Trigger Property="ListViewItem.IsSelected" Value="True">
+                            <Setter Property="ListViewItem.Background" Value="Transparent" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+    </Grid>
+</Window>

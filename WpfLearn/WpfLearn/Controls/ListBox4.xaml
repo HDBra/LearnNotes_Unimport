@@ -4,7 +4,7 @@
         xmlns:deletable="clr-namespace:WpfLearn.Deletable"
         Title="ListBox4" Height="300" Width="300" Initialized="OnInitialized">
     <StackPanel>
-        <ListBox Name="LstProducts" BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Stretch">
+        <ListBox Name="LstProducts" BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Stretch" SelectionMode="Multiple">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel></WrapPanel>
@@ -19,6 +19,16 @@
                         </DataTrigger>
                     </DataTemplate.Triggers>
                     <StackPanel Background="BlanchedAlmond" HorizontalAlignment="Stretch">
+                        <StackPanel.ToolTip>
+                            <TextBlock Text="Hello wrodl"></TextBlock>
+                        </StackPanel.ToolTip>
+                        <StackPanel.ContextMenu>
+                            <ContextMenu>
+                                <Menu>
+                                    <MenuItem Header="Hello"></MenuItem>
+                                </Menu>
+                            </ContextMenu>
+                        </StackPanel.ContextMenu>
                         <TextBlock FontWeight="Bold" Margin="10" Text="{Binding Path=ModelNumber}"></TextBlock>
                         <TextBlock Text="{Binding Path=ModelName}"></TextBlock>
                     </StackPanel>
