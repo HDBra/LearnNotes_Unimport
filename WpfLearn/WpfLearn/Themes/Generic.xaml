@@ -1,0 +1,31 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:WpfLearn.Deletable">
+    <!-- 该文件必须放在Themes文件夹下 -->
+    <!-- 该文件必须放在Themes文件夹下 -->
+    
+    <!--设置ListView的样式-->
+    <Style x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type  local:TileView}, ResourceId=TileView}" TargetType="{x:Type ListView}" BasedOn="{StaticResource {x:Type ListBox}}">
+        <Setter  Property="BorderBrush" Value="Black"></Setter>
+        <Setter Property="BorderThickness" Value="0.5"></Setter>
+        <Setter Property="Grid.IsSharedSizeScope" Value="True"></Setter>
+        
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <WrapPanel Width="{Binding (FrameworkElement.ActualWidth),  RelativeSource={RelativeSource AncestorType=ScrollContentPresenter}}"></WrapPanel>
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+        
+        <!--<Setter Property="ItemTemplate"></Setter>-->
+    </Style>
+    
+    <!--设置ListViewItem的样式-->
+    <Style x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type local:TileView}, ResourceId=TileViewItem}" TargetType="{x:Type  ListViewItem}" BasedOn="{StaticResource {x:Type  ListBoxItem}}">
+        <Setter Property="Padding"  Value="3"></Setter>
+        <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
+        <Setter Property="ContentTemplate" Value="{Binding Path=View.ItemTemplate, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ListView}}}"></Setter>
+    </Style>
+    
+</ResourceDictionary>
