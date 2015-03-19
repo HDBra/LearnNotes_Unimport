@@ -3,13 +3,13 @@
                     xmlns:local="clr-namespace:WpfLearn.Deletable">
     <!-- 该文件必须放在Themes文件夹下 -->
     <!-- 该文件必须放在Themes文件夹下 -->
-    
+
     <!--设置ListView的样式-->
     <Style x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type  local:TileView}, ResourceId=TileView}" TargetType="{x:Type ListView}" BasedOn="{StaticResource {x:Type ListBox}}">
         <Setter  Property="BorderBrush" Value="Black"></Setter>
         <Setter Property="BorderThickness" Value="0.5"></Setter>
         <Setter Property="Grid.IsSharedSizeScope" Value="True"></Setter>
-        
+
         <Setter Property="ItemsPanel">
             <Setter.Value>
                 <ItemsPanelTemplate>
@@ -17,15 +17,61 @@
                 </ItemsPanelTemplate>
             </Setter.Value>
         </Setter>
+
+        <!-- Alternative approach to changing the ItemsPanel -->
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border Name="bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
+                  Background="{TemplateBinding Background}" Margin="{TemplateBinding Margin}">
+                        <ScrollViewer Margin="{TemplateBinding Padding}">
+                            <WrapPanel ItemWidth="200" IsItemsHost="True" MinWidth="100"
+                         Width="{Binding ActualWidth,RelativeSource={RelativeSource AncestorType=ScrollContentPresenter}}">
+                            </WrapPanel>
+                        </ScrollViewer>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+
+        <!-- Alternative approach to set the item ContentTemplate. -->
+        <!--<Setter Property="ItemTemplate" 
+                Value="{Binding (ListView.View).ItemTemplate,
+            RelativeSource={RelativeSource Self}}">
+           
+        </Setter>-->
         
-        <!--<Setter Property="ItemTemplate"></Setter>-->
+        
     </Style>
-    
+
     <!--设置ListViewItem的样式-->
     <Style x:Key="{ComponentResourceKey TypeInTargetAssembly={x:Type local:TileView}, ResourceId=TileViewItem}" TargetType="{x:Type  ListViewItem}" BasedOn="{StaticResource {x:Type  ListBoxItem}}">
         <Setter Property="Padding"  Value="3"></Setter>
         <Setter Property="HorizontalContentAlignment" Value="Center"></Setter>
         <Setter Property="ContentTemplate" Value="{Binding Path=View.ItemTemplate, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ListView}}}"></Setter>
+<!--
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                    <Border
+           Name="Border" BorderThickness="1" BorderBrush="Aquamarine" CornerRadius="3" >
+                        <ContentPresenter />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="Border" Property="BorderBrush"
+               Value="{Binding Path=View.SelectedBorderBrush,
+            RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ListView}}}"></Setter>
+                            <Setter TargetName="Border" Property="Background"
+              Value="{Binding Path=View.SelectedBackground,
+            RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ListView}}}"></Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>-->
+
     </Style>
-    
+
 </ResourceDictionary>

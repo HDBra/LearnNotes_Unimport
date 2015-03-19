@@ -3,6 +3,19 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Treeview" Height="300" Width="300">
     <Grid>
-        <TreeView VirtualizingStackPanel.IsVirtualizing="True"></TreeView>
+        <TreeView VirtualizingStackPanel.IsVirtualizing="True">
+            <TreeViewItem Header="Fruit">
+                <TreeViewItem Header="Orange"/>
+                <TreeViewItem Header="Banana"/>
+                <TreeViewItem Header="Grapefruit">
+                    <TreeViewItem Header="apple"></TreeViewItem>
+                </TreeViewItem>
+            </TreeViewItem>
+            <TreeViewItem Header="Vegetables">
+                <TreeViewItem Header="Aubergine"/>
+                <TreeViewItem Header="Squash"/>
+                <TreeViewItem Header="Spinach"/>
+            </TreeViewItem>
+        </TreeView>
     </Grid>
 </Window>

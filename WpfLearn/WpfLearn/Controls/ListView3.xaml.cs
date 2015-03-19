@@ -28,8 +28,21 @@ namespace WpfLearn.Controls
         private void ListView3_OnLoaded(object sender, RoutedEventArgs e)
         {
             LstProducts.ItemsSource = Product.GetProducts();
+            LstProducts.View = (ViewBase)FindResource("ImageDetailTileView");
+            LstProducts.ItemContainerStyle = (Style)FindResource("TileItemStyle");
+
+            //LstProducts.View = (ViewBase)FindResource("GridViewRes");
+            //LstProducts.ItemContainerStyle = (Style)FindResource("GridViewItemStyle");
+
+            ////////////////////////////////////////////////
             //LstProducts.View = new TileView();
             //LstProducts.View = new GridView();
         }
+
+        private void EventSetter_OnHandler(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(sender.GetType().ToString()+e.RoutedEvent);
+        }
+
     }
 }

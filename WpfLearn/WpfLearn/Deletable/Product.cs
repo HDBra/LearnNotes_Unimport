@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -62,6 +63,19 @@ namespace WpfLearn.Deletable
             }
         }
 
+
+        private string productImagePath ="Images/Computer.png";
+
+        public string ProductImagePath
+        {
+            get { return productImagePath;}
+            set
+            {
+                productImagePath = value;
+                OnPropertyChanged(new PropertyChangedEventArgs("ProductImagePath"));
+            }
+        }
+
         public Product(string modelNumber, string modelName, decimal unitCost, string description)
         {
             ModelNumber = modelNumber;
@@ -74,6 +88,19 @@ namespace WpfLearn.Deletable
         public Product()
         {
             
+        }
+
+        private Brush selectedBackground = Brushes.Transparent;
+        public Brush SelectedBackground
+        {
+            get { return selectedBackground; }
+            set { selectedBackground = value; }
+        }
+        private Brush selectedBorderBrush = Brushes.Black;
+        public Brush SelectedBorderBrush
+        {
+            get { return selectedBorderBrush; }
+            set { selectedBorderBrush = value; }
         }
 
         public static List<Product> GetProducts()

@@ -1,0 +1,19 @@
+﻿<Window x:Class="WpfLearn.Controls.Treeview2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Treeview2" Height="300" Width="300">
+    <Grid>
+        <TreeView Name="treeCategories" Margin="5">
+            <TreeView.ItemTemplate>
+                <HierarchicalDataTemplate>
+                    <TextBlock Text="{Binding Path=CategoryName}" />
+                    <HierarchicalDataTemplate.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=ModelName}" />
+                        </DataTemplate>
+                    </HierarchicalDataTemplate.ItemTemplate>
+                </HierarchicalDataTemplate>
+            </TreeView.ItemTemplate>
+        </TreeView>
+    </Grid>
+</Window>

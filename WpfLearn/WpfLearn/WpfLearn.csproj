@@ -36,6 +36,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -70,6 +71,9 @@
     </Compile>
     <Compile Include="Controls\ComboBox.xaml.cs">
       <DependentUpon>ComboBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DataGrid.xaml.cs">
+      <DependentUpon>DataGrid.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\Date.xaml.cs">
       <DependentUpon>Date.xaml</DependentUpon>
@@ -134,6 +138,11 @@
     <Compile Include="Controls\Treeview.xaml.cs">
       <DependentUpon>Treeview.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Treeview2.xaml.cs">
+      <DependentUpon>Treeview2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Deletable\Category.cs" />
+    <Compile Include="Deletable\ImagePathConverter.cs" />
     <Compile Include="Deletable\Product.cs" />
     <Compile Include="Deletable\ProductStyleSelector.cs" />
     <Compile Include="Deletable\SingleCriteriaHighlightTemplateSelector.cs" />
@@ -176,6 +185,9 @@
     </Compile>
     <Compile Include="Utils\ResourceUtils.cs" />
     <Compile Include="Utils\WpfUtils.cs" />
+    <Compile Include="Window1.xaml.cs">
+      <DependentUpon>Window1.xaml</DependentUpon>
+    </Compile>
     <Page Include="Bindings\Db\ObjectBingding.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -197,6 +209,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\ComboBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\DataGrid.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -284,6 +300,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\Treeview2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Events\DragDrop.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -348,6 +368,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Window1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -385,6 +409,11 @@
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\Computer.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

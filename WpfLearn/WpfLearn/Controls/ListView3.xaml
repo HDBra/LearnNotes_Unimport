@@ -4,20 +4,110 @@
         xmlns:deletable="clr-namespace:WpfLearn.Deletable"
         Title="ListView3" Height="300" Width="300" Loaded="ListView3_OnLoaded">
     <Window.Resources>
+        
+        <deletable:ImagePathConverter x:Key="ImagePathConverter"></deletable:ImagePathConverter>
+        
         <GridView x:Key="GridViewRes">
             <GridView.Columns>
+                <GridViewColumn>
+                    <GridViewColumn.Header>
+                        <CheckBox VerticalAlignment="Center" VerticalContentAlignment="Center" >全选</CheckBox>
+                    </GridViewColumn.Header>
+                </GridViewColumn>
                 <GridViewColumn Header="Name"  DisplayMemberBinding="{Binding Path=ModelName}"></GridViewColumn>
-                
+                <GridViewColumn  Header="Model" DisplayMemberBinding="{Binding  Path=ModelNumber}"></GridViewColumn>
+                <GridViewColumn  Header="Price" DisplayMemberBinding="{Binding  Path=UnitCost,StringFormat={}{0:C}}">
+                </GridViewColumn>
             </GridView.Columns>
+            <GridView.ColumnHeaderContainerStyle>
+                <Style>
+                    <Setter Property="Control.Background"  Value="YellowGreen"></Setter>
+                    <Setter Property="Control.Height" Value="30"></Setter>
+                </Style>
+            </GridView.ColumnHeaderContainerStyle>
         </GridView>
+        
+        <deletable:TileView x:Key="ImageTileView">
+            <deletable:TileView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel MinWidth="150" VerticalAlignment="Top">
+                        <Image  Source="{Binding Path=ProductImagePath,Converter={StaticResource ImagePathConverter}}">
+                          
+                        </Image>
+                        <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" Text="{Binding Path=ModelName}"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </deletable:TileView.ItemTemplate>
+        </deletable:TileView>
+        
+        <deletable:TileView x:Key="ImageDetailTileView">
+            <deletable:TileView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="Col2ShareSize"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <Image Margin="5" Width="100" Source="{Binding Path=ProductImagePath, Converter={StaticResource ImagePathConverter}}"></Image>
+                        <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                            <TextBlock FontWeight="Bold" Text="{Binding Path=ModelName}"></TextBlock>
+                            <TextBlock Text="{Binding Path=ModelNumber}"></TextBlock>
+                            <TextBlock Text="{Binding Path=UnitCost, StringFormat={}{0:C}}">
+                            </TextBlock>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </deletable:TileView.ItemTemplate>
+        </deletable:TileView>
+        
+        <Style  x:Key="GridViewItemStyle">
+            <Setter Property="ListViewItem.Background" Value="LightSteelBlue"></Setter>
+            <Setter Property="ListViewItem.Height" Value="40"></Setter>
+            <EventSetter Event="ListViewItem.Selected" Handler="EventSetter_OnHandler"></EventSetter>
+            <Setter Property="ListViewItem.ContextMenu">
+                <Setter.Value>
+                    <ContextMenu>
+                        <MenuItem Header="xuanze"></MenuItem>
+                    </ContextMenu>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                    <Setter Property="ListViewItem.Background" Value="LightBlue" />
+                </Trigger>
+                <Trigger Property="ListViewItem.IsSelected" Value="True">
+                    <Setter Property="ListViewItem.Background" Value="Transparent" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style  x:Key="TileItemStyle">
+            <Setter Property="ListViewItem.Background" Value="LightSteelBlue"></Setter>
+            <Setter Property="ListViewItem.Margin" Value="6"></Setter>
+            <EventSetter Event="ListViewItem.Selected" Handler="EventSetter_OnHandler"></EventSetter>
+            <EventSetter  Event="ListViewItem.Unselected" Handler="EventSetter_OnHandler"></EventSetter>
+            <Setter Property="ListViewItem.ContextMenu">
+                <Setter.Value>
+                    <ContextMenu>
+                        <MenuItem Header="xuanze"></MenuItem>
+                    </ContextMenu>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="ItemsControl.AlternationIndex" Value="1">
+                    <Setter Property="ListViewItem.Background" Value="LightBlue" />
+                </Trigger>
+                <Trigger Property="ListViewItem.IsSelected" Value="True">
+                    <Setter Property="ListViewItem.Background" Value="Transparent" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
     </Window.Resources>
     
     
     <Grid>
-        <ListView  Name="LstProducts">
-            <ListView.View>
-                <deletable:TileView />
-            </ListView.View>
+        <ListView  Name="LstProducts" AlternationCount="2" SelectionMode="Multiple">
+
         </ListView>
     </Grid>
 </Window>

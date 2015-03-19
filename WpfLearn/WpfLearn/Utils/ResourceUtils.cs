@@ -34,6 +34,16 @@ namespace WpfLearn.Utils
         {
             return new BitmapImage(new Uri(resUri,UriKind.Relative));
         }
+
+        /// <summary>
+        /// 获取图片资源
+        /// </summary>
+        /// <param name="resUri"></param>
+        /// <returns></returns>
+        public static BitmapImage GetBitmapImage2(String resUri)
+        {
+            return new BitmapImage(new Uri(resUri, UriKind.Relative));
+        }
     }
 }
 
