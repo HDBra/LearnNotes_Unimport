@@ -28,6 +28,7 @@ namespace WpfLearn.Controls
         private void DataGrid_OnLoaded(object sender, RoutedEventArgs e)
         {
             GridProducts.ItemsSource = Product.GetProducts();
+            GridProducts2.ItemsSource = Product.GetProducts();
         }
     }
 }

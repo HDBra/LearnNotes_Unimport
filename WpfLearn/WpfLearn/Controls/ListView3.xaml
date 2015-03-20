@@ -13,8 +13,20 @@
                     <GridViewColumn.Header>
                         <CheckBox VerticalAlignment="Center" VerticalContentAlignment="Center" >全选</CheckBox>
                     </GridViewColumn.Header>
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox IsChecked="{Binding Path=IsSelected, Mode=TwoWay,
+RelativeSource={RelativeSource AncestorType={x:Type ListViewItem}}}"></CheckBox>
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
                 </GridViewColumn>
-                <GridViewColumn Header="Name"  DisplayMemberBinding="{Binding Path=ModelName}"></GridViewColumn>
+                <GridViewColumn Header="Name">
+                    <GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=ModelName}" HorizontalAlignment="Stretch" TextAlignment="Center"></TextBlock>
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>
+                </GridViewColumn>
                 <GridViewColumn  Header="Model" DisplayMemberBinding="{Binding  Path=ModelNumber}"></GridViewColumn>
                 <GridViewColumn  Header="Price" DisplayMemberBinding="{Binding  Path=UnitCost,StringFormat={}{0:C}}">
                 </GridViewColumn>
@@ -63,6 +75,7 @@
         <Style  x:Key="GridViewItemStyle">
             <Setter Property="ListViewItem.Background" Value="LightSteelBlue"></Setter>
             <Setter Property="ListViewItem.Height" Value="40"></Setter>
+            <Setter Property="ListViewItem.HorizontalContentAlignment" Value="Stretch"/>
             <EventSetter Event="ListViewItem.Selected" Handler="EventSetter_OnHandler"></EventSetter>
             <Setter Property="ListViewItem.ContextMenu">
                 <Setter.Value>
