@@ -18,7 +18,13 @@
         
         <DataGrid Name="GridProducts2" Grid.Row="1" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn  Header="Product" Width="175" Binding="{Binding Path=ModelName}"></DataGridTextColumn>
+                <DataGridTextColumn  Header="Product" Width="175" Binding="{Binding Path=ModelName}">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Background" Value="BurlyWood"></Setter>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
                 <DataGridTextColumn Header="Price" Binding="{Binding Path=UnitCost}"></DataGridTextColumn>
                 <DataGridComboBoxColumn Header="Category"
 SelectedItemBinding="{Binding Path=CategoryName}">
@@ -44,6 +50,9 @@ SelectedItemBinding="{Binding Path=CategoryName}">
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
+            
+            
+            
         </DataGrid>
     </Grid>
 </Window>
