@@ -1,8 +1,11 @@
 ﻿<Window x:Class="WpfLearn.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="550" Width="525"
-        >
+        Title="MainWindow" Height="550" Width="525" ResizeMode="CanResizeWithGrip" ShowInTaskbar="True"
+        Topmost="True"  Initialized="MainWindow_OnInitialized" Loaded="MainWindow_OnLoaded" Unloaded="MainWindow_OnUnloaded" Closing="MainWindow_OnClosing"
+        Closed="MainWindow_OnClosed"
+        Activated="MainWindow_OnActivated"
+        Deactivated="MainWindow_OnDeactivated">
     <Window.Resources>
         <ImageBrush x:Key="TileBrush" x:Shared="False" TileMode="Tile"></ImageBrush>
     </Window.Resources>

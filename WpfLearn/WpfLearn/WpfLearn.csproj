@@ -183,7 +183,9 @@
     <Compile Include="UI\WrapPanel.xaml.cs">
       <DependentUpon>WrapPanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utils\PropertyUtils.cs" />
     <Compile Include="Utils\ResourceUtils.cs" />
+    <Compile Include="Utils\WindowUtils.cs" />
     <Compile Include="Utils\WpfUtils.cs" />
     <Page Include="Bindings\Db\ObjectBingding.xaml">
       <SubType>Designer</SubType>
@@ -402,6 +404,7 @@
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="Resources\" />
+    <Folder Include="Windows\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\Computer.png">

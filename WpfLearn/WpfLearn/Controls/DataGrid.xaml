@@ -4,7 +4,7 @@
         xmlns:collections="clr-namespace:System.Collections;assembly=mscorlib"
         xmlns:system="clr-namespace:System;assembly=mscorlib"
         xmlns:deletable="clr-namespace:WpfLearn.Deletable"
-        Title="DataGrid" Height="300" Width="300" Loaded="DataGrid_OnLoaded">
+        Title="DataGrid" WindowStyle="None" WindowState="Maximized" Height="300" Width="300" Loaded="DataGrid_OnLoaded">
     <Window.Resources>
         <deletable:ImagePathConverter x:Key="ImagePathConverter"></deletable:ImagePathConverter>
     </Window.Resources>
@@ -16,7 +16,7 @@
         <DataGrid Name="GridProducts" AutoGenerateColumns="True" RowHeaderWidth="16" AlternatingRowBackground="Aquamarine"></DataGrid>
         
         
-        <DataGrid Name="GridProducts2" Grid.Row="1" AutoGenerateColumns="False">
+        <DataGrid Name="GridProducts2" FrozenColumnCount="2" Grid.Row="1" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTextColumn  Header="Product" Width="175" Binding="{Binding Path=ModelName}">
                     <DataGridTextColumn.ElementStyle>
@@ -50,9 +50,19 @@ SelectedItemBinding="{Binding Path=CategoryName}">
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
-            
-            
-            
+
+            <DataGrid.RowDetailsTemplate>
+                <DataTemplate>
+                    <Border Margin="10" Padding="10" BorderBrush="SteelBlue" BorderThickness="3"
+CornerRadius="5">
+                        <TextBlock Text="{Binding Path=Description}" TextWrapping="Wrap"
+FontSize="10">
+                        </TextBlock>
+                    </Border>
+                </DataTemplate>
+            </DataGrid.RowDetailsTemplate>
+
+
         </DataGrid>
     </Grid>
 </Window>

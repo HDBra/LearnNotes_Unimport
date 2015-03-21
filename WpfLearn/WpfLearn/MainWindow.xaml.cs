@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,5 +26,32 @@ namespace WpfLearn
             InitializeComponent();
         }
 
+        private void MainWindow_OnInitialized(object sender, EventArgs e)
+        {
+        }
+
+        private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void MainWindow_OnUnloaded(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void MainWindow_OnClosing(object sender, CancelEventArgs e)
+        {
+        }
+
+        private void MainWindow_OnClosed(object sender, EventArgs e)
+        {
+        }
+
+        private void MainWindow_OnActivated(object sender, EventArgs e)
+        {
+        }
+
+        private void MainWindow_OnDeactivated(object sender, EventArgs e)
+        {
+        }
     }
 }
