@@ -195,6 +195,7 @@
     <Compile Include="UI\WrapPanel.xaml.cs">
       <DependentUpon>WrapPanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utils\MediaHelper.cs" />
     <Compile Include="Utils\PropertyUtils.cs" />
     <Compile Include="Utils\ResourceUtils.cs" />
     <Compile Include="Utils\WindowUtils.cs" />

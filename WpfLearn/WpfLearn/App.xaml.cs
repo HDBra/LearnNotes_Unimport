@@ -9,6 +9,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
+using Com.Utility.Commons;
 
 namespace WpfLearn
 {
@@ -26,6 +27,7 @@ namespace WpfLearn
         {
             //命令行参数
             String[] args = e.Args;
+           
         }
 
         /// <summary>
