@@ -1,0 +1,38 @@
+﻿<Window x:Class="WpfLearn.Windows.NonrectgularWindow_Path"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="NonrectgularWindow_Path" Height="300" Width="300" WindowStyle="None" Background="Transparent" AllowsTransparency="True">
+    <Path  Stroke="DarkGray" StrokeThickness="2" MouseLeftButtonDown="UIElement_OnMouseLeftButtonDown">
+        <Path.Fill>
+            <LinearGradientBrush StartPoint="0.2,0" EndPoint="0.8,1" >
+                <LinearGradientBrush.GradientStops>
+                    <GradientStop Color="White" Offset="0"></GradientStop>
+                    <GradientStop Color="White" Offset="0.45"></GradientStop>
+                    <GradientStop Color="LightBlue" Offset="0.9"></GradientStop>
+                    <GradientStop Color="Gray" Offset="1"></GradientStop>
+                </LinearGradientBrush.GradientStops>
+            </LinearGradientBrush>
+        </Path.Fill>
+        <Path.Data>
+            <PathGeometry>
+                <PathGeometry.Figures>
+                    <PathFigure StartPoint="20,0" IsClosed="True">
+                        <LineSegment Point="140,0"/>
+                        <ArcSegment Point="160,20" Size="20,20" SweepDirection="Clockwise"/>
+                        <LineSegment Point="160,60"/>
+                        <ArcSegment Point="140,80" Size="20,20" SweepDirection="Clockwise"/>
+                        <LineSegment Point="70,80"/>
+                        <LineSegment Point="70,130"/>
+                        <LineSegment Point="40,80"/>
+                        <LineSegment Point="20,80"/>
+                        <ArcSegment Point="0,60" Size="20,20" SweepDirection="Clockwise"/>
+                        <LineSegment Point="0,20"/>
+                        <ArcSegment Point="20,0" Size="20,20" SweepDirection="Clockwise"/>
+                    </PathFigure>
+                </PathGeometry.Figures>
+            </PathGeometry>
+        </Path.Data>
+        
+        
+    </Path>
+</Window>

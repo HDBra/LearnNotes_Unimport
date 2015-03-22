@@ -4,7 +4,7 @@
         Title="Expander" Height="300" Width="300">
     <Grid>
         <StackPanel>
-            <Expander Margin="5" Padding="5" Header="Region One">
+            <Expander Margin="5" Padding="5" ExpandDirection="Left" Header="Region One">
                 <Button Padding="3">Hidden Button One</Button>
             </Expander>
             <Expander Margin="5" Padding="5" Header="Region Two" >

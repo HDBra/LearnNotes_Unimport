@@ -74,4 +74,49 @@
 
     </Style>
 
+    <ControlTemplate x:Key="CustomWindowTemplate" TargetType="{x:Type  Window}">
+        <Border  Name="WindowBorder">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <!-- The title bar. -->
+                <TextBlock Text="{TemplateBinding Title}"
+FontWeight="Bold"></TextBlock>
+                <Button Style="{StaticResource CloseButton}"
+HorizontalAlignment="Right"></Button>
+                <!-- The window content. -->
+                <Border Grid.Row="1">
+                    <AdornerDecorator>
+                        <ContentPresenter></ContentPresenter>
+                    </AdornerDecorator>
+                </Border>
+                <!-- The footer. -->
+                <ContentPresenter Grid.Row="2" Margin="10"
+HorizontalAlignment="Center"
+Content="{TemplateBinding Tag}"></ContentPresenter>
+                <!-- The resize grip. -->
+                <ResizeGrip Name="WindowResizeGrip" Grid.Row="2"
+HorizontalAlignment="Right" VerticalAlignment="Bottom"
+Visibility="Collapsed" IsTabStop="False" />
+                <!-- The invisible rectangles that allow dragging to resize. -->
+                <Rectangle Grid.Row="1" Grid.RowSpan="3" Cursor="SizeWE"
+VerticalAlignment="Stretch" HorizontalAlignment="Right"
+Fill="Transparent" Width="5"></Rectangle>
+                <Rectangle Grid.Row="2" Cursor="SizeNS"
+HorizontalAlignment="Stretch" VerticalAlignment="Bottom"
+Fill="Transparent" Height="5"></Rectangle>
+                </Grid>
+        </Border>
+
+        <ControlTemplate.Triggers>
+            <Trigger Property="ResizeMode" Value="CanResizeWithGrip">
+                <Setter TargetName="WindowResizeGrip" Property="Visibility" Value="Visible"></Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+
+
+    </ControlTemplate>
 </ResourceDictionary>

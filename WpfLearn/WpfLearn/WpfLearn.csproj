@@ -105,6 +105,9 @@
     <Compile Include="Controls\ListView3.xaml.cs">
       <DependentUpon>ListView3.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\menu.xaml.cs">
+      <DependentUpon>menu.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Popup.xaml.cs">
       <DependentUpon>Popup.xaml</DependentUpon>
     </Compile>
@@ -153,6 +156,15 @@
     <Compile Include="Events\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Page2xaml.xaml.cs">
+      <DependentUpon>Page2xaml.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PageOne.xaml.cs">
+      <DependentUpon>PageOne.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\WindowPage.xaml.cs">
+      <DependentUpon>WindowPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\Canvas.xaml.cs">
       <DependentUpon>Canvas.xaml</DependentUpon>
     </Compile>
@@ -187,6 +199,15 @@
     <Compile Include="Utils\ResourceUtils.cs" />
     <Compile Include="Utils\WindowUtils.cs" />
     <Compile Include="Utils\WpfUtils.cs" />
+    <Compile Include="Windows\NonrectangularWindows_BackImage.xaml.cs">
+      <DependentUpon>NonrectangularWindows_BackImage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\NonrectangularWindows_Border.xaml.cs">
+      <DependentUpon>NonrectangularWindows_Border.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\NonrectgularWindow_Path.xaml.cs">
+      <DependentUpon>NonrectgularWindow_Path.xaml</DependentUpon>
+    </Compile>
     <Page Include="Bindings\Db\ObjectBingding.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -252,6 +273,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\ListView3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\menu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -323,6 +348,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\Page2xaml.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PageOne.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\WindowPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -367,6 +404,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\NonrectangularWindows_BackImage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\NonrectangularWindows_Border.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\NonrectgularWindow_Path.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -404,7 +453,6 @@
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="Resources\" />
-    <Folder Include="Windows\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\Computer.png">
