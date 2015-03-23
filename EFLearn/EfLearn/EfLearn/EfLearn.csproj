@@ -85,6 +85,7 @@
     <Compile Include="Teacher.cs">
       <DependentUpon>School.tt</DependentUpon>
     </Compile>
+    <Compile Include="Utils\DbContextHelper.cs" />
     <Compile Include="View_StudentCourse.cs">
       <DependentUpon>School.tt</DependentUpon>
     </Compile>
