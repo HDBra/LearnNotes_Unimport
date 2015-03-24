@@ -20,5 +20,16 @@ namespace EfLearn.Utils
         {
             return (dbContext as IObjectContextAdapter).ObjectContext;
         }
+
+
+        public static void Test()
+        {
+            using (var context = new SchoolDBEntities())
+            {
+                var l2EQuery = context.Students.Where(s => s.StudentID == 5);
+                var student = l2EQuery.FirstOrDefault();
+                Console.WriteLine(student==null?"":student.StudentName);
+            }
+        }
     }
 }
