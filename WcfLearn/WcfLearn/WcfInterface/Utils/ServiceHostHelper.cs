@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
+using System.ServiceModel.Description;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -124,6 +125,17 @@ namespace WcfInterface.Utils
             wsHttpBinding.CloseTimeout = new TimeSpan(0,0,8);
             wsHttpBinding.SendTimeout = wsHttpBinding.ReceiveTimeout = new TimeSpan(0, 0, 8);
             return wsHttpBinding;
+        }
+
+        /// <summary>
+        /// Create ServiceMetadataBehavior
+        /// </summary>
+        /// <returns></returns>
+        public static ServiceMetadataBehavior CreateMetadataBehavior()
+        {
+            ServiceMetadataBehavior behavior = new ServiceMetadataBehavior();
+            behavior.HttpGetEnabled = true;
+            return behavior;
         }
 
         #endregion
