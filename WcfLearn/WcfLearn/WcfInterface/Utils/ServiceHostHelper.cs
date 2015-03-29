@@ -78,6 +78,10 @@ namespace WcfInterface.Utils
             try
             {
                 _host = new ServiceHost(serviceType, baseAddresses);
+
+                //_host.AddServiceEndpoint();//添加Endpoint
+                //_host.Description.Behaviors.Add();//添加行为
+
                 _host.Open();
                 isOpened = true;
             }
@@ -105,6 +109,23 @@ namespace WcfInterface.Utils
             isOpened = false;
             _host = null;
         }
+        #endregion
+
+        #region Bindings
+
+        /// <summary>
+        /// Create WSHttpBinding
+        /// </summary>
+        /// <returns></returns>
+        public static WSHttpBinding CreateWsHttpBinding()
+        {
+            WSHttpBinding wsHttpBinding = new WSHttpBinding();
+            wsHttpBinding.AllowCookies = true;
+            wsHttpBinding.CloseTimeout = new TimeSpan(0,0,8);
+            wsHttpBinding.SendTimeout = wsHttpBinding.ReceiveTimeout = new TimeSpan(0, 0, 8);
+            return wsHttpBinding;
+        }
+
         #endregion
 
         #region IDisposable接口
