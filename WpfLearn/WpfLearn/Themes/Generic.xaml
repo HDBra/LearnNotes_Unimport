@@ -19,7 +19,7 @@
         </Setter>
 
         <!-- Alternative approach to changing the ItemsPanel -->
-        <Setter Property="Template">
+        <!--<Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
                     <Border Name="bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
@@ -32,7 +32,7 @@
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
-        </Setter>
+        </Setter>-->
 
 
         <!-- Alternative approach to set the item ContentTemplate. -->

@@ -31,8 +31,8 @@ namespace WpfLearn.Controls
             LstProducts.View = (ViewBase)FindResource("ImageDetailTileView");
             LstProducts.ItemContainerStyle = (Style)FindResource("TileItemStyle");
 
-            LstProducts.View = (ViewBase)FindResource("GridViewRes");
-            LstProducts.ItemContainerStyle = (Style)FindResource("GridViewItemStyle");
+            //LstProducts.View = (ViewBase)FindResource("GridViewRes");
+            //LstProducts.ItemContainerStyle = (Style)FindResource("GridViewItemStyle");
 
             ////////////////////////////////////////////////
             //LstProducts.View = new TileView();
