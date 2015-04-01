@@ -44,7 +44,6 @@ RelativeSource={RelativeSource AncestorType={x:Type ListViewItem}}}"></CheckBox>
                 <DataTemplate>
                     <StackPanel MinWidth="150" VerticalAlignment="Top">
                         <Image  Source="{Binding Path=ProductImagePath,Converter={StaticResource ImagePathConverter}}">
-                          
                         </Image>
                         <TextBlock TextWrapping="Wrap" HorizontalAlignment="Center" Text="{Binding Path=ModelName}"></TextBlock>
                     </StackPanel>

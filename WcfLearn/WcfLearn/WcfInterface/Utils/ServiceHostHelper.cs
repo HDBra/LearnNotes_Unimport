@@ -10,6 +10,15 @@ namespace WcfInterface.Utils
 {
     /// <summary>
     /// ServiceHost单例
+    /// Address像如下的格式
+    /// Transport://machineordomain:optional port/optional URI
+    /// 如：
+    /// http://localhost:8001/MyService
+    /// net.tcp://localhost:8002/MyService
+    /// net.pipe://localhost/MyPipe
+    /// net.msmq://localhost/private/MyQueue
+    /// net.msmq://localhost/MyQueue
+    /// tcp默认端口808 http默认80 https默认443  pipe使用管道进行同一机器的进程通信
     /// </summary>
     public class ServiceHostHelper:IDisposable
     {
