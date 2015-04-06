@@ -6,6 +6,13 @@
         <ListView Margin="5" Name="lstProducts" AlternationCount="2" SelectionMode="Multiple">
             <ListView.View>
                 <GridView>
+                    <GridView.ColumnHeaderContainerStyle>
+                        <Style>
+                            <Setter Property="Control.Background"  Value="Azure"></Setter>
+                            <Setter Property="Control.Height" Value="32"></Setter>
+                            <Setter Property="Control.HorizontalContentAlignment" Value="Stretch"></Setter>
+                        </Style>
+                    </GridView.ColumnHeaderContainerStyle>
                     <GridView.Columns>
                         <GridViewColumn>
                             <GridViewColumn.Header>

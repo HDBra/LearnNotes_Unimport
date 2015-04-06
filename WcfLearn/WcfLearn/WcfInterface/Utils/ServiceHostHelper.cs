@@ -87,6 +87,7 @@ namespace WcfInterface.Utils
             Stop();
             try
             {
+                //另有泛型的ServiceHost<T>
                 _host = new ServiceHost(serviceType, baseAddresses);
 
                 //_host.AddServiceEndpoint();//添加Endpoint
@@ -104,6 +105,36 @@ namespace WcfInterface.Utils
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="serviceType">承载服务的类型。</param>
+        /// <returns></returns>
+        public bool Open(Type serviceType)
+        {
+            //首先关闭连接，如果已经连接
+            Stop();
+            try
+            {
+                _host = new ServiceHost(serviceType);
+
+                //_host.AddServiceEndpoint();//添加Endpoint
+                //_host.Description.Behaviors.Add();//添加行为
+                //Binding wsBinding = new WSHttpBinding();
+                //host.AddServiceEndpoint(typeof(IMyContract),wsBinding,"http://localhost:8000/MyService");
+                //绑定事件
+
+                _host.Open();
+                
+                isOpened = true;
+            }
+            catch
+            {
+                isOpened = false;
+            }
+
+            return isOpened;
+        }
+        /// <summary>
         /// 关闭底层Host连接
         /// </summary>
         public void Stop()
@@ -112,6 +143,7 @@ namespace WcfInterface.Utils
             {
                 try
                 {
+                    //by calling the Close() method, you gracefully exit the host instance, allowing calls in progress to complete while refusing future client calls
                     _host.Close();
                 }
                 catch { }

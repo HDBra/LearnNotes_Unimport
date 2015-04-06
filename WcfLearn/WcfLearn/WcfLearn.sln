@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WcfInterface", "WcfInterfac
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IISHost", "IISHost\IISHost.csproj", "{058042B5-CE6B-405B-B9FD-21A3D09EE9C7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SelfHost", "SelfHost\SelfHost.csproj", "{59014118-3DC6-4414-9F92-A7809AE4132D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{058042B5-CE6B-405B-B9FD-21A3D09EE9C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{058042B5-CE6B-405B-B9FD-21A3D09EE9C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{058042B5-CE6B-405B-B9FD-21A3D09EE9C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59014118-3DC6-4414-9F92-A7809AE4132D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59014118-3DC6-4414-9F92-A7809AE4132D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59014118-3DC6-4414-9F92-A7809AE4132D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59014118-3DC6-4414-9F92-A7809AE4132D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
