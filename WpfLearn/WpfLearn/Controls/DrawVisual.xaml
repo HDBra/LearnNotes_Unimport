@@ -1,0 +1,81 @@
+﻿<Window x:Class="WpfLearn.Controls.DrawVisual"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:WpfLearn.Models"
+        Title="DrawVisual" Initialized="DrawVisual_OnInitialized"  Height="300" Width="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Expander IsExpanded="True" Grid.Column="0" Margin="5 5 0 5" Padding="5 5 2 5" ExpandDirection="Left" Header="">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <StackPanel>
+                    <Button Background="Transparent" Click="CmdSelectMove_OnClick" BorderThickness="0" Name="CmdSelectMove">
+                        <StackPanel>
+                            <Image Source="../Images/pointer.png" Width="35" Height="35"></Image>
+                            <TextBlock>Select/Move</TextBlock>
+                        </StackPanel>
+                    </Button>
+
+                    <Button Background="Transparent" Click="CmdAdd_OnClick" BorderThickness="0" Name="CmdAdd">
+                        <StackPanel>
+                            <Rectangle Width="30" Height="30" Stroke="SteelBlue" StrokeThickness="3" Fill="AliceBlue"></Rectangle>
+                            <TextBlock>Add</TextBlock>
+                        </StackPanel>
+                    </Button>
+
+                    <Button Background="Transparent" Click="CmdDelete_OnClick" BorderThickness="0" Name="CmdDelete">
+                        <StackPanel>
+                            <Path Stroke="SteelBlue" StrokeThickness="4" StrokeEndLineCap="Round" StrokeStartLineCap="Round"
+                  Fill="Red" HorizontalAlignment="Center">
+                                <Path.Data>
+                                    <GeometryGroup>
+                                        <PathGeometry>
+                                            <PathFigure StartPoint="0,0">
+                                                <LineSegment Point="18,18"></LineSegment>
+                                            </PathFigure>
+                                            <PathFigure StartPoint="0,18">
+                                                <LineSegment Point="18,0"></LineSegment>
+                                            </PathFigure>
+                                        </PathGeometry>
+                                    </GeometryGroup>
+                                </Path.Data>
+                            </Path>
+                            <TextBlock>Delete</TextBlock>
+                        </StackPanel>
+                    </Button>
+
+
+                    <Button Background="Transparent" BorderThickness="0" Name="CmdSelect" Click="CmdSelect_OnClick">
+                        <StackPanel>
+                            <Image Source="../Images/pointer.png" Width="35" Height="35"></Image>
+                            <TextBlock>MultiSelect</TextBlock>
+                        </StackPanel>
+                    </Button>
+
+                </StackPanel>
+
+            </Grid>
+        </Expander>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <ScrollViewer CanContentScroll="True" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <Border BorderBrush="LightBlue"  BorderThickness="1">
+                    <local:CustomCanvas x:Name="LocalCanvas" MouseLeftButtonDown="LocalCanvas_OnMouseLeftButtonDown" MouseLeftButtonUp="LocalCanvas_OnMouseLeftButtonUp" MouseRightButtonUp="LocalCanvas_OnMouseRightButtonUp" MouseRightButtonDown="LocalCanvas_OnMouseRightButtonDown"  MouseMove="LocalCanvas_OnMouseMove" ClipToBounds="True"></local:CustomCanvas>
+                </Border>
+            </ScrollViewer>
+
+            <Slider Name="SliderScale" ValueChanged="SliderScale_OnValueChanged" MinHeight="10"  Grid.Row="1" Maximum="100"  Value="100"></Slider>
+        </Grid>
+    </Grid>
+</Window>
