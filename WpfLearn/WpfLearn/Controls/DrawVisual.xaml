@@ -60,6 +60,13 @@
                         </StackPanel>
                     </Button>
 
+                    <Button Background="Transparent" BorderThickness="0" Name="CmdNone" Click="CmdNone_OnClick">
+                        <StackPanel>
+                            <Image Source="../Images/pointer.png" Width="35" Height="35"></Image>
+                            <TextBlock>None</TextBlock>
+                        </StackPanel>
+                    </Button>
+
                 </StackPanel>
 
             </Grid>

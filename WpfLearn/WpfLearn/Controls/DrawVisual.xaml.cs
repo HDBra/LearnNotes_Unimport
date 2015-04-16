@@ -261,6 +261,11 @@ namespace WpfLearn.Controls
             double d = SliderScale.Value/SliderScale.Maximum;
             LocalCanvas.Scale = d*2;
         }
+
+        private void CmdNone_OnClick(object sender, RoutedEventArgs e)
+        {
+            operation = Operation.None;
+        }
     }
 
 
