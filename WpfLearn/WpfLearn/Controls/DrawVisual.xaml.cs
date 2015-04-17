@@ -408,6 +408,34 @@ namespace WpfLearn.Controls
 
             MiDel.Visibility = Visibility.Collapsed;
         }
+
+        private void Expander_OnExpanded(object sender, RoutedEventArgs e)
+        {
+            if (ToolExpander.IsExpanded)
+            {
+                ToolExpander.Background = new SolidColorBrush(Color.FromArgb(255, 152, 251, 152));
+                Toast.Show("true");
+            }
+            else
+            {
+                ToolExpander.Background = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
+                Toast.Show("false");
+            }
+        }
+
+        private void ToolExpander_OnCollapsed(object sender, RoutedEventArgs e)
+        {
+            if (ToolExpander.IsExpanded)
+            {
+                ToolExpander.Background = new SolidColorBrush(Color.FromArgb(128, 152, 251, 152));
+                Toast.Show("true");
+            }
+            else
+            {
+                ToolExpander.Background = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
+                Toast.Show("false");
+            }
+        }
     }
 
 

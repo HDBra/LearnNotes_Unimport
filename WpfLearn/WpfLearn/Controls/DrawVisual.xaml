@@ -8,7 +8,28 @@
             <ColumnDefinition Width="Auto"></ColumnDefinition>
             <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Expander IsExpanded="True" Grid.Column="0" Margin="5 5 0 5" Padding="5 5 2 5" ExpandDirection="Left" Header="">
+
+        <Grid Grid.Column="0" Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <ScrollViewer HorizontalScrollBarVisibility="Hidden"  VerticalScrollBarVisibility="Hidden">
+                <local:CustomCanvas   x:Name="LocalCanvas" MouseLeftButtonDown="LocalCanvas_OnMouseLeftButtonDown" MouseLeftButtonUp="LocalCanvas_OnMouseLeftButtonUp" MouseRightButtonUp="LocalCanvas_OnMouseRightButtonUp" MouseRightButtonDown="LocalCanvas_OnMouseRightButtonDown"  MouseMove="LocalCanvas_OnMouseMove" ClipToBounds="True" HorizontalAlignment="Stretch" ContextMenuOpening="LocalCanvas_OnContextMenuOpening"  MouseWheel="LocalCanvas_OnMouseWheel" VerticalAlignment="Stretch">
+                    <local:CustomCanvas.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Name="MiAdd" Header="增加" />
+                            <MenuItem Name="MiLow" Header="减少" />
+                            <MenuItem Name="MiDel" Header="删除" />
+                        </ContextMenu>
+                    </local:CustomCanvas.ContextMenu>
+                </local:CustomCanvas>
+            </ScrollViewer>
+
+            <Slider Name="SliderScale" ValueChanged="SliderScale_OnValueChanged" MinHeight="10"  Grid.Row="1" Maximum="100"  Value="100"></Slider>
+        </Grid>
+
+        <Expander Name="ToolExpander" IsExpanded="True" Background="PaleGreen"  Collapsed="ToolExpander_OnCollapsed"  Expanded="Expander_OnExpanded"  Grid.Column="0" Padding="5 5 2 5" ExpandDirection="Down"  Header="">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"></RowDefinition>
@@ -16,6 +37,8 @@
                     <RowDefinition Height="*"></RowDefinition>
                 </Grid.RowDefinitions>
 
+                
+                
                 <StackPanel>
                     <Button Background="Transparent" Click="CmdSelectMove_OnClick" BorderThickness="0" Name="CmdSelectMove">
                         <StackPanel>
@@ -106,26 +129,6 @@
 
             </Grid>
         </Expander>
-        
-        <Grid Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="Auto"></RowDefinition>
-            </Grid.RowDefinitions>
-            <ScrollViewer HorizontalScrollBarVisibility="Hidden"  VerticalScrollBarVisibility="Hidden">
-                <local:CustomCanvas   x:Name="LocalCanvas" MouseLeftButtonDown="LocalCanvas_OnMouseLeftButtonDown" MouseLeftButtonUp="LocalCanvas_OnMouseLeftButtonUp" MouseRightButtonUp="LocalCanvas_OnMouseRightButtonUp" MouseRightButtonDown="LocalCanvas_OnMouseRightButtonDown"  MouseMove="LocalCanvas_OnMouseMove" ClipToBounds="True" HorizontalAlignment="Stretch" ContextMenuOpening="LocalCanvas_OnContextMenuOpening"  MouseWheel="LocalCanvas_OnMouseWheel" VerticalAlignment="Stretch">
-                    <local:CustomCanvas.ContextMenu>
-                        <ContextMenu>
-                            <MenuItem Name="MiAdd" Header="增加" />
-                            <MenuItem Name="MiLow" Header="减少" />
-                            <MenuItem Name="MiDel" Header="删除" />
-                        </ContextMenu>
-                    </local:CustomCanvas.ContextMenu>
-                </local:CustomCanvas>
-            </ScrollViewer>
-
-            <Slider Name="SliderScale" ValueChanged="SliderScale_OnValueChanged" MinHeight="10"  Grid.Row="1" Maximum="100"  Value="100"></Slider>
-        </Grid>
     </Grid>
 </Window>
  
