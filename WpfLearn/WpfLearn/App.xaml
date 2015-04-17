@@ -6,7 +6,6 @@
              Exit="App_OnExit"
              Activated="App_OnActivated"
              Deactivated="App_OnDeactivated"
-             DispatcherUnhandledException="App_OnDispatcherUnhandledException"
              SessionEnding="App_OnSessionEnding">
     <Application.Resources>
         <!--<Style x:Key="BigFontButtonStyle" TargetType="Button">

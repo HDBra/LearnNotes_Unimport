@@ -62,14 +62,14 @@ namespace System.Windows.Controls
         /// The value of this dependency property is <c>true</c> by default, meaning that the <see cref="RenderTransform"/> property will contain a <see cref="Transform"/> that scales the canvas and its children automatically.
         /// This property can be set to <c>false</c> prevent the automatic transform.  This means that children are responsible for changing their appearance when the <see cref="Scale"/> property changes.
         /// Note that this property does not affect the <b>placement</b> of the elements; the children are automatically placed with the top-left corners of their elements at the appropriate positions on the screen, regardless of the value of <see cref="ApplyTransform"/>.
-        /// <para>
+        /// 
         /// Children will usually do this by simply changing their <see cref="Width"/> and <see cref="Height "/> to become larger or smaller when the <see cref="Scale"/> property increases or decreases.
         /// This is useful when pen widths are important, such as an element surrounded with a <see cref="Border"/> with <see cref="Border.BorderThickness"/> set to <c>1.0</c>.
         /// If <see cref="ApplyTransform"/> is <c>true</c>, then as <see cref="Scale"/> decreases the shape will be scaled down and the border stroke will become thinner than one pixel, possibly too thin to see even with sub-pixel rendering.
         /// This is also true when drawing paths, edges of a graph, or any other element that uses <see cref="Pen"/> to draw lines and strokes.
         /// In these cases setting <see cref="ApplyTransform"/> to <c>false</c> and setting the <see cref="Shape"/>'s <see cref="Shape.Stretch"/> to <see cref="Stretch.Fill"/> while binding its <see cref="Width"/> and <see cref="Height"/> to a factor of <see cref="Scale"/> will often provide a better effect.
-        /// </para>
-        /// <para>
+        /// 
+        /// 
         /// Another reason to set this property to <c>false</c> is when elements change their representation or visual state based on the scale (also known as "semantic zoom").
         /// For example, imagine a canvas showing multiple thumbnails of spreadsheets and the relationships between their formulas and values.
         /// When <see cref="Scale"/> is set to <c>1.0</c> (the default value), each spreadsheet element might be fully interactive, editable, and showing all rows and columns.
@@ -77,7 +77,7 @@ namespace System.Windows.Controls
         /// When zooming even further out, and <see cref="Scale"/> gets small enough that there is not enough room for the axis and legend, it may simply remove the axis and legend to make more room for the graphical portion of the chart.
         /// Since the children of the canvas can be arbitary rich UIElements, they can dynamically change their representation and be interacted with at all levels of zoom.
         /// This is in sharp contrast to multi-scale-image approaches such as Silverlight's Deep Zoom since those scenarios are simply performing linear scale transformations on pre-computed static bitmaps.
-        /// </para>
+        /// 
         /// </remarks>
         public bool ApplyTransform
         {
@@ -364,30 +364,30 @@ namespace System.Windows.Controls
         /// <value>A <see cref="Point"/> on the canvas (in canvas coordinates).  The default is <c>(0,0)</c>.</value>
         /// <remarks>
         /// This value controls the horizontal and vertical position of the canvas children relative to this panel.
-        /// <para>
+        /// 
         /// For example, consider a child element which has its <see cref="Canvas.Left"/> and <see cref="Canvas.Top"/> set to <c>100</c> and <c>100</c>.
         /// Also assume that the value of <see cref="Scale"/> is set to <c>1.0</c> (the default value).
-        /// </para>
-        /// <para>
+        /// 
+        /// 
         /// By default, the value of <see cref="Offset"/> is <c>(0,0)</c> so the element will be displayed at 100 units to the right and 100 units down from the top-left corner of this panel, exactly how <see cref="Canvas"/> would display it.
         /// If the value of <see cref="Offset"/> is set to <c>(20,40)</c> then the element will be displayed 80 units to the right and 60 units down from the top-left corner of this panel.
         /// In other words, it will have appeared to "move" up by 20 units and left by 40 units.
-        /// </para>
-        /// <para>
+        /// 
+        /// 
         /// If the value of <see cref="Offset"/> is set to <c>(100,100)</c> then the top-left corner of the element will be displayed exactly in the top-left corner of this panel.
         /// Note that this is true regardless of the value of <see cref="Scale"/>!
-        /// </para>
-        /// <para>
+        /// 
+        /// 
         /// If the value of <see cref="Offset"/> is set to <c>(110,120)</c> then the top-left corner of the element will be displayed 10 units to the left and 20 units above this panel.
         /// In other words, if <see cref="ClipToBounds"/> is set to <c>true</c>, then the top-left corner of the element will not be visible.
-        /// </para>
-        /// <para>
+        /// 
+        /// 
         /// The value of <see cref="Offset"/> can also be negative, so if the value of <see cref="Offset"/> is set to <c>(-100,-100)</c> then the element will be displayed at 200 pixels to the right and 200 pixels down from the top-left corner of the panel.
-        /// </para>
-        /// <para>
+        /// 
+        /// 
         /// When the <see cref="Viewbox"/> property is set to a non-<see cref="Rect.Empty"/> value, the value of the <see cref="Offset"/> property will be automatically computed to match the <see cref="Viewbox"/>, <see cref="Stretch"/>, and <see cref="StretchDirection"/> properties.
         /// The value of the <see cref="Offset"/> property will contain the computed value (via the WPF dependency property coersion mechanism), and any attempts to set <see cref="Offset"/> to a different value will be ignored until <see cref="Viewbox"/> is set to <see cref="Rect.Empty"/> again.
-        /// <para>
+        /// 
         /// </remarks>
         /// <seealso cref="Viewbox"/>
         public Point Offset
@@ -486,22 +486,22 @@ namespace System.Windows.Controls
         /// <remarks>
         /// This value is what controls the zoom level of the canvas and the amount of the <see cref="ScaleTransform"/> when <see cref="ApplyTransform"/> is set to <c>true</c>.
         /// When <see cref="ApplyTransform"/> is set to <c>false</c>, this value still controls the positioning of the children (i.e. elements are placed closer together when zoomed out and farther apart when zoomed in), but the sizes of the children are unaffected.
-        /// <para>
+        /// 
         /// For example, consider a child element which has its <see cref="Canvas.Left"/> and <see cref="Canvas.Top"/> set to <c>100</c> and <c>100</c>, with a <see cref="Width"/> of 50 and a <see cref="Height"/> of 50.
         /// Also assume that the value of <see cref="Offset"/> is set to <c>(0,0)</c> (the default value).
-        /// </para>
-        /// <para>
+        /// 
+        /// 
         /// By default, the value of <see cref="Scale"/> is <c>1.0</c> so the element will be displayed at 100 units to the right and 100 units down from the top-left corner of this panel, exactly how <see cref="Canvas"/> would display it.
         /// If the value of <see cref="Scale"/> is set to <c>0.8</c> then the top-left corner of the element will be displayed 80 units to the right and 80 units down from the top-left corner of this panel.
         /// If <see cref="ApplyTransform"/> is set to <c>true</c> (the default value), then the element will also be scaled down (shrunk) to 80% of its normal size, so that the bottom-right of the element will be 120 units to the right and 120 units down from the top-left corner of this panel.
         /// If <see cref="ApplyTransform"/> is set to <c>false</c>, then the element will remain its original size, resulting in the bottom-right of the element being 130 units to the right and 130 units down from the top-left corner of this panel.
         /// In other words, it will simply have appeared to "move" up by 20 units and left by 20 units without changing its size.
         /// This is not normally what a user would expect when "zooming out" (unless the element is some kind of floating label above the canvas), so it is expected that the children of the canvas will be responsible for changing their representation appropriately when <see cref="ApplyTransform"/> is set to <c>false</c>.
-        /// </para>
-        /// <para>
+        /// 
+        /// 
         /// When the <see cref="Viewbox"/> property is set to a non-<see cref="Rect.Empty"/> value, the value of the <see cref="Scale"/> property will be automatically computed to match the <see cref="Viewbox"/>, <see cref="Stretch"/>, and <see cref="StretchDirection"/> properties.
         /// The value of the <see cref="Scale"/> property will contain the computed value (via the WPF dependency property coersion mechanism), but and any attempts to set <see cref="Scale"/> to a different value will be ignored (if <see cref="StretchDirection"/> is set to <see cref="StretchDirection.Both"/>) until <see cref="Viewbox"/> is set to <see cref="Rect.Empty"/> again.
-        /// <para>
+        /// 
         /// </remarks>
         /// <seealso cref="Viewbox"/>
         public double Scale

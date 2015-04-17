@@ -1,0 +1,9 @@
+﻿<Window x:Class="WpfLearn.Controls.Toast"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStyle="None"  ShowInTaskbar="False" AllowsTransparency="True" Background="Transparent"  ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Height="500" Width="1024" Initialized="Toast_OnInitialized">
+    <StackPanel VerticalAlignment="Bottom" Background="Transparent" Margin="45">
+        
+        <Label Padding="5" Foreground="Violet"  FontWeight="Bold" FontSize="20" HorizontalAlignment="Center" Background="WhiteSmoke"  Name="LbTip"></Label>
+    </StackPanel>
+</Window>

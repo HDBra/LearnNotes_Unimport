@@ -150,6 +150,9 @@
     <Compile Include="Controls\TextBox.xaml.cs">
       <DependentUpon>TextBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Toast.xaml.cs">
+      <DependentUpon>Toast.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ToolTips.xaml.cs">
       <DependentUpon>ToolTips.xaml</DependentUpon>
     </Compile>
@@ -165,6 +168,9 @@
     <Compile Include="Controls\Treeview2.xaml.cs">
       <DependentUpon>Treeview2.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ZoomableCanvas.xaml.cs">
+      <DependentUpon>ZoomableCanvas.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Deletable\Category.cs" />
     <Compile Include="Deletable\ImagePathConverter.cs" />
     <Compile Include="Deletable\Product.cs" />
@@ -177,13 +183,6 @@
     <Compile Include="Events\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ZoomableCavas\LinkedListExtensions.cs" />
-    <Compile Include="ZoomableCavas\MathExtensions.cs" />
-    <Compile Include="ZoomableCavas\PriorityQuadTree.cs" />
-    <Compile Include="ZoomableCavas\PriorityQueue.cs" />
-    <Compile Include="ZoomableCavas\RectExtensions.cs" />
-    <Compile Include="ZoomableCavas\VirtualPanel.cs" />
-    <Compile Include="ZoomableCavas\ZoomableCanvas.cs" />
     <Compile Include="Models\CustomCanvas.cs" />
     <Compile Include="Models\CustomVisual.cs" />
     <Compile Include="Pages\Page2xaml.xaml.cs">
@@ -239,6 +238,13 @@
     <Compile Include="Windows\NonrectgularWindow_Path.xaml.cs">
       <DependentUpon>NonrectgularWindow_Path.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Zoomable\LinkedListExtensions.cs" />
+    <Compile Include="Zoomable\MathExtensions.cs" />
+    <Compile Include="Zoomable\PriorityQuadTree.cs" />
+    <Compile Include="Zoomable\PriorityQueue.cs" />
+    <Compile Include="Zoomable\RectExtensions.cs" />
+    <Compile Include="Zoomable\VirtualPanel.cs" />
+    <Compile Include="Zoomable\ZoomableCanvas.cs" />
     <Page Include="Bindings\Db\ObjectBingding.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -343,6 +349,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\Toast.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\ToolTips.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -360,6 +370,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\Treeview2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ZoomableCanvas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -520,6 +534,7 @@
     <Content Include="Images\s32.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Reference\ZoomableCanvas.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

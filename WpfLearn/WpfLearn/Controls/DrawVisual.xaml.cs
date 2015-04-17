@@ -46,6 +46,8 @@ namespace WpfLearn.Controls
         /// <param name="e"></param>
         private void LocalCanvas_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
+
+
             Point pointClicked = e.GetPosition(LocalCanvas);
             if (operation == Operation.Add)
             {
@@ -67,6 +69,11 @@ namespace WpfLearn.Controls
                 CustomVisual visual = LocalCanvas.GetVisual(pointClicked);
                 if (visual == null)
                 {
+                    if (selectedVisual != null)
+                    {
+                        DrawImage(selectedVisual, selectedVisual.TopLeftPoint, false);
+                        selectedVisual = null;
+                    }
                     return;
                 }
                 //获取左上点
@@ -91,6 +98,27 @@ namespace WpfLearn.Controls
                 // moves off the Canvas. Otherwise, two selection squares could be drawn at once.
                 LocalCanvas.CaptureMouse();
             }
+            else if (operation == Operation.GraphMove)
+            {
+                before = e.GetPosition(this);
+                isMoving = true;
+
+                // Make sure we get the MouseLeftButtonUp event even if the user
+                // moves off the Canvas. Otherwise, two selection squares could be drawn at once.
+                LocalCanvas.CaptureMouse();
+            }
+            else if (operation == Operation.None)
+            {
+                if (DateTime.Now.Subtract(FirstClickDownTime).TotalSeconds > 2)
+                {
+                    isFirst = true;
+                }
+
+                if (isFirst)
+                {
+                    FirstClickDownTime = DateTime.Now;
+                }
+            }
         }
 
         private void ClearSelection()
@@ -109,6 +137,12 @@ namespace WpfLearn.Controls
         {
         }
 
+        private Point before;
+        private bool isMoving = false;
+
+        private DateTime FirstClickDownTime = DateTime.Now.AddSeconds(-5);
+        private DateTime SecondClickDownTime = DateTime.Now.AddSeconds(-5);
+        public bool isFirst = true;
         /// <summary>
         /// 鼠标移动
         /// </summary>
@@ -126,7 +160,16 @@ namespace WpfLearn.Controls
                 Point pointDragged = e.GetPosition(LocalCanvas);
                 DrawSelectionSquare(selectionSquareTopLeft, pointDragged);
             }
+            else if (operation == Operation.GraphMove && isMoving)
+            {
+                    Point pointDraged = e.GetPosition(this);
+                    LocalCanvas.Offset = new Point(LocalCanvas.Offset.X - pointDraged.X + before.X,
+                        LocalCanvas.Offset.Y - pointDraged.Y + before.Y);
+                    before = pointDraged;
+            }
         }
+
+        public int i = 0;
 
         private Brush selectionSquareBrush = Brushes.Transparent;
         private Pen selectionSquarePen = new Pen(Brushes.Black, 2);
@@ -149,7 +192,13 @@ namespace WpfLearn.Controls
         private void LocalCanvas_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             isDragging = false;
+            i = 0;
+            if (isMoving)
+            {
 
+                LocalCanvas.ReleaseMouseCapture();  
+            }
+            isMoving = false;
             if (isMultiSelection)
             {
                 // Display all the squares in this region.
@@ -161,6 +210,18 @@ namespace WpfLearn.Controls
                 LocalCanvas.DeleteVisual(selectionSquare);
                 LocalCanvas.ReleaseMouseCapture();  
             }
+
+            if (operation == Operation.None)
+            {
+                if (!isFirst)
+                {
+                    if (DateTime.Now.Subtract(FirstClickDownTime).TotalSeconds < 0.5)
+                    {
+                        Toast.Show("这是一次双击事件");
+                    }
+                }
+                isFirst = !isFirst;
+            }
         }
 
         /// <summary>
@@ -170,6 +231,17 @@ namespace WpfLearn.Controls
         /// <param name="e"></param>
         private void LocalCanvas_OnMouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
+            Point pointClicked = e.GetPosition(LocalCanvas);
+            CustomVisual visual = LocalCanvas.GetVisual(pointClicked);
+            if (visual == null)
+            {
+                isNeedToShowContextMenu = false;
+            }
+            else
+            {
+                isNeedToShowContextMenu = true;
+            }
+
         }
 
 
@@ -260,11 +332,81 @@ namespace WpfLearn.Controls
         {
             double d = SliderScale.Value/SliderScale.Maximum;
             LocalCanvas.Scale = d*2;
+            if (operation == Operation.SelectMove)
+            {
+                Toast.Show(LocalCanvas.Width + ":" + LocalCanvas.Height+"      "+LocalCanvas.Offset.X+":"+LocalCanvas.Offset.Y);
+            }
         }
 
         private void CmdNone_OnClick(object sender, RoutedEventArgs e)
         {
             operation = Operation.None;
+        }
+
+        private void CmdGraphMove_OnClick(object sender, RoutedEventArgs e)
+        {
+            operation = Operation.GraphMove;
+        }
+
+        private void CmdGraphZoom_OnClick(object sender, RoutedEventArgs e)
+        {
+            operation = Operation.GraphZoom;
+        }
+
+        private void LocalCanvas_OnMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            if (operation == Operation.GraphZoom)
+            {
+
+                if (e.Delta > 0)
+                {
+                    if (LocalCanvas.Scale > 2 )
+                    {
+                        return;
+                    }
+
+                    LocalCanvas.Scale = LocalCanvas.Scale*(1 + 1/16.0);
+
+                }
+                else if(e.Delta <0)
+                {
+                    if ( LocalCanvas.Scale < 0.5)
+                    {
+                        return;
+                    }
+
+                    LocalCanvas.Scale = LocalCanvas.Scale * (1 - 1 / 16.0);
+                }
+            }
+        }
+
+        private void CmdReset_OnClick(object sender, RoutedEventArgs e)
+        {
+            operation = Operation.None;
+            LocalCanvas.Scale = 1;
+            LocalCanvas.Offset = new Point(0,0);
+            isMoving = false;
+            isMultiSelection = false;
+        }
+
+        private void CmdHoom_OnClick(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void CmdZoom_OnClick(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private bool isNeedToShowContextMenu = false;
+        private void LocalCanvas_OnContextMenuOpening(object sender, ContextMenuEventArgs e)
+        {
+            if (!isNeedToShowContextMenu)
+            {
+                e.Handled = true;
+                return;
+            }
+
+            MiDel.Visibility = Visibility.Collapsed;
         }
     }
 
@@ -276,6 +418,8 @@ namespace WpfLearn.Controls
         Add,
         SelectMove,
         Delete,
-        MultiSelect
+        MultiSelect,
+        GraphMove,
+        GraphZoom
     }
 }

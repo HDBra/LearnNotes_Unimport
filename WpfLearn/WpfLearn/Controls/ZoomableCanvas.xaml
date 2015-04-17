@@ -1,0 +1,26 @@
+﻿<Window x:Class="WpfLearn.Controls.ZoomableCanvas"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:models="clr-namespace:WpfLearn.Models"
+        Title="ZoomableCanvas" Initialized="ZoomableCanvas_OnInitialized" Height="300" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <TextBlock Text="Scale"></TextBlock>
+            <Slider Minimum="0.5" Maximum="2" Width="200" Value="{Binding ElementName=LocalCanvas,Path=Scale}" ></Slider>
+        </StackPanel>
+        
+            <models:CustomCanvas Grid.Row="1" MouseWheel="LocalCanvas_OnMouseWheel" MouseLeftButtonDown="LocalCanvas_OnMouseLeftButtonDown" x:Name="LocalCanvas" MouseLeftButtonUp="LocalCanvas_OnMouseLeftButtonUp"  MouseMove="LocalCanvas_OnMouseMove"  HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Offset="-50,0">
+
+            </models:CustomCanvas>
+            <StackPanel Orientation="Horizontal" Grid.Row="2">
+            <TextBlock Text="Offset"></TextBlock>
+            <Slider x:Name="offsetVar" Minimum="-1000" Maximum="1000" Width="200" ValueChanged="OffsetVar_OnValueChanged"></Slider>
+        </StackPanel>
+    </Grid>
+</Window>
