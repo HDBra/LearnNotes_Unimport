@@ -282,7 +282,7 @@ namespace WpfLearn.Controls
         {
             using (DrawingContext dc = visual.RenderOpen())
             {
-                BitmapImage bitmap = new BitmapImage(new Uri("images/s18.png",UriKind.Relative));
+                BitmapImage bitmap = new BitmapImage(new Uri("images/s14.png",UriKind.Relative));
                 if (isSelected)
                 {
                     bitmap = new BitmapImage(new Uri("images/s32.png", UriKind.Relative));
@@ -399,7 +399,6 @@ namespace WpfLearn.Controls
         {
             operation = Operation.GraphZoom;
             LocalCanvas.ScaleDirection = 1;
-
         }
 
         /// <summary>
