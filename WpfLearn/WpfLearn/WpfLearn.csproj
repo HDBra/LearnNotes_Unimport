@@ -504,6 +504,9 @@
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\2.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Computer.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

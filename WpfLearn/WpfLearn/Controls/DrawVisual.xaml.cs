@@ -282,7 +282,7 @@ namespace WpfLearn.Controls
         {
             using (DrawingContext dc = visual.RenderOpen())
             {
-                BitmapImage bitmap = new BitmapImage(new Uri("images/s14.png",UriKind.Relative));
+                BitmapImage bitmap = new BitmapImage(new Uri("images/s18.png",UriKind.Relative));
                 if (isSelected)
                 {
                     bitmap = new BitmapImage(new Uri("images/s32.png", UriKind.Relative));
@@ -351,6 +351,7 @@ namespace WpfLearn.Controls
         private void CmdGraphZoom_OnClick(object sender, RoutedEventArgs e)
         {
             operation = Operation.GraphZoom;
+            LocalCanvas.ScaleDirection = 0;
         }
 
         private void LocalCanvas_OnMouseWheel(object sender, MouseWheelEventArgs e)
@@ -389,12 +390,27 @@ namespace WpfLearn.Controls
             isMultiSelection = false;
         }
 
+        /// <summary>
+        /// 水平缩放
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CmdHoom_OnClick(object sender, RoutedEventArgs e)
         {
+            operation = Operation.GraphZoom;
+            LocalCanvas.ScaleDirection = 1;
+
         }
 
+        /// <summary>
+        /// 垂直缩放
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CmdZoom_OnClick(object sender, RoutedEventArgs e)
         {
+            operation = Operation.GraphZoom;
+            LocalCanvas.ScaleDirection = 2;
         }
 
         private bool isNeedToShowContextMenu = false;

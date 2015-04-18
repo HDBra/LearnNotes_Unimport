@@ -114,14 +114,14 @@
                     <Button Background="Transparent" BorderThickness="0" Name="CmdHoom" Click="CmdHoom_OnClick">
                         <StackPanel>
                             <Image Source="../Images/pointer.png" Width="35" Height="35"></Image>
-                            <TextBlock>重置</TextBlock>
+                            <TextBlock>水平缩放</TextBlock>
                         </StackPanel>
                     </Button>
 
                     <Button Background="Transparent" BorderThickness="0" Name="CmdZoom" Click="CmdZoom_OnClick">
                         <StackPanel>
                             <Image Source="../Images/pointer.png" Width="35" Height="35"></Image>
-                            <TextBlock>重置</TextBlock>
+                            <TextBlock>垂直</TextBlock>
                         </StackPanel>
                     </Button>
 

@@ -1292,6 +1292,12 @@ namespace System.Windows.Controls
         }
 
         /// <summary>
+        /// 0双向
+        /// 1横向
+        /// 2纵向
+        /// </summary>
+        public int ScaleDirection = 0;
+        /// <summary>
         /// Scales the child elements of a <see cref="ZoomableCanvas"/> by applying a transform if <see cref="ApplyTransform"/> is <c>true</c>, or by calling <see cref="FrameworkElement.InvalidateArrange"/> otherwise.
         /// </summary>
         /// <param name="scale">The new scale of the canvas.</param>
@@ -1300,8 +1306,19 @@ namespace System.Windows.Controls
             var appliedTransform = AppliedScaleTransform;
             if (appliedTransform != null)
             {
-                appliedTransform.ScaleX = scale;
-                appliedTransform.ScaleY = scale;
+                if (ScaleDirection == 2)
+                {
+                    appliedTransform.ScaleY = scale;
+                }
+                else if (ScaleDirection == 1)
+                {
+                    appliedTransform.ScaleX = scale;
+                }
+                else
+                {
+                    appliedTransform.ScaleX = scale;
+                    appliedTransform.ScaleY = scale;
+                }
             }
             else
             {
