@@ -282,7 +282,7 @@ namespace WpfLearn.Controls
         {
             using (DrawingContext dc = visual.RenderOpen())
             {
-                BitmapImage bitmap = new BitmapImage(new Uri("images/n24.png",UriKind.Relative));
+                BitmapImage bitmap = new BitmapImage(new Uri("images/s14.png",UriKind.Relative));
                 if (isSelected)
                 {
                     bitmap = new BitmapImage(new Uri("images/n32.png", UriKind.Relative));
