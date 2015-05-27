@@ -56,13 +56,13 @@ namespace Socket
                         if (item == "sh600269")
                         {
                             int numberBuy = int.Parse(message[10]);
-                            if (numberBuy <= 10000000)
-                            {
-                                Console.Write("warning......warning");
-                                Console.WindowHeight = 20;
-                                Console.WindowWidth = 10;
-                                Thread.Sleep(1000);
-                            }
+                            //if (numberBuy <= 10000000)
+                            //{
+                            //    Console.Write("warning......warning");
+                            //    Console.WindowHeight = 20;
+                            //    Console.WindowWidth = 10;
+                            //    Thread.Sleep(1000);
+                            //}
                             Console.WriteLine(message[10]);
                         }
 
@@ -91,7 +91,7 @@ namespace Socket
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         private static extern System.IntPtr GetForegroundWindow();
 
-        static string[] Stocks = { "sh000001","sh600269"};
+        static string[] Stocks = { "sh000001","sh600269","sh601328"};
         const string ApiNet = @"http://hq.sinajs.cn/list=";
     }
 }
