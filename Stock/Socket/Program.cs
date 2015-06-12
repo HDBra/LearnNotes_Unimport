@@ -91,7 +91,7 @@ namespace Socket
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         private static extern System.IntPtr GetForegroundWindow();
 
-        static string[] Stocks = { "sh000001","sh601288"};
+        static string[] Stocks = { "sh000001","sh601398"};
         const string ApiNet = @"http://hq.sinajs.cn/list=";
     }
 }
