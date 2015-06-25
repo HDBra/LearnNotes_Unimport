@@ -183,6 +183,12 @@
     <Compile Include="Events\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ExtendedWPFToolKit\DataGrid.xaml.cs">
+      <DependentUpon>DataGrid.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ExtendedWPFToolKit\DataGrid2.xaml.cs">
+      <DependentUpon>DataGrid2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Models\CustomCanvas.cs" />
     <Compile Include="Models\CustomVisual.cs" />
     <Compile Include="Pages\Page2xaml.xaml.cs">
@@ -382,6 +388,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Events\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ExtendedWPFToolKit\DataGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ExtendedWPFToolKit\DataGrid2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

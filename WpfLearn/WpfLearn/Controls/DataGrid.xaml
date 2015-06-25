@@ -61,6 +61,8 @@ FontSize="10">
                     </Border>
                 </DataTemplate>
             </DataGrid.RowDetailsTemplate>
+            
+            <DataGrid.ItemContainerStyle></DataGrid.ItemContainerStyle>
 
 
         </DataGrid>

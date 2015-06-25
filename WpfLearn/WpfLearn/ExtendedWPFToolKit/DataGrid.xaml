@@ -1,0 +1,40 @@
+﻿<Window x:Class="WpfLearn.ExtendedWPFToolKit.DataGrid"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:xcdg="http://schemas.xceed.com/wpf/xaml/datagrid"
+        Title="DataGrid" Height="300" Width="300"
+        Initialized="DataGrid_OnInitialized">
+    <Grid>
+        
+        
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+
+        </Grid.ColumnDefinitions>
+
+
+        <!--DataGridControl控件-->
+        <xcdg:DataGridControl Name="DataGrid01"  AutoCreateColumns="False" SelectionMode="Multiple" ReadOnly="True" >
+            <xcdg:DataGridControl.Columns>
+                <xcdg:Column FieldName="Id" Visible="False" Width="80"></xcdg:Column>
+                <xcdg:Column FieldName="Name" Width="80" Title="名称" CellHorizontalContentAlignment="Center" CellVerticalContentAlignment="Center">
+                </xcdg:Column>
+            </xcdg:DataGridControl.Columns>
+            
+            <xcdg:DataGridControl></xcdg:DataGridControl>
+            
+            <xcdg:DataGridControl.ItemContainerStyle>
+                <Style>
+                    <Setter Property="Height" Value="100"></Setter>
+              
+                </Style>
+            </xcdg:DataGridControl.ItemContainerStyle>
+        </xcdg:DataGridControl>
+        
+        
+    </Grid>
+</Window>
