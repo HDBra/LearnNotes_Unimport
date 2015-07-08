@@ -1,0 +1,21 @@
+﻿<Window x:Class="WpfLearn.Controls.ExtendedDataGrid02"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:extendedGridControl="clr-namespace:ExtendedGrid.ExtendedGridControl;assembly=ExtendedGrid"
+        Title="ExtendedDataGrid02" Height="300" Width="300" Initialized="ExtendedDataGrid02_OnInitialized">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+        
+        <extendedGridControl:ExtendedDataGrid x:Name="DataGrid01" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  HideColumnChooser="True" GroupByHeaderText="将列拖动到这里进行分组" IsSynchronizedWithCurrentItem="True" RowHeight="32" RowHeaderWidth="20" SelectionMode="Extended" SelectionUnit="FullRow" ShowColumnSplitter="False"  >
+            
+        </extendedGridControl:ExtendedDataGrid>
+        
+        
+    </Grid>
+</Window>

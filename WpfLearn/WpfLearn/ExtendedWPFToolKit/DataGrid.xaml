@@ -27,12 +27,6 @@
             
             <xcdg:DataGridControl></xcdg:DataGridControl>
             
-            <xcdg:DataGridControl.ItemContainerStyle>
-                <Style>
-                    <Setter Property="Height" Value="100"></Setter>
-              
-                </Style>
-            </xcdg:DataGridControl.ItemContainerStyle>
         </xcdg:DataGridControl>
         
         

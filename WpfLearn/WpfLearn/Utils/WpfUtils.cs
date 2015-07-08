@@ -56,7 +56,7 @@ namespace WpfLearn.Utils
         /// <param name="name"></param>
         /// <param name="fe"></param>
         /// <returns></returns>
-        public static FrameworkElement FindViewByName(string name, FrameworkElement fe)
+        public static FrameworkElement FindViewByName2(string name, FrameworkElement fe)
         {
             return (FrameworkElement) fe.FindName(name);
         }

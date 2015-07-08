@@ -17,9 +17,9 @@ namespace WpfLearn.Controls
     /// <summary>
     /// CheckBox.xaml 的交互逻辑
     /// </summary>
-    public partial class CheckBox : Window
+    public partial class CheckBoxtest : Window
     {
-        public CheckBox()
+        public CheckBoxtest()
         {
             InitializeComponent();
         }

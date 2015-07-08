@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Data;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -15,29 +11,28 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using WpfLearn.Annotations;
-using Xceed.Wpf.DataGrid;
+using WpfLearn.ExtendedWPFToolKit;
 
-namespace WpfLearn.ExtendedWPFToolKit
+namespace WpfLearn.Controls
 {
     /// <summary>
-    /// DataGrid.xaml 的交互逻辑
+    /// ExtendedDataGrid02.xaml 的交互逻辑
     /// </summary>
-    public partial class DataGrid : Window
+    public partial class ExtendedDataGrid02 : Window
     {
-        public DataGrid()
+        public ExtendedDataGrid02()
         {
             InitializeComponent();
         }
 
-        /// <summary>
-        /// 初始化方法
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void DataGrid_OnInitialized(object sender, EventArgs e)
+        private void ExtendedDataGrid02_OnInitialized(object sender, EventArgs e)
         {
-            ObservableCollection<Order> orders = new ObservableCollection<Order>
+            DataGrid01.ItemsSource = orders;
+        }
+
+
+
+        private List<Order> orders = new List<Order>
             {
                 new Order() {Id = Guid.NewGuid(), Name = "apple", Price = 0.8, CreatedTime = DateTime.Now},
                 new Order() {Id = Guid.NewGuid(), Name = "apple", Price = 0.8, CreatedTime = DateTime.Now},
@@ -136,38 +131,5 @@ namespace WpfLearn.ExtendedWPFToolKit
                 new Order() {Id = Guid.NewGuid(), Name = "apple6", Price = 0.86, CreatedTime = DateTime.Now},
                 new Order() {Id = Guid.NewGuid(), Name = "apple7", Price = 0.87, CreatedTime = DateTime.Now},
             };
-
-
-            DataGridCollectionView collectionView = new DataGridCollectionView(orders);
-            //collectionView.GroupDescriptions.Add(new DataGridGroupDescription("Name"));
-      
-            DataGrid01.ItemsSource = collectionView;
-        }
-    }
-
-    public class Order:INotifyPropertyChanged
-    {
-        public Guid Id { get; set; }
-        public string Name { get; set; }
-        public double Price { get; set; }
-        private bool ischecked;
-        public bool IsChecked
-        {
-            get { return ischecked;}
-            set
-            {
-                ischecked = value;
-                if (PropertyChanged != null)
-                {
-                    PropertyChanged(this,new PropertyChangedEventArgs("IsChecked"));
-                }
-            }
-        }
-
-
-        public DateTime CreatedTime { get; set; }
-
-
-        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

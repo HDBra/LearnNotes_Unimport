@@ -34,6 +34,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ExtendedGrid, Version=2.0.0.21, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Reference\ExtendedGrid.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -101,6 +105,12 @@
     </Compile>
     <Compile Include="Controls\Expander.xaml.cs">
       <DependentUpon>Expander.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ExtendedDataGrid01.xaml.cs">
+      <DependentUpon>ExtendedDataGrid01.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ExtendedDataGrid02.xaml.cs">
+      <DependentUpon>ExtendedDataGrid02.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\GroupBox.xaml.cs">
       <DependentUpon>GroupBox.xaml</DependentUpon>
@@ -171,6 +181,9 @@
     <Compile Include="Controls\ZoomableCanvas.xaml.cs">
       <DependentUpon>ZoomableCanvas.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ZoomableCanvas2.xaml.cs">
+      <DependentUpon>ZoomableCanvas2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Deletable\Category.cs" />
     <Compile Include="Deletable\ImagePathConverter.cs" />
     <Compile Include="Deletable\Product.cs" />
@@ -200,6 +213,7 @@
     <Compile Include="Pages\WindowPage.xaml.cs">
       <DependentUpon>WindowPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Annotations.cs" />
     <Compile Include="UI\Canvas.xaml.cs">
       <DependentUpon>Canvas.xaml</DependentUpon>
     </Compile>
@@ -288,6 +302,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\Expander.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ExtendedDataGrid01.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ExtendedDataGrid02.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -380,6 +402,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\ZoomableCanvas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ZoomableCanvas2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -563,6 +589,7 @@
     <Content Include="Images\s32.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Reference\ExtendedGrid.dll" />
     <Content Include="Reference\ZoomableCanvas.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,12 +1,14 @@
 ﻿<Application x:Class="WpfLearn.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             StartupUri="ExtendedWPFToolKit/DataGrid.xaml"
+             StartupUri="Controls/ZoomableCanvas2.xaml"
              Startup="App_OnStartup"
              Exit="App_OnExit"
              Activated="App_OnActivated"
              Deactivated="App_OnDeactivated"
-             SessionEnding="App_OnSessionEnding">
+             SessionEnding="App_OnSessionEnding"
+             DispatcherUnhandledException="App_OnDispatcherUnhandledException"
+             >
     <Application.Resources>
         <!--<Style x:Key="BigFontButtonStyle" TargetType="Button">
             <Style.Setters>

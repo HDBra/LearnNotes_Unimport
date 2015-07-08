@@ -62,7 +62,7 @@ FontSize="10">
                 </DataTemplate>
             </DataGrid.RowDetailsTemplate>
             
-            <DataGrid.ItemContainerStyle></DataGrid.ItemContainerStyle>
+            
 
 
         </DataGrid>
