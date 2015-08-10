@@ -139,6 +139,9 @@
     <Compile Include="Controls\menu.xaml.cs">
       <DependentUpon>menu.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\MessageTip.xaml.cs">
+      <DependentUpon>MessageTip.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Popup.xaml.cs">
       <DependentUpon>Popup.xaml</DependentUpon>
     </Compile>
@@ -346,6 +349,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\menu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\MessageTip.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -565,6 +572,7 @@
     <Content Include="Images\new32.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Images\operation.png" />
     <Content Include="Images\pointer.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
