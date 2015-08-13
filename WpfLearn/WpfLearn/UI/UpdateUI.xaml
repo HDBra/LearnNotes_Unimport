@@ -1,0 +1,8 @@
+﻿<Window x:Class="WpfLearn.UI.UpdateUI"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="UpdateUI" Initialized="UpdateUI_OnInitialized" Closed="UpdateUI_OnClosed" Background="BurlyWood" MinHeight="300" MinWidth="300">
+    <Grid>
+        <TextBlock Name="TbInfo" AllowDrop="False" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="WrapWithOverflow"></TextBlock>
+    </Grid>
+</Window>

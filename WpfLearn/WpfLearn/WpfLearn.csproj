@@ -244,6 +244,9 @@
     <Compile Include="UI\UniformGrid.xaml.cs">
       <DependentUpon>UniformGrid.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\UpdateUI.xaml.cs">
+      <DependentUpon>UpdateUI.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\WrapPanel.xaml.cs">
       <DependentUpon>WrapPanel.xaml</DependentUpon>
     </Compile>
@@ -493,6 +496,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\UniformGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\UpdateUI.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
