@@ -10,6 +10,7 @@
                         <Style>
                             <Setter Property="Control.Background"  Value="Azure"></Setter>
                             <Setter Property="Control.Height" Value="32"></Setter>
+                            <Setter Property="Control.FontSize" Value="14"></Setter>
                             <Setter Property="Control.HorizontalContentAlignment" Value="Stretch"></Setter>
                         </Style>
                     </GridView.ColumnHeaderContainerStyle>
