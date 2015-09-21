@@ -15,22 +15,14 @@ namespace ProMVC.Controllers
             return View();
         }
 
-
-        [HttpPost]
-        public ActionResult Index(Color color)
+        /// <summary>
+        /// 无法找到资源。 
+        /// HTTP 404。
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Test()
         {
-            Color? oldColor = Session["color"] as Color?;
-            if (oldColor != null)
-            {
-                Votes.ChangeVote(color, oldColor.Value);
-            }
-            else
-            {
-                Votes.RecordVote(color);
-            }
-
-            ViewBag.SelectedColor = Session["color"] = color;
-            return View();
+            return HttpNotFound();
         }
     }
 }
