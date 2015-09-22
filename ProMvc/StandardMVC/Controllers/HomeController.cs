@@ -36,6 +36,16 @@ namespace StandardMVC.Controllers
         {
             return "Hello " + HttpUtility.HtmlEncode(id);
         }
+
+        /// <summary>
+        /// 返回Partial View
+        /// partial view跟正常view的区别是它不指定Layout，即使在_ViewStart.cshtml中定义了Layout.
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Partial()
+        {
+            return PartialView();
+        }
         
     }
 }
