@@ -52,6 +52,15 @@ namespace StandardMVC.Utils
         {
             return HttpNotFound();
         }
-        
+
+        /// <summary>
+        /// 重定向Url
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns></returns>
+        public ActionResult RedirectUrl(string url)
+        {
+            return Redirect(url);
+        }
     }
 }
