@@ -46,6 +46,13 @@ namespace StandardMVC.Controllers
         {
             return PartialView();
         }
-        
+
+        /// <summary>
+        /// 处理异常Action
+        /// </summary>
+        /// <param name="actionName"></param>
+        protected override void HandleUnknownAction(string actionName)
+        {
+        }
     }
 }
