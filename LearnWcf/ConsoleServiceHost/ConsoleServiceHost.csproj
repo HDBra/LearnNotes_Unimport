@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{59014118-3DC6-4414-9F92-A7809AE4132D}</ProjectGuid>
+    <ProjectGuid>{432835B9-9EE1-453D-AD77-286114FC50B5}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SelfHost</RootNamespace>
-    <AssemblyName>SelfHost</AssemblyName>
+    <RootNamespace>ConsoleServiceHost</RootNamespace>
+    <AssemblyName>ConsoleServiceHost</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -51,9 +51,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WcfInterface\WcfInterface.csproj">
-      <Project>{1e924290-6a3d-4b9f-af13-3981c50372b9}</Project>
-      <Name>WcfInterface</Name>
+    <ProjectReference Include="..\CommonWcfServiceLibrary\CommonWcfServiceLibrary.csproj">
+      <Project>{d31766b1-ed75-4980-9cc3-e3bbeed21469}</Project>
+      <Name>CommonWcfServiceLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

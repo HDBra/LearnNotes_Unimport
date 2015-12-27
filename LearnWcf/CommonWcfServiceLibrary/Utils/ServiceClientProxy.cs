@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.ServiceModel;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ServiceModel;
 
-namespace WcfInterface.Utils
+namespace CommonWcfServiceLibrary.Utils
 {
     /// <summary>
     /// Service is hosted, now we need to implement the proxy class for the client. There are different ways of creating the proxy 

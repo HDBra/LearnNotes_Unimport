@@ -5,32 +5,23 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 
-namespace WcfInterface
+namespace CommonWcfServiceLibrary
 {
-    /// <summary>
-    /// Tips:
-    /// 1:Always create the service with interface->Implementation format, mention the contract in interface.
-    /// 2:Define the service in class library and refer the class library in host project. Don't use service class in host project.
-    /// </summary>
+    // 注意: 使用“重构”菜单上的“重命名”命令，可以同时更改代码和配置文件中的接口名“IService1”。
     [ServiceContract]
-    public interface IWcfService
+    public interface IService1
     {
         [OperationContract]
-        int Add(int num1, int num2);
+        string GetData(int value);
 
         [OperationContract]
-        int Substract(int num1, int num2);
+        CompositeType GetDataUsingDataContract(CompositeType composite);
 
-        [OperationContract]
-        int Multiply(int num1, int num2);
-
-        [OperationContract]
-        int Divide(int num1, int num2);
-
+        // TODO: 在此添加您的服务操作
     }
 
     // 使用下面示例中说明的数据约定将复合类型添加到服务操作。
-
+    // 可以将 XSD 文件添加到项目中。在生成项目后，可以通过命名空间“CommonWcfServiceLibrary.ContractType”直接使用其中定义的数据类型。
     [DataContract]
     public class CompositeType
     {
