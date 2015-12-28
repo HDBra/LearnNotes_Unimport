@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonWcfClient", "CommonWc
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Host", "Host", "{A8E0E9C2-B534-4582-9AB5-2506E0A1AE63}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{64A7C0BE-EE10-469C-86C4-255614F24075}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IISServiceHost", "IISServiceHost\IISServiceHost.csproj", "{37D2EED1-F64C-445F-9CEA-DC20DB2A14AE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,11 +33,17 @@ Global
 		{60BAF0B5-0170-4F4C-921D-6E727F484D55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60BAF0B5-0170-4F4C-921D-6E727F484D55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60BAF0B5-0170-4F4C-921D-6E727F484D55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37D2EED1-F64C-445F-9CEA-DC20DB2A14AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37D2EED1-F64C-445F-9CEA-DC20DB2A14AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37D2EED1-F64C-445F-9CEA-DC20DB2A14AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37D2EED1-F64C-445F-9CEA-DC20DB2A14AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{432835B9-9EE1-453D-AD77-286114FC50B5} = {A8E0E9C2-B534-4582-9AB5-2506E0A1AE63}
+		{60BAF0B5-0170-4F4C-921D-6E727F484D55} = {64A7C0BE-EE10-469C-86C4-255614F24075}
+		{37D2EED1-F64C-445F-9CEA-DC20DB2A14AE} = {A8E0E9C2-B534-4582-9AB5-2506E0A1AE63}
 	EndGlobalSection
 EndGlobal
