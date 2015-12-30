@@ -120,6 +120,7 @@ namespace CommonWcfServiceLibrary.Utils
                  */
                 _host = new ServiceHost(serviceType) {CloseTimeout = new TimeSpan(0, 0, 30)};
                 //注册各种监听事件
+                //Faulted 表示通信对象发生错误，无法恢复且不可再用
                 //_host.Faulted +=;
                 //_host.Closed +=;
                 //_host.Opened +=;
