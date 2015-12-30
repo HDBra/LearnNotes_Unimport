@@ -101,7 +101,10 @@ namespace CommonWcfServiceLibrary.Utils
         }
 
         /// <summary>
-        /// 
+         /*
+                 * 1、如果注册多个服务需要多个host
+                 * 2、基地址可以在构造函数中指定，也可在配置文件中指定（建议在配置文件中） 如：new Uri("http://localhost:19830/CmluService")  Host将会使用配置文件中的基地址和构造函数中提供的基地址的组合。
+                 */
         /// </summary>
         /// <param name="serviceType">承载服务的类型。</param>
         /// <returns></returns>
@@ -111,7 +114,15 @@ namespace CommonWcfServiceLibrary.Utils
             Stop();
             try
             {
-                _host = new ServiceHost(serviceType);
+                /*
+                 * 1、如果注册多个服务需要多个host
+                 * 2、基地址可以在构造函数中指定，也可在配置文件中指定（建议在配置文件中） 如：new Uri("http://localhost:19830/CmluService")  Host将会使用配置文件中的基地址和构造函数中提供的基地址的组合。
+                 */
+                _host = new ServiceHost(serviceType) {CloseTimeout = new TimeSpan(0, 0, 30)};
+                //注册各种监听事件
+                //_host.Faulted +=;
+                //_host.Closed +=;
+                //_host.Opened +=;
 
                 //_host.AddServiceEndpoint();//添加Endpoint
                 //_host.Description.Behaviors.Add();//添加行为
@@ -142,7 +153,11 @@ namespace CommonWcfServiceLibrary.Utils
                     //by calling the Close() method, you gracefully exit the host instance, allowing calls in progress to complete while refusing future client calls
                     _host.Close();
                 }
-                catch { }
+                catch (Exception ex)
+                {
+                    //Abort is an ungraceful exit, when called, it immediately aborts all service call in progress and shut down the host.
+                    _host.Abort();
+                }
             }
             isOpened = false;
             _host = null;
@@ -159,8 +174,8 @@ namespace CommonWcfServiceLibrary.Utils
         {
             WSHttpBinding wsHttpBinding = new WSHttpBinding();
             wsHttpBinding.AllowCookies = true;
-            wsHttpBinding.CloseTimeout = new TimeSpan(0,0,8);
-            wsHttpBinding.SendTimeout = wsHttpBinding.ReceiveTimeout = new TimeSpan(0, 0, 8);
+            wsHttpBinding.CloseTimeout = new TimeSpan(0,0,30);
+            wsHttpBinding.SendTimeout = wsHttpBinding.ReceiveTimeout = new TimeSpan(0, 0, 30);
             return wsHttpBinding;
         }
 

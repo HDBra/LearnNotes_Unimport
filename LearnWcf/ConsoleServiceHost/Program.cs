@@ -12,9 +12,10 @@ namespace ConsoleServiceHost
     {
         static void Main(string[] args)
         {
-            using (ServiceHost host = new ServiceHost(typeof (Service1)))
+            using (ServiceHost host = new ServiceHost(typeof(Service1)))
             {
                 host.Open();
+                Console.WriteLine(host.State);
                 Console.WriteLine("开始接受信息");
                 Console.ReadLine();
                 Console.ReadLine();
