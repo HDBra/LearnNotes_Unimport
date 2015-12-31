@@ -106,7 +106,7 @@ namespace CommonWcfServiceLibrary.Utils
                  * 2、基地址可以在构造函数中指定，也可在配置文件中指定（建议在配置文件中） 如：new Uri("http://localhost:19830/CmluService")  Host将会使用配置文件中的基地址和构造函数中提供的基地址的组合。
                  */
         /// </summary>
-        /// <param name="serviceType">承载服务的类型。</param>
+        /// <param name="serviceType">承载服务的类型。 如： typeof(Service1)</param>
         /// <returns></returns>
         public bool Open(Type serviceType)
         {
@@ -118,6 +118,7 @@ namespace CommonWcfServiceLibrary.Utils
                  * 1、如果注册多个服务需要多个host
                  * 2、基地址可以在构造函数中指定，也可在配置文件中指定（建议在配置文件中） 如：new Uri("http://localhost:19830/CmluService")  Host将会使用配置文件中的基地址和构造函数中提供的基地址的组合。
                  */
+
                 _host = new ServiceHost(serviceType) {CloseTimeout = new TimeSpan(0, 0, 30)};
                 //注册各种监听事件
                 //Faulted 表示通信对象发生错误，无法恢复且不可再用
@@ -125,10 +126,12 @@ namespace CommonWcfServiceLibrary.Utils
                 //_host.Closed +=;
                 //_host.Opened +=;
 
+                //通常通过配置文件来添加 Endpoint 和 Behavior
                 //_host.AddServiceEndpoint();//添加Endpoint
                 //_host.Description.Behaviors.Add();//添加行为
                 //Binding wsBinding = new WSHttpBinding();
-                //host.AddServiceEndpoint(typeof(IMyContract),wsBinding,"http://localhost:8000/MyService");
+                //MyService是相对于基地址的，如果你没有定义endpoint(在配置或者代码中)，wcf使用默认的Endpoint. WCF 从基地址中推断出binding,并使用基地址作为endpoint的地址。 Http使用 BasicHttpBinding
+                //host.AddServiceEndpoint(typeof(IMyContract),wsBinding,"MyService");
                 //绑定事件
 
                 _host.Open();
