@@ -119,7 +119,9 @@ namespace CommonWcfServiceLibrary.Utils
                  * 2、基地址可以在构造函数中指定，也可在配置文件中指定（建议在配置文件中） 如：new Uri("http://localhost:19830/CmluService")  Host将会使用配置文件中的基地址和构造函数中提供的基地址的组合。
                  */
 
-                _host = new ServiceHost(serviceType) {CloseTimeout = new TimeSpan(0, 0, 30)};
+                _host = new ServiceHost(serviceType) ;
+                _host.CloseTimeout = new TimeSpan(0,1,0);
+
                 //注册各种监听事件
                 //Faulted 表示通信对象发生错误，无法恢复且不可再用
                 //_host.Faulted +=;
