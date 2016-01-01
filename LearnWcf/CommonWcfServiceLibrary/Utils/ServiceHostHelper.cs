@@ -159,7 +159,7 @@ namespace CommonWcfServiceLibrary.Utils
                     //by calling the Close() method, you gracefully exit the host instance, allowing calls in progress to complete while refusing future client calls
                     _host.Close();
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     //Abort is an ungraceful exit, when called, it immediately aborts all service call in progress and shut down the host.
                     _host.Abort();
