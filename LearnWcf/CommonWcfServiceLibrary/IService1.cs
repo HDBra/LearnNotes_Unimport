@@ -8,7 +8,12 @@ using System.Text;
 namespace CommonWcfServiceLibrary
 {
     // 注意: 使用“重构”菜单上的“重命名”命令，可以同时更改代码和配置文件中的接口名“IService1”。
-    [ServiceContract]
+    /// <summary>
+    /// Allowed ： Specifies that the contract supports sessions if the incoming binding supports them,默认的
+    /// Required : Specifies that the contract requires a sessionful binding. An exception is thrown if the binding is not configured to support session.
+    /// NotAllowed : Specifies that the contract never supports bindings that initiate sessions.
+    /// </summary>
+    [ServiceContract(SessionMode = SessionMode.Allowed)]
     public interface IService1
     {
         [OperationContract]
