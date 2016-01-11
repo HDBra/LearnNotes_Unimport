@@ -16,7 +16,7 @@ namespace CommonWcfServiceLibrary.Utils
     /// net.msmq://localhost/MyQueue
     /// tcp默认端口808 http默认80 https默认443  pipe使用管道进行同一机器的进程通信
     /// </summary>
-    public class ServiceHostHelper:IDisposable
+    public class ServiceHostHelper : IDisposable
     {
         #region 单例
 
@@ -26,7 +26,7 @@ namespace CommonWcfServiceLibrary.Utils
         private static ServiceHostHelper _instance;
 
         #region 私有构造函数
-        
+
         /// <summary>
         /// 构造函数
         /// </summary>
@@ -77,7 +77,7 @@ namespace CommonWcfServiceLibrary.Utils
         /// <param name="serviceType">承载服务的类型。</param>
         /// <param name="baseAddresses">Uri 类型的数组，包含承载服务的基址。</param>
         /// <returns>是否成功打开</returns>
-        public bool Open(Type serviceType,params Uri[] baseAddresses)
+        public bool Open(Type serviceType, params Uri[] baseAddresses)
         {
             //首先关闭连接，如果已经连接
             Stop();
@@ -101,10 +101,10 @@ namespace CommonWcfServiceLibrary.Utils
         }
 
         /// <summary>
-         /*
-                 * 1、如果注册多个服务需要多个host
-                 * 2、基地址可以在构造函数中指定，也可在配置文件中指定（建议在配置文件中） 如：new Uri("http://localhost:19830/CmluService")  Host将会使用配置文件中的基地址和构造函数中提供的基地址的组合。
-                 */
+        /*
+                * 1、如果注册多个服务需要多个host
+                * 2、基地址可以在构造函数中指定，也可在配置文件中指定（建议在配置文件中） 如：new Uri("http://localhost:19830/CmluService")  Host将会使用配置文件中的基地址和构造函数中提供的基地址的组合。
+                */
         /// </summary>
         /// <param name="serviceType">承载服务的类型。 如： typeof(Service1)</param>
         /// <returns></returns>
@@ -115,12 +115,12 @@ namespace CommonWcfServiceLibrary.Utils
             try
             {
                 /*
-                 * 1、如果注册多个服务需要多个host
-                 * 2、基地址可以在构造函数中指定，也可在配置文件中指定（建议在配置文件中） 如：new Uri("http://localhost:19830/CmluService")  Host将会使用配置文件中的基地址和构造函数中提供的基地址的组合。
-                 */
+                    * 1、如果注册多个服务需要多个host
+                    * 2、基地址可以在构造函数中指定，也可在配置文件中指定（建议在配置文件中） 如：new Uri("http://localhost:19830/CmluService")  Host将会使用配置文件中的基地址和构造函数中提供的基地址的组合。
+                    */
 
-                _host = new ServiceHost(serviceType) ;
-                _host.CloseTimeout = new TimeSpan(0,1,0);
+                _host = new ServiceHost(serviceType);
+                _host.CloseTimeout = new TimeSpan(0, 1, 0);
 
                 //注册各种监听事件
                 //Faulted 表示通信对象发生错误，无法恢复且不可再用
@@ -137,7 +137,7 @@ namespace CommonWcfServiceLibrary.Utils
                 //绑定事件
 
                 _host.Open();
-                
+
                 isOpened = true;
             }
             catch
@@ -180,7 +180,7 @@ namespace CommonWcfServiceLibrary.Utils
         {
             WSHttpBinding wsHttpBinding = new WSHttpBinding();
             wsHttpBinding.AllowCookies = true;
-            wsHttpBinding.CloseTimeout = new TimeSpan(0,0,30);
+            wsHttpBinding.CloseTimeout = new TimeSpan(0, 0, 30);
             wsHttpBinding.SendTimeout = wsHttpBinding.ReceiveTimeout = new TimeSpan(0, 0, 30);
             return wsHttpBinding;
         }

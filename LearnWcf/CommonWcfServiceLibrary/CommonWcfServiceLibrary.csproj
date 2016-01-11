@@ -52,6 +52,7 @@
     <Compile Include="Utils\ServiceClient.cs" />
     <Compile Include="Utils\ServiceFactory.cs" />
     <Compile Include="Utils\ServiceHostHelper.cs" />
+    <Compile Include="Utils\ServiceHostListHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
