@@ -160,6 +160,9 @@
     <Compile Include="Controls\TabControl.xaml.cs">
       <DependentUpon>TabControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\TabControl2.xaml.cs">
+      <DependentUpon>TabControl2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\TextBox.xaml.cs">
       <DependentUpon>TextBox.xaml</DependentUpon>
     </Compile>
@@ -207,6 +210,11 @@
     </Compile>
     <Compile Include="Models\CustomCanvas.cs" />
     <Compile Include="Models\CustomVisual.cs" />
+    <Compile Include="Models\MainWindowViewModel.cs" />
+    <Compile Include="Models\PersonModel.cs" />
+    <Compile Include="MVVM\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Page2xaml.xaml.cs">
       <DependentUpon>Page2xaml.xaml</DependentUpon>
     </Compile>
@@ -383,6 +391,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\TabControl2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\TextBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -447,6 +459,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MVVM\MainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Page2xaml.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -1,0 +1,26 @@
+﻿<Window x:Class="WpfLearn.Controls.TabControl2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="TabControl2" Height="300" Width="300">
+    <Grid>
+        <TabControl TabStripPlacement="Left">
+            <TabControl.Items>
+                <TabItem>
+                    <TabItem.Header>
+                        <TextBlock>Tab1</TextBlock>
+                    </TabItem.Header>
+                    <TextBlock>Content1</TextBlock>
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <TextBlock>Tab2</TextBlock>
+                    </TabItem.Header>
+                    <TabItem.Content>
+                        <TextBlock>Content2</TextBlock>
+                    </TabItem.Content>
+                    
+                </TabItem>
+            </TabControl.Items>
+        </TabControl>
+    </Grid>
+</Window>
