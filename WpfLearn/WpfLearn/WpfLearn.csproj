@@ -82,6 +82,9 @@
     <Compile Include="Bindings\ElementBinding.xaml.cs">
       <DependentUpon>ElementBinding.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Bindings\ElementBinding2.xaml.cs">
+      <DependentUpon>ElementBinding2.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Bindings\ObjectBinding.xaml.cs">
       <DependentUpon>ObjectBinding.xaml</DependentUpon>
     </Compile>
@@ -284,6 +287,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Bindings\ElementBinding.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Bindings\ElementBinding2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

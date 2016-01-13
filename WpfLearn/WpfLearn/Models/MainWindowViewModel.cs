@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -42,7 +43,7 @@ namespace WpfLearn.Models
             {
                 _model.LastName = value;
                 FullName = string.Format("{0} {1}",_model.FirstName, _model.LastName);
-                OnPropertyChanged("LastName");
+                OnPropertyChanged();
             }
         }
 
@@ -60,7 +61,7 @@ namespace WpfLearn.Models
         public event PropertyChangedEventHandler PropertyChanged;
 
 
-        public void OnPropertyChanged(string propertyName)
+        public void OnPropertyChanged([CallerMemberName] string propertyName="")
         {
             if (PropertyChanged != null)
             {
