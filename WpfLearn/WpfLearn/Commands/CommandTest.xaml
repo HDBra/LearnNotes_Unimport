@@ -13,5 +13,6 @@
             </MenuItem>
         </Menu>
         <Button Command="ApplicationCommands.New">New</Button>
+        
     </StackPanel>
 </Window>
