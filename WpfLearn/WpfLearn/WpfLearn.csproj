@@ -576,9 +576,6 @@
     <Resource Include="Images\Desert.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <SplashScreen Include="splash.bmp" />
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
