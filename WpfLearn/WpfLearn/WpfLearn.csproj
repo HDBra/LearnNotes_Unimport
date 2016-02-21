@@ -228,6 +228,9 @@
       <DependentUpon>WindowPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Templates\TemplateBrowser.xaml.cs">
+      <DependentUpon>TemplateBrowser.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\Canvas.xaml.cs">
       <DependentUpon>Canvas.xaml</DependentUpon>
     </Compile>
@@ -479,6 +482,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\WindowPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Templates\TemplateBrowser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

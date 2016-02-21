@@ -12,7 +12,7 @@
                 <MenuItem Command="New"></MenuItem>
             </MenuItem>
         </Menu>
-        <Button Command="ApplicationCommands.New">New</Button>
+        <Button Command="ApplicationCommands.New" Padding="4" Template="{StaticResource ButtonTemplate}">New</Button>
         
     </StackPanel>
 </Window>

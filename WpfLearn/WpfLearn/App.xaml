@@ -58,5 +58,22 @@
                 </EventTrigger>
             </Style.Triggers>
         </Style>
+        
+        <ControlTemplate x:Key="ButtonTemplate" TargetType="{x:Type Button}">
+            <Border BorderBrush="Orange" BorderThickness="2" CornerRadius="2" Background="Red" TextBlock.Foreground="White">
+                <ContentPresenter RecognizesAccessKey="True" Margin="{TemplateBinding Padding}"></ContentPresenter>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Button.Background" Value="GreenYellow"></Setter>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Border.Background" Value="IndianRed"></Setter>
+                    <Setter Property="Border.BorderBrush" Value="DarkKhaki"></Setter>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+        
+        
     </Application.Resources>
 </Application>
