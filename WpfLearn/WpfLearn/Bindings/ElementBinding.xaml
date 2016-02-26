@@ -5,7 +5,16 @@
     <Grid>
         <StackPanel>
             <Slider Name="SliderFont" Margin="3" Maximum="49" Minimum="1" Value="10" TickFrequency="1" TickPlacement="TopLeft" ></Slider>
-            <TextBlock Margin="10" Text="Simple Text" Name="TbText" FontSize="{Binding ElementName=SliderFont,Path=Value}"></TextBlock>
+            <TextBlock Margin="10" Text="{Binding ElementName=SliderFont,Path=Value,StringFormat={}{0:C}}" Name="TbText" FontSize="{Binding ElementName=SliderFont,Path=Value}"></TextBlock>
+            <!--
+            
+            {}{0:C} 第一个{}是转义字符，表示后面是格式化字符串，{}转义当StringFormat以{开始的时候需要。 StringFormat=The value is {0:C}.
+            the first character in the StringFormat value is an ordinary letter, not a brace, the initial escape sequence isn’t required.
+            StringFormat={}{0:MM/dd/yyyy} 日期格式化
+            
+            另外一个更强的方法是Value Converter. 它可以在源和目标之间互相转换
+            
+            -->
         </StackPanel>
     </Grid>
 </Window>

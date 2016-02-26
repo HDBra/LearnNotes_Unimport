@@ -95,6 +95,7 @@ namespace WpfLearn
                 tb.Background = new SolidColorBrush(Colors.LightGoldenrodYellow);
                 
             }
+            
         }
 
         private void TextBolck_OnMouseLeave(object sender, MouseEventArgs e)

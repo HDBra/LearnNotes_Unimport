@@ -1,7 +1,7 @@
 ﻿<Application x:Class="WpfLearn.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             StartupUri="Commands/CommandTest.xaml"
+             StartupUri="Bindings/ElementBinding.xaml"
              Startup="App_OnStartup"
              Exit="App_OnExit"
              Activated="App_OnActivated"
@@ -73,7 +73,6 @@
                 </Trigger>
             </ControlTemplate.Triggers>
         </ControlTemplate>
-        
         
     </Application.Resources>
 </Application>
