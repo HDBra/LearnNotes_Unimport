@@ -28,6 +28,9 @@
     <Folder Include="Commons\" />
     <Folder Include="Commons\Collections\" />
     <Folder Include="Commons\Ios\" />
+    <Folder Include="Commons\MachineLearings\" />
+    <Folder Include="Commons\Networks\" />
+    <Folder Include="Commons\Threads\" />
     <Folder Include="Commons\Utils\" />
     <Folder Include="Docs\" />
     <Folder Include="Samples\" />

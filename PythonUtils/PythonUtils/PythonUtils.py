@@ -1,7 +1,13 @@
 import sys
 
-D = {'a':1,'b':2,'c':3}
+quotes = {
+    "Moe":"A wise guy, huh?",
+    "Larry":"Ow!",
+    "Curly":"Nyuk  nyuk!"
+    }
 
+stooge = "Curly"
 
-for key in sorted(D):
-    print(key,'=>',D[key])
+print(stooge,"says",quotes[stooge])
+
+input()
