@@ -9,5 +9,7 @@ quotes = {
 stooge = "Curly"
 
 print(stooge,"says",quotes[stooge])
-
-input()
+i = 5
+print(type(i))
+i = 'hello'
+print(type(i))

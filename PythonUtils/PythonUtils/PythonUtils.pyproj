@@ -23,6 +23,24 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="PythonUtils.py" />
+    <Compile Include="Samples\baseEx.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Samples\collectionsEx.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Samples\comprehensionEx.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Samples\exceptionEx.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Samples\numEx.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Samples\strEx.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Commons\" />
@@ -34,6 +52,9 @@
     <Folder Include="Commons\Utils\" />
     <Folder Include="Docs\" />
     <Folder Include="Samples\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Docs\python.docx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
