@@ -23,6 +23,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="PythonUtils.py" />
+    <Compile Include="Removables\Program.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Removables\report.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Removables\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Samples\baseEx.py">
       <SubType>Code</SubType>
     </Compile>
@@ -51,6 +60,7 @@
     <Folder Include="Commons\Threads\" />
     <Folder Include="Commons\Utils\" />
     <Folder Include="Docs\" />
+    <Folder Include="Removables\" />
     <Folder Include="Samples\" />
   </ItemGroup>
   <ItemGroup>

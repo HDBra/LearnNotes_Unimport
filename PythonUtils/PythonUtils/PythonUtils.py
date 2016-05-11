@@ -1,15 +1,7 @@
 import sys
+from Removables import report
 
-quotes = {
-    "Moe":"A wise guy, huh?",
-    "Larry":"Ow!",
-    "Curly":"Nyuk  nyuk!"
-    }
-
-stooge = "Curly"
-
-print(stooge,"says",quotes[stooge])
-i = 5
-print(type(i))
-i = 'hello'
-print(type(i))
+s = report.get_description()
+print(s)
+for place in sys.path:
+    print(place)

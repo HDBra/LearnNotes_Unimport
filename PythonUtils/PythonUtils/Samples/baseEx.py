@@ -1,4 +1,4 @@
-#if实例
+#if实锟斤拷
 week = True
 if week:
     print('week')
@@ -6,7 +6,7 @@ else:
     print('not week')
 
 
-#False None 0 0.0 '' [] () {} set()被认为是False
+#False None 0 0.0 '' [] () {} set()锟斤拷锟斤拷为锟斤拷False
 if week:
     print('week')
 elif week==True:

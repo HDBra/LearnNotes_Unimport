@@ -1,4 +1,4 @@
-#异常处理
+#锟届常锟斤拷锟斤拷
 short_list = [1,2,3]
 position = 5
 try:
