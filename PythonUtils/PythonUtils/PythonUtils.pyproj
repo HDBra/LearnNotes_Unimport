@@ -35,6 +35,9 @@
     <Compile Include="Samples\baseEx.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Samples\classEx.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Samples\collectionsEx.py">
       <SubType>Code</SubType>
     </Compile>
@@ -48,6 +51,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Samples\strEx.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Samples\__init__.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

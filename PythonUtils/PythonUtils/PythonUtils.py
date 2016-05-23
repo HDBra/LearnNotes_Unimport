@@ -1,7 +1,8 @@
-import sys
-from Removables import report
+from Samples import classEx
 
-s = report.get_description()
-print(s)
-for place in sys.path:
-    print(place)
+person = classEx.Duc("dcuk1")
+
+print(person.hidden_name)
+print(person.name)
+person.hidden_name = 'Hello'
+classEx.Duc.test()
