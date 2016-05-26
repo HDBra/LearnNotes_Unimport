@@ -14,3 +14,5 @@ except IndexError as err:
     print('bad index')
 except Exception as other:
     print('error happen')
+finally:
+    print('finally')

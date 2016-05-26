@@ -22,6 +22,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Commons\Utils\StringUtils.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="PythonUtils.py" />
     <Compile Include="Removables\Program.py">
       <SubType>Code</SubType>
@@ -45,6 +48,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Samples\exceptionEx.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Samples\fileEx.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Samples\numEx.py">
