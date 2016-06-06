@@ -8,12 +8,22 @@ class Person():
     def __init__(self):
         pass
 
-
+#看这个实例
 class Person2():
     """Person2 description"""
-    def __init__(self, name):
-        self.name1 = name
+    #静态变量
+    staticVar = 1
 
+    def __init__(self, name):
+        self.name1 = name #实例变量
+
+    @classmethod
+    def clsMethodEx(cls):
+        print(Person2.staticVar)
+
+    @staticmethod
+    def staticMethodEx():
+        print(Person2.staticVar)
 
 #继承
 class Car():
