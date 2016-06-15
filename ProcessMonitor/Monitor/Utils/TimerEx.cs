@@ -175,9 +175,18 @@ namespace ProcessMonitor.Utils
                 string fileName = item.FileName;
                 Process[] processArr = Process.GetProcesses();
                 List<Tuple<string, Process>> fileNameList = new List<Tuple<string, Process>>();
-
+                List<Tuple<string, Process>> programNameList = new List<Tuple<string, Process>>();
                 foreach (var processitem in processArr)
                 {
+                    try
+                    {
+                        string programName = processitem.ProcessName;
+                        programNameList.Add(new Tuple<string, Process>(programName,processitem));
+                    }
+                    catch (Exception)
+                    {
+                        
+                    }
                     try
                     {
                         fileNameList.Add(new Tuple<string, Process>( processitem.MainModule.FileName,processitem));
@@ -187,9 +196,12 @@ namespace ProcessMonitor.Utils
 
                     }
                 }
-
+                //获取重复的fileName
                 var resultList = fileNameList.Where(r => StringUtils.EqualsEx(fileName, r.Item1)).ToList();
-                if (resultList.Count <= 0)
+                var resultProgramNameList =
+                    programNameList.Where(r => StringUtils.EqualsEx(Path.GetFileNameWithoutExtension(fileName), r.Item1)||StringUtils.EqualsEx(Path.GetFileName(fileName),r.Item1))
+                        .ToList();
+                if (resultList.Count <= 0 && resultProgramNameList.Count<=0)
                 {
                     //需要重启
                     if ((item.RestartTime.HasValue && (DateTime.Now - item.RestartTime.Value).TotalMinutes > 1) || !item.RestartTime.HasValue)
@@ -213,10 +225,19 @@ namespace ProcessMonitor.Utils
                 }
                 else
                 {
-                    item.ProcessCount = resultList.Count;
+                    item.ProcessCount = Math.Max(resultList.Count,resultProgramNameList.Count);
                     item.ScannerTime = DateTime.Now;
-                    item.MainWindowTitle = resultList[0].Item2.MainWindowTitle;
-                    item.ProgramName = resultList[0].Item2.ProcessName;
+                    if (resultList.Count > 0)
+                    {
+                        item.MainWindowTitle = resultList[0].Item2.MainWindowTitle;
+                        item.ProgramName = resultList[0].Item2.ProcessName;
+                    }
+                    else if (resultProgramNameList.Count > 0)
+                    {
+                        item.MainWindowTitle = resultProgramNameList[0].Item2.MainWindowTitle;
+                        item.ProgramName = resultProgramNameList[0].Item2.ProcessName;
+                    }
+                    
                 }
             }
             List<MonitorDto> dtos = new List<MonitorDto>();
@@ -255,6 +276,11 @@ namespace ProcessMonitor.Utils
         {
             try
             {
+                if (!File.Exists(programName))
+                {
+                    _logger.Error("未找到文件:"+programName);
+                    return null;
+                }
                 if (string.IsNullOrWhiteSpace(args))
                 {
                     return Process.Start(programName);
