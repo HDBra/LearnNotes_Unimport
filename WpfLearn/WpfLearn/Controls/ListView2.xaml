@@ -9,9 +9,10 @@
                     <GridView.ColumnHeaderContainerStyle>
                         <Style>
                             <Setter Property="Control.Background"  Value="Azure"></Setter>
-                            <Setter Property="Control.Height" Value="32"></Setter>
-                            <Setter Property="Control.FontSize" Value="14"></Setter>
-                            <Setter Property="Control.HorizontalContentAlignment" Value="Stretch"></Setter>
+                            <Setter Property="Control.Height" Value="40"></Setter>
+                            <Setter Property="Control.FontSize" Value="16"></Setter>
+                            <Setter Property="Control.HorizontalAlignment" Value="Stretch"></Setter>
+                            <Setter Property="Control.HorizontalContentAlignment" Value="Center"></Setter>
                         </Style>
                     </GridView.ColumnHeaderContainerStyle>
                     <GridView.Columns>
@@ -26,9 +27,9 @@ RelativeSource={RelativeSource AncestorType={x:Type ListViewItem}}}"></CheckBox>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Path=ModelName}"></GridViewColumn>
-                        <GridViewColumn Header="Number" DisplayMemberBinding="{Binding Path=ModelNumber}"></GridViewColumn>
-                        <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Path=UnitCost}"></GridViewColumn>
+                        <GridViewColumn Header="Name" Width="100" DisplayMemberBinding="{Binding Path=ModelName}"></GridViewColumn>
+                        <GridViewColumn Header="Number" Width="100" DisplayMemberBinding="{Binding Path=ModelNumber}"></GridViewColumn>
+                        <GridViewColumn Header="Price" Width="100" DisplayMemberBinding="{Binding Path=UnitCost}"></GridViewColumn>
                     </GridView.Columns>
                 </GridView>
             </ListView.View>
@@ -37,6 +38,8 @@ RelativeSource={RelativeSource AncestorType={x:Type ListViewItem}}}"></CheckBox>
                     <Setter Property="ListViewItem.Background" Value="LightSteelBlue"></Setter>
                     <Setter Property="ListViewItem.Padding" Value="0 30 0 30"></Setter>
                     <Setter Property="ListViewItem.Height" Value="40"></Setter>
+                    <Setter Property="ListViewItem.HorizontalAlignment" Value="Stretch"></Setter>
+                    <Setter Property="ListViewItem.HorizontalContentAlignment" Value="Center"></Setter>
                     <Style.Triggers>
                         <Trigger Property="ItemsControl.AlternationIndex" Value="1">
                             <Setter Property="ListViewItem.Background" Value="LightBlue" />
