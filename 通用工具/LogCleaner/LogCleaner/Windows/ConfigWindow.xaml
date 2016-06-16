@@ -4,7 +4,7 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         Title="日志清理配置项" Width="600" Height="400" Icon="../Images/config.png" ResizeMode="NoResize">
     <Grid>
-        <xctk:Wizard  Name="ConfigWizard" Finish="ConfigWizard_OnFinish" FinishButtonClosesWindow="True"  CanHelp="False" HelpButtonVisibility="Hidden" BackButtonContent="上一步" NextButtonContent="下一步" FinishButtonContent="完成" CancelButtonClosesWindow="True" CancelButtonContent="取消" ExteriorPanelMinWidth="100">
+        <xctk:Wizard  Name="ConfigWizard" Finish="ConfigWizard_OnFinish" CancelButtonClosesWindow="True" FinishButtonClosesWindow="False" CanHelp="False" HelpButtonVisibility="Hidden" BackButtonContent="上一步" NextButtonContent="下一步" FinishButtonContent="完成" CancelButtonContent="取消" ExteriorPanelMinWidth="100">
 
 
             <xctk:WizardPage Name="FirstPage" Background="Azure" Title="" CanSelectPreviousPage="False" BackButtonVisibility="Hidden" CanSelectNextPage="True">
@@ -15,7 +15,7 @@
                         <RowDefinition Height="Auto"></RowDefinition>
                     </Grid.RowDefinitions>
 
-                    <TextBlock Margin="4,8,4,12">请选择日志清理方式：</TextBlock>
+                    <TextBlock Margin="4,8,4,12" ToolTip="默认清理*.log和*.txt文件，可修改配置文件来修改">请选择日志清理方式：</TextBlock>
                     <GroupBox Name="GbCleanManner" Grid.Row="1" Margin="5">
                         <StackPanel>
                             <RadioButton Name="RadioByDay" IsChecked="True" Margin="4,8,1,4">按天清理日志</RadioButton>
@@ -50,7 +50,7 @@
                             <CheckBox Name="Cb1" Margin="4">1</CheckBox>
                             <CheckBox Name="Cb2" Margin="4">2</CheckBox>
                             <CheckBox Name="Cb3" Margin="4">3</CheckBox>
-                            <CheckBox Name="Cb4" Margin="4">4</CheckBox>
+                            <CheckBox Name="Cb4"  Margin="4">4</CheckBox>
                             <CheckBox Name="Cb5" Margin="4">5</CheckBox>
                             <CheckBox Name="Cb6" Margin="4">6</CheckBox>
                             <CheckBox Name="Cb7" Margin="4">7</CheckBox>

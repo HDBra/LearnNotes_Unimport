@@ -110,7 +110,6 @@
     <Compile Include="Quartzs\JobImpl.cs" />
     <Compile Include="Quartzs\QuartzHelper.cs" />
     <Compile Include="Utils\NLogHelper.cs" />
-    <Compile Include="Utils\QuartzHelper.cs" />
     <Compile Include="Utils\StringUtils.cs" />
     <Compile Include="Windows\ConfigWindow.xaml.cs">
       <DependentUpon>ConfigWindow.xaml</DependentUpon>

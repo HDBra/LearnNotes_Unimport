@@ -13,8 +13,15 @@ namespace LogCleaner.Models
     /// </summary>
     public class CleanDir:IComparable<CleanDir>,IEquatable<CleanDir>
     {
+
+        public CleanDir()
+        {
+            this.CleanDetail = new CleanDetail();
+            this.SearchPattern = "*.log|*.txt";
+        }
+
         /// <summary>
-        /// Job 的 key
+        /// Job 的 key 唯一标识一个job
         /// </summary>
         public string JobKey { get; set; }
 
@@ -22,6 +29,11 @@ namespace LogCleaner.Models
         /// 目录
         /// </summary>
         public string Directory { get; set; }
+
+        /// <summary>
+        /// 文件搜索模式
+        /// </summary>
+        public String SearchPattern { get; set; }
 
         /// <summary>
         /// 最近一次清理时间
@@ -51,7 +63,7 @@ namespace LogCleaner.Models
         /// <summary>
         /// 执行方式
         /// </summary>
-        public string ExecuteManner { get; set; }
+        public CleanDetail CleanDetail { get; set; }
 
         /// <summary>
         /// 接口实现
@@ -107,9 +119,40 @@ namespace LogCleaner.Models
 
     public class CleanDetail
     {
+
+        public CleanDetail()
+        {
+            WeekOrMonthList = new List<string>();
+        }
+
         /// <summary>
         /// 清理方式
         /// </summary>
         public CleanMode CleanMode { get; set; }
+
+        /// <summary>
+        /// 生成的Cron表达式
+        /// </summary>
+        public string CronExpression { get; set; }
+
+        /// <summary>
+        /// 清理的周或者月
+        /// </summary>
+        public List<string> WeekOrMonthList { get; set; }
+
+        /// <summary>
+        /// 按天执行的Cron表达式格式
+        /// </summary>
+        public const string DayCronFormat = "{0} {1} {2} * * ?";
+
+        /// <summary>
+        /// 按周执行的cron
+        /// </summary>
+        public const string WeekCronFormat = "{0} {1} {2} ? * {3}";
+
+        /// <summary>
+        /// 按月执行的cron
+        /// </summary>
+        public const string MonthCronFormat = "{0} {1} {2} {3} * ?";
     }
 }
