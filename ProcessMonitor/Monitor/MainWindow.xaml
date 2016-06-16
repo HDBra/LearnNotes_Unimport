@@ -20,7 +20,7 @@
                             <GridView.ColumnHeaderContainerStyle>
                                 <Style>
                                     <Setter Property="Control.Background"  Value="Azure"></Setter>
-                                    <Setter Property="Control.Height" Value="40"></Setter>
+                                    <Setter Property="Control.Height" Value="50"></Setter>
                                     <Setter Property="Control.FontSize" Value="15"></Setter>
                                     <Setter Property="Control.HorizontalAlignment" Value="Stretch"></Setter>
                                     <Setter Property="Control.HorizontalContentAlignment" Value="Center"></Setter>
@@ -48,8 +48,8 @@
                     <ListView.ItemContainerStyle>
                         <Style>
                             <Setter Property="ListViewItem.Background" Value="LightSteelBlue"></Setter>
-                            <Setter Property="ListViewItem.Padding" Value="0 8 0 8"></Setter>
-                            <Setter Property="ListViewItem.Height" Value="40"></Setter>
+                            <Setter Property="ListViewItem.Margin" Value="0 1 0 1"></Setter>
+                            <Setter Property="ListViewItem.Height" Value="45"></Setter>
                             <Setter Property="ListViewItem.HorizontalAlignment" Value="Stretch"></Setter>
                             <Setter Property="ListViewItem.HorizontalContentAlignment" Value="Center"></Setter>
                             <Style.Triggers>
@@ -57,7 +57,7 @@
                                     <Setter Property="ListViewItem.Background" Value="LightBlue" />
                                 </Trigger>
                                 <Trigger Property="ListViewItem.IsSelected" Value="True">
-                                    <Setter Property="ListViewItem.Background" Value="CadetBlue" />
+                                    <Setter Property="ListViewItem.Background" Value="MediumSeaGreen" />
                                 </Trigger>
                             </Style.Triggers>
                         </Style>
