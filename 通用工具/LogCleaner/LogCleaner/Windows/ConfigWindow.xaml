@@ -1,0 +1,98 @@
+﻿<Window x:Class="LogCleaner.Windows.ConfigWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        Title="日志清理配置项" Width="600" Height="400" Icon="../Images/config.png" ResizeMode="NoResize">
+    <Grid>
+        <xctk:Wizard  Name="ConfigWizard" Finish="ConfigWizard_OnFinish" FinishButtonClosesWindow="True"  CanHelp="False" HelpButtonVisibility="Hidden" BackButtonContent="上一步" NextButtonContent="下一步" FinishButtonContent="完成" CancelButtonClosesWindow="True" CancelButtonContent="取消" ExteriorPanelMinWidth="100">
+
+
+            <xctk:WizardPage Name="FirstPage" Background="Azure" Title="" CanSelectPreviousPage="False" BackButtonVisibility="Hidden" CanSelectNextPage="True">
+                <Grid Background="Azure" VerticalAlignment="Center">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Margin="4,8,4,12">请选择日志清理方式：</TextBlock>
+                    <GroupBox Name="GbCleanManner" Grid.Row="1" Margin="5">
+                        <StackPanel>
+                            <RadioButton Name="RadioByDay" IsChecked="True" Margin="4,8,1,4">按天清理日志</RadioButton>
+                            <RadioButton Name="RadioByWeek" Margin="4,8,1,4">按周清理日志</RadioButton>
+                            <RadioButton Name="RadioByMonth" Margin="4,8,1,4">按月清理日志</RadioButton>
+                        </StackPanel>
+                    </GroupBox>
+                    <StackPanel Grid.Row="2" HorizontalAlignment="Stretch">
+                        <TextBlock Margin="4,8,4,12">请选择日志保留天数：</TextBlock>
+                        <xctk:IntegerUpDown x:Name="IuDays" FormatString="N0" Value="200" Increment="1" Minimum="1" Maximum="3650"/>
+                    </StackPanel>
+                </Grid>
+            </xctk:WizardPage>
+
+            <xctk:WizardPage Name="SecondPage" Background="Azure" Enter="SecondPage_OnEnter" Title="" CanFinish="True" CanSelectPreviousPage="True" BackButtonVisibility="Visible"  CanSelectNextPage="True">
+                <StackPanel Background="Azure" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+                    <GroupBox Name="GbWeek" Header="请选择每周执行的具体日期" Margin="0,4,0,4">
+                        <WrapPanel Margin="8,1,1,1">
+                            <CheckBox Name="CbWeek1" Margin="4">周一</CheckBox>
+                            <CheckBox Name="CbWeek2" Margin="4">周二</CheckBox>
+                            <CheckBox Name="CbWeek3" Margin="4">周三</CheckBox>
+                            <CheckBox Name="CbWeek4" Margin="4">周四</CheckBox>
+                            <CheckBox Name="CbWeek5" Margin="4">周五</CheckBox>
+                            <CheckBox Name="CbWeek6" Margin="4">周六</CheckBox>
+                            <CheckBox Name="CbWeek7" Margin="4">周日</CheckBox>
+                        </WrapPanel>
+                    </GroupBox>
+
+                    <GroupBox Name="GbMonth" Header="请选择月度执行的具体日期"  Margin="0,4,0,4">
+                        <UniformGrid Rows="3" Columns="11">
+                            <CheckBox Name="Cb1" Margin="4">1</CheckBox>
+                            <CheckBox Name="Cb2" Margin="4">2</CheckBox>
+                            <CheckBox Name="Cb3" Margin="4">3</CheckBox>
+                            <CheckBox Name="Cb4" Margin="4">4</CheckBox>
+                            <CheckBox Name="Cb5" Margin="4">5</CheckBox>
+                            <CheckBox Name="Cb6" Margin="4">6</CheckBox>
+                            <CheckBox Name="Cb7" Margin="4">7</CheckBox>
+                            <CheckBox Name="Cb8" Margin="4">8</CheckBox>
+                            <CheckBox Name="Cb9" Margin="4">9</CheckBox>
+                            <CheckBox Name="Cb10" Margin="4">10</CheckBox>
+                            <CheckBox Name="Cb11" Margin="4">11</CheckBox>
+                            <CheckBox Name="Cb12" Margin="4">12</CheckBox>
+                            <CheckBox Name="Cb13" Margin="4">13</CheckBox>
+                            <CheckBox Name="Cb14" Margin="4">14</CheckBox>
+                            <CheckBox Name="Cb15" Margin="4">15</CheckBox>
+                            <CheckBox Name="Cb16" Margin="4">16</CheckBox>
+                            <CheckBox Name="Cb17" Margin="4">17</CheckBox>
+                            <CheckBox Name="Cb18" Margin="4">18</CheckBox>
+                            <CheckBox Name="Cb19" Margin="4">19</CheckBox>
+                            <CheckBox Name="Cb20" Margin="4">20</CheckBox>
+                            <CheckBox Name="Cb21" Margin="4">21</CheckBox>
+                            <CheckBox Name="Cb22" Margin="4">22</CheckBox>
+                            <CheckBox Name="Cb23" Margin="4">23</CheckBox>
+                            <CheckBox Name="Cb24" Margin="4">24</CheckBox>
+                            <CheckBox Name="Cb25" Margin="4">25</CheckBox>
+                            <CheckBox Name="Cb26" Margin="4">26</CheckBox>
+                            <CheckBox Name="Cb27" Margin="4">27</CheckBox>
+                            <CheckBox Name="Cb28" Margin="4">28</CheckBox>
+                            <CheckBox Name="Cb29" Margin="4">29</CheckBox>
+                            <CheckBox Name="Cb30" Margin="4">30</CheckBox>
+                            <CheckBox Name="Cb31" Margin="4">31</CheckBox>
+                        </UniformGrid>
+
+                    </GroupBox>
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                            <RowDefinition Height="Auto"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <TextBlock Margin="8,2,8,4">选择执行的时间：</TextBlock>
+                        <xctk:TimePicker Margin="8,1,8,1" Grid.Row="1" Name="TpTime" Value="04:05:07" Format="LongTime"></xctk:TimePicker>
+                    </Grid>
+                </StackPanel>
+            </xctk:WizardPage>
+
+        </xctk:Wizard>
+    </Grid>
+</Window>

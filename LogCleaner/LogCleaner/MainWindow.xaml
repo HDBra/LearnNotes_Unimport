@@ -1,8 +1,0 @@
-﻿<Window x:Class="LogCleaner.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" MinHeight="400" MinWidth="600" Icon="Images/ico.ico">
-    <Grid>
-        
-    </Grid>
-</Window>
