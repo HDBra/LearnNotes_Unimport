@@ -51,6 +51,8 @@ namespace LogCleaner.Windows
         {
             //清空初值
             this.CleanDir = new CleanDir();
+            //设置当前目录
+            this.CleanDir.Directory = Directory;
 
             int? dayKeeps = IuDays.Value;
             if (!dayKeeps.HasValue || dayKeeps.Value < 1)
@@ -323,6 +325,17 @@ namespace LogCleaner.Windows
 
             #endregion
 
+            if (CleanManager.IsManaged(Directory))
+            {
+                //该目录已经被管理
+                MessageBox.Show(string.Format("目录 {0} 已经被管理", Directory), "提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+                this.Close();
+                return;
+            }
+
+            //加入管理
+            CleanManager.AddCleanJob(CleanDir);
+            DialogResult = true;
             this.Close();
 
         }

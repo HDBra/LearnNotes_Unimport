@@ -11,6 +11,8 @@ namespace LogCleaner.Quartzs
     /// </summary>
     public class CleanLogJob:IJob
     {
+        public const string DataKey = "CleanDataKey";
+
         #region 回调Job
         /// <summary>
         /// 清理日志job

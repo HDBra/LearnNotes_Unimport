@@ -8,6 +8,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using LogCleaner.Models;
+using LogCleaner.Utils;
 using LogCleaner.Windows;
 using MessageBox = Xceed.Wpf.Toolkit.MessageBox;
 
@@ -42,12 +44,21 @@ namespace LogCleaner
                     return;
                 }
 
+                if (CleanManager.IsManaged(dir))
+                {
+                    MessageBox.Show(string.Format("目录 {0} 已经被管理",dir), "提示", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
+
                 //进行处理
                 ConfigWindow configWindow = new ConfigWindow(dir);
 
                 if (configWindow.ShowDialog() == true)
                 {
                     //处理逻辑
+                    MessageBox.Show(string.Format("目录 {0} 日志清理添加成功", dir), "提示", MessageBoxButton.OK, MessageBoxImage.Information);
+                    return;
                 }
             }
 
@@ -75,6 +86,14 @@ namespace LogCleaner
                 e.Cancel = true;
                 return;
             }
+        }
+        
+        /// <summary>
+        /// 刷新UI list
+        /// </summary>
+        public static void Refresh()
+        {
+               
         }
     }
 }

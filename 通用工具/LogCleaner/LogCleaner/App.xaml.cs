@@ -9,6 +9,8 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
+using LogCleaner.Models;
+using LogCleaner.Quartzs;
 using LogCleaner.Utils;
 
 namespace LogCleaner
@@ -26,6 +28,8 @@ namespace LogCleaner
         private void App_OnStartup(object sender, StartupEventArgs e)
         {
             NLogHelper.Info("程序启动");
+
+            #region 重置当前路径
             try
             {
                 string dirPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
@@ -39,6 +43,37 @@ namespace LogCleaner
             {
                 NLogHelper.Error("设置当前路径失败:"+ex);
             }
+            #endregion
+
+            #region 加载配置项初始化job
+            //加载配置文件
+            List<CleanDir> cleanDirs = null;
+            if (File.Exists(SerializeHelper.DestFile))
+            {
+                cleanDirs = SerializeHelper.ToObject<List<CleanDir>>(SerializeHelper.DestFile);
+                NLogHelper.Info("加载配置文件"+SerializeHelper.DestFile);
+            }
+            else
+            {
+                NLogHelper.Warn("未能找到配置文件"+SerializeHelper.DestFile);
+            }
+
+            if (cleanDirs == null)
+            {
+                cleanDirs = new List<CleanDir>();
+            }
+
+            //加载配置任务
+            foreach (var cleanDirItem in cleanDirs)
+            {
+                if (!CleanManager.IsManaged(cleanDirItem.Directory))
+                {
+                    CleanManager.AddCleanJob(cleanDirItem);
+                }
+            }
+
+            QuartzHelper.GetInstance().Start();
+            #endregion
         }
 
         /// <summary>
@@ -49,6 +84,7 @@ namespace LogCleaner
         private void App_OnExit(object sender, ExitEventArgs e)
         {
             NLogHelper.Info("用户退出");
+            QuartzHelper.GetInstance().Shutdown();
             Environment.Exit(0);
         }
 

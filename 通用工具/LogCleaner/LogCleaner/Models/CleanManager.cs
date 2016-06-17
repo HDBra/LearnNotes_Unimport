@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LogCleaner.Quartzs;
+using LogCleaner.Utils;
 
 namespace LogCleaner.Models
 {
@@ -16,12 +18,12 @@ namespace LogCleaner.Models
         /// <summary>
         /// 底层存储，可并行使用
         /// </summary>
-        private static ConcurrentDictionary<string,CleanDir> _concurrentDict = new ConcurrentDictionary<string,CleanDir>();
+        private static ConcurrentDictionary<string,CleanLog> _concurrentDict = new ConcurrentDictionary<string,CleanLog>();
 
         /// <summary>
         /// 对外提供的
         /// </summary>
-        public static ConcurrentDictionary<string, CleanDir> ConcurrentDict
+        public static ConcurrentDictionary<string, CleanLog> ConcurrentDict
         {
             get
             {
@@ -33,11 +35,11 @@ namespace LogCleaner.Models
         /// 快照  获取调用时刻的ConcurrentDict快照
         /// </summary>
         /// <returns></returns>
-        public static List<CleanDir> Snapshot()
+        public static List<CleanLog> Snapshot()
         {
-            IEnumerator<KeyValuePair<string,CleanDir>> enumerator = _concurrentDict.GetEnumerator();
+            IEnumerator<KeyValuePair<string,CleanLog>> enumerator = _concurrentDict.GetEnumerator();
 
-            List<CleanDir> list = new List<CleanDir>();
+            List<CleanLog> list = new List<CleanLog>();
 
             while (enumerator.MoveNext())
             {
@@ -54,7 +56,7 @@ namespace LogCleaner.Models
         /// <returns></returns>
         public static List<string> SnapshotDir()
         {
-            IEnumerator<KeyValuePair<string, CleanDir>> enumerator = _concurrentDict.GetEnumerator();
+            IEnumerator<KeyValuePair<string, CleanLog>> enumerator = _concurrentDict.GetEnumerator();
 
             List<string> list = new List<string>();
 
@@ -64,7 +66,47 @@ namespace LogCleaner.Models
             }
 
             return list;
-        } 
+        }
+
+        /// <summary>
+        /// 是否管理  true表示被管理 false表示未被管理
+        /// </summary>
+        /// <param name="dir"></param>
+        /// <returns></returns>
+        public static bool IsManaged(string dir)
+        {
+            //获取快照
+            List<string> snapList = SnapshotDir();
+            foreach (string item in snapList)
+            {
+                if (StringUtils.EqualsEx(item, dir))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// 新增一个清理job
+        /// 调用方确保job是新增的
+        /// </summary>
+        /// <param name="cleanDir"></param>
+        public static void AddCleanJob(CleanDir cleanDir)
+        {
+            CleanLog cleanLog = new CleanLog();
+            cleanLog.CleanDir = cleanDir;
+            //加入管理
+            if (CleanManager.ConcurrentDict.TryAdd(cleanDir.Directory.Trim().ToLower(), cleanLog))
+            {
+                List<CleanDir> cleanDirs = CleanManager.Snapshot().Select(r=>r.CleanDir).ToList();
+                //保存到配置文件
+                SerializeHelper.ToFile(cleanDirs, SerializeHelper.DestFile);
+                //加入到调度任务中
+                cleanDir.ScheduleJob();
+            }
+        }
 
     }
 }

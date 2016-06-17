@@ -4,13 +4,16 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using LogCleaner.Quartzs;
 using LogCleaner.Utils;
+using Quartz;
 
 namespace LogCleaner.Models
 {
     /// <summary>
     /// 目录清理
     /// </summary>
+    [Serializable]
     public class CleanDir:IComparable<CleanDir>,IEquatable<CleanDir>
     {
 
@@ -21,11 +24,6 @@ namespace LogCleaner.Models
         }
 
         /// <summary>
-        /// Job 的 key 唯一标识一个job
-        /// </summary>
-        public string JobKey { get; set; }
-
-        /// <summary>
         /// 目录
         /// </summary>
         public string Directory { get; set; }
@@ -34,26 +32,6 @@ namespace LogCleaner.Models
         /// 文件搜索模式
         /// </summary>
         public String SearchPattern { get; set; }
-
-        /// <summary>
-        /// 最近一次清理时间
-        /// </summary>
-        public DateTime LastCleanTime { get; set; }
-
-        /// <summary>
-        /// 最近一次清理的文件数
-        /// </summary>
-        public long LastCleanFileCount { get; set; }
-
-        /// <summary>
-        /// 最近一次清理的目录数
-        /// </summary>
-        public long LastCleanDirCount { get; set; }
-
-        /// <summary>
-        /// 最近一次异常，如果为null，表示没有异常
-        /// </summary>
-        public Exception LastException { get; set; }
 
         /// <summary>
         /// 保留的日期
@@ -105,6 +83,54 @@ namespace LogCleaner.Models
 
             return StringUtils.EqualsEx(Directory, other.Directory);
         }
+
+        /// <summary>
+        /// 调度这个任务
+        /// </summary>
+        public void ScheduleJob()
+        {
+            JobDataMap data = new JobDataMap();
+            data.Add(CleanLogJob.DataKey,this);
+            IJobDetail job = QuartzHelper.GetInstance().CreateJob(Directory,typeof(CleanLogJob),data);
+            ITrigger trigger = QuartzHelper.GetInstance().CreateCronTrigger(Directory + "Trigger", this.CleanDetail.CronExpression);
+            QuartzHelper.GetInstance().ScheduleJob(job,trigger);
+        }
+    }
+
+    /// <summary>
+    /// 清理日志
+    /// </summary>
+    public class CleanLog
+    {
+        public CleanLog()
+        {
+            CleanDir = new CleanDir();
+        }
+        /// <summary>
+        /// 目录清理
+        /// </summary>
+        public CleanDir CleanDir { get; set; }
+
+        /// <summary>
+        /// 最近一次清理时间
+        /// </summary>
+        public DateTime LastCleanTime { get; set; }
+
+        /// <summary>
+        /// 最近一次清理的文件数
+        /// </summary>
+        public long LastCleanFileCount { get; set; }
+
+        /// <summary>
+        /// 最近一次清理的目录数
+        /// </summary>
+        public long LastCleanDirCount { get; set; }
+
+        /// <summary>
+        /// 最近一次异常，如果为null，表示没有异常
+        /// </summary>
+
+        public Exception LastException { get; set; }
     }
 
     /// <summary>
