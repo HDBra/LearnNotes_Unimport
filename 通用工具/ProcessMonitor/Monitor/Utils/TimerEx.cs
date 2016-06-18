@@ -170,31 +170,33 @@ namespace ProcessMonitor.Utils
                 return;
             }
             Process[] processArr = Process.GetProcesses();
+
+            List<Tuple<string, Process>> fileNameList = new List<Tuple<string, Process>>();
+            List<Tuple<string, Process>> programNameList = new List<Tuple<string, Process>>();
+            foreach (var processitem in processArr)
+            {
+                try
+                {
+                    string programName = processitem.ProcessName;
+                    programNameList.Add(new Tuple<string, Process>(programName, processitem));
+                }
+                catch (Exception)
+                {
+
+                }
+                try
+                {
+                    fileNameList.Add(new Tuple<string, Process>(processitem.MainModule.FileName, processitem));
+                }
+                catch (Exception)
+                {
+
+                }
+            }
             foreach (var item in processes)
             {
                 string fileName = item.FileName;
-                List<Tuple<string, Process>> fileNameList = new List<Tuple<string, Process>>();
-                List<Tuple<string, Process>> programNameList = new List<Tuple<string, Process>>();
-                foreach (var processitem in processArr)
-                {
-                    try
-                    {
-                        string programName = processitem.ProcessName;
-                        programNameList.Add(new Tuple<string, Process>(programName,processitem));
-                    }
-                    catch (Exception)
-                    {
-                        
-                    }
-                    try
-                    {
-                        fileNameList.Add(new Tuple<string, Process>( processitem.MainModule.FileName,processitem));
-                    }
-                    catch (Exception)
-                    {
-
-                    }
-                }
+                
                 //获取重复的fileName
                 var resultList = fileNameList.Where(r => StringUtils.EqualsEx(fileName, r.Item1)).ToList();
                 var resultProgramNameList =

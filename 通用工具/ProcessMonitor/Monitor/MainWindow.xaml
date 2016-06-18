@@ -6,7 +6,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="4*"></ColumnDefinition>
             <ColumnDefinition Width="Auto"></ColumnDefinition>
-            <ColumnDefinition Width="1.2*"></ColumnDefinition>
+            <ColumnDefinition Width="0"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <Grid Background="LightBlue" Margin="0,0,4,0">
             <Grid.RowDefinitions>
