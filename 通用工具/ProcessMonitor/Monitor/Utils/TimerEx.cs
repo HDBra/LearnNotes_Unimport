@@ -83,7 +83,7 @@ namespace ProcessMonitor.Utils
         /// </summary>
         public TimerEx()
         {
-            _timer = new Timer(new TimerCallback(TimerCallback), null, 1500, 8000);
+            _timer = new Timer(new TimerCallback(TimerCallback), null, 1500, 9000);
         }
 
         /// <summary>
@@ -169,11 +169,10 @@ namespace ProcessMonitor.Utils
                 }));
                 return;
             }
-
+            Process[] processArr = Process.GetProcesses();
             foreach (var item in processes)
             {
                 string fileName = item.FileName;
-                Process[] processArr = Process.GetProcesses();
                 List<Tuple<string, Process>> fileNameList = new List<Tuple<string, Process>>();
                 List<Tuple<string, Process>> programNameList = new List<Tuple<string, Process>>();
                 foreach (var processitem in processArr)
