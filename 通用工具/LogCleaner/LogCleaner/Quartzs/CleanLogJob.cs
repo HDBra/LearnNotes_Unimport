@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using LogCleaner.Models;
 using LogCleaner.Utils;
 using Quartz;
 
@@ -28,62 +30,81 @@ namespace LogCleaner.Quartzs
                 }
                 isRunning = true;
             }
+            
+            CleanLog cleanLog = null;
 
             try
             {
                 NLogHelper.Info("开始清理日志");
-                DirectoryInfo dirInfo = new DirectoryInfo(LogDir);
-                if (!dirInfo.Exists)
+                JobDataMap datamap = context.MergedJobDataMap;
+                Object obj = datamap[DataKey];
+                if (obj == null)
                 {
-                    NLogHelper.Info("未找到{0}日志目录，无法清理".FormatWith(LogDir));
+                    NLogHelper.Error("未获取到Job的dataMap");
                     return;
                 }
 
-                DriveInfo driveInfo = null;
-
-                foreach (DriveInfo item in DriveInfo.GetDrives())
+                cleanLog = obj as CleanLog;
+                if (cleanLog == null)
                 {
-                    if (dirInfo.Root.Name == item.Name)
-                    {
-                        driveInfo = item;
-                        break;
-                    }
+                    NLogHelper.Error("未获取到Job的dataMap");
+                    return;
+                }
+                string dir = cleanLog.CleanDir.Directory;
+                int keepDays = cleanLog.CleanDir.ReserveDays;
+                string searchPatterns = cleanLog.CleanDir.SearchPattern;
+                DirectoryInfo dirInfo = new DirectoryInfo(dir);
+
+                if (!dirInfo.Exists)
+                {
+                    NLogHelper.Info("未找到{0}日志目录，无法清理".FormatWith(dir));
+                    return;
                 }
 
-                DateTime expireTime;//过期时间
-                if (driveInfo != null && driveInfo.AvailableFreeSpace < driveInfo.TotalSize*DriveAvailableLimit)
-                {
-                    //当到达硬盘利用极限时，保存的天数
-                    expireTime = DateTime.Now.Subtract(new TimeSpan(KeepDaysWhenAvailableLimit, 0, 0, 0));
-                }
-                else
-                {
-                    expireTime = DateTime.Now.Subtract(new TimeSpan(KeepDays, 0, 0, 0));
-                }
+                //过期时间
+                DateTime expireTime = DateTime.Now.Subtract(new TimeSpan(keepDays,0,0,0));
+                cleanLog.LastCleanTime = DateTime.Now;
+                long deleteFileCount = 0;
+                string[] searchPatternArr = searchPatterns.Split(new char[] {'|'}, StringSplitOptions.RemoveEmptyEntries).Where(r=>!string.IsNullOrWhiteSpace(r)).Select(r=>r.Trim()).ToArray();
 
+                HashSet<string> fileInfos = new HashSet<string>();
+                foreach (string searchPatternItem in searchPatternArr)
+                {
+                    dirInfo.GetFiles(searchPatternItem, SearchOption.AllDirectories).Select(r => r.FullName).ToList().ForEach(r=>fileInfos.Add(r.ToLower().Trim()));
+                }
                 //删除过期日志
-                foreach (FileInfo fileInfo in dirInfo.GetFiles("*.log", SearchOption.AllDirectories))
+                foreach (string file in fileInfos)
                 {
+                    FileInfo fileInfo = new FileInfo(file);
                     if (fileInfo.CreationTime < expireTime)
                     {
                         fileInfo.Delete();
-                        NLogHelper.Info("删除日志文件："+fileInfo.FullName);
+                        deleteFileCount++;
                     }
                 }
 
+                cleanLog.LastCleanFileCount = deleteFileCount;
+
+                long deleteDirCount = 0;
                 //删除空目录
                 foreach (var currentDir in dirInfo.GetDirectories("*", SearchOption.AllDirectories))
                 {
                     if (!currentDir.GetFileSystemInfos().Any())
                     {
                         currentDir.Delete();
-                        NLogHelper.Info("删除日志目录："+currentDir.FullName);
+                        deleteDirCount++;
                     }
                 }
-
+                cleanLog.LastCleanDirCount = deleteDirCount;
+                NLogHelper.Info(string.Format("清理{0}成功",dir));
+                MainWindow.Refresh();
             }
             catch (Exception ex)
             {
+                if (cleanLog != null)
+                {
+                    cleanLog.LastException = ex;
+                }
                 NLogHelper.Error("清理日志失败："+ex);
             }
             finally
@@ -97,27 +118,6 @@ namespace LogCleaner.Quartzs
         #endregion
 
         #region 辅助属性
-
-        /// <summary>
-        /// 要清理日志的目录
-        /// </summary>
-        private const string LogDir = "Logs";
-
-        /// <summary>
-        /// 保存多少天日志，与创建时间比较
-        /// </summary>
-        private const int KeepDays = 300;
-
-        /// <summary>
-        /// 硬盘空间极限可用值。
-        /// 当硬盘可用空间小于当前值时，清理日志,只保存KeepDaysWhenAvailableLimit天，否则保存KeepDays天
-        /// </summary>
-        private const double DriveAvailableLimit = 0.09;
-
-        /// <summary>
-        /// 当到达硬盘利用极限时，保存的天数
-        /// </summary>
-        private const int KeepDaysWhenAvailableLimit = 90;
 
         /// <summary>
         /// 锁

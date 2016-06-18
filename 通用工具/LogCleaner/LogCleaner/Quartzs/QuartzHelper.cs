@@ -1,6 +1,7 @@
 ﻿using System;
 using Quartz;
 using Quartz.Impl;
+using Quartz.Impl.Matchers;
 using Quartz.Impl.Triggers;
 
 namespace LogCleaner.Quartzs
@@ -85,6 +86,17 @@ namespace LogCleaner.Quartzs
         }
 
         /// <summary>
+        /// 获取所有的job
+        /// </summary>
+        /// <returns></returns>
+        public Quartz.Collection.ISet<JobKey> GetAllJobs()
+        {
+            var matcher = GroupMatcher<JobKey>.AnyGroup();
+            return _scheduler.GetJobKeys(matcher);
+        }
+
+
+        /// <summary>
         /// 获取指定名称的scheduler
         /// </summary>
         /// <param name="name"></param>
@@ -155,7 +167,7 @@ namespace LogCleaner.Quartzs
         /// <param name="jobName"></param>
         public void Pause(String jobName)
         {
-            GetScheduler().PauseJob(new JobKey(jobName));
+            _scheduler.PauseJob(new JobKey(jobName));
         }
 
         /// <summary>
@@ -164,7 +176,7 @@ namespace LogCleaner.Quartzs
         /// <param name="jobName"></param>
         public void Resume(string jobName)
         {
-            GetScheduler().ResumeJob(new JobKey(jobName));
+            _scheduler.ResumeJob(new JobKey(jobName));
         }
 
         /// <summary>
@@ -173,7 +185,7 @@ namespace LogCleaner.Quartzs
         /// <param name="jobName"></param>
         public void Delete(string jobName)
         {
-            GetScheduler().DeleteJob(new JobKey(jobName));
+            _scheduler.DeleteJob(new JobKey(jobName));
         }
 
         /// <summary>

@@ -45,6 +45,7 @@ namespace LogCleaner.Utils
             try
             {
                 _logger.Trace(message);
+                MainWindow.AddMsg(message);
             }
             catch (Exception)
             {
@@ -65,6 +66,7 @@ namespace LogCleaner.Utils
             try
             {
                 _logger.Debug(message);
+                MainWindow.AddMsg(message);
             }
             catch (Exception)
             {
@@ -86,6 +88,7 @@ namespace LogCleaner.Utils
             try
             {
                 _logger.Info(message);
+                MainWindow.AddMsg(message);
             }
             catch (Exception)
             {
@@ -105,6 +108,7 @@ namespace LogCleaner.Utils
             try
             {
                 _logger.Warn(message);
+                MainWindow.AddMsg(message);
             }
             catch (Exception)
             {
@@ -127,6 +131,7 @@ namespace LogCleaner.Utils
             try
             {
                 _logger.Error(message);
+                MainWindow.AddMsg(message);
             }
             catch (Exception)
             {
@@ -147,6 +152,7 @@ namespace LogCleaner.Utils
             try
             {
                 _logger.Fatal(message);
+                MainWindow.AddMsg(message);
             }
             catch (Exception)
             {

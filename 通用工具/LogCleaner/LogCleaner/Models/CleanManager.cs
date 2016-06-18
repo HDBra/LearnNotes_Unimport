@@ -104,7 +104,35 @@ namespace LogCleaner.Models
                 //保存到配置文件
                 SerializeHelper.ToFile(cleanDirs, SerializeHelper.DestFile);
                 //加入到调度任务中
-                cleanDir.ScheduleJob();
+                cleanDir.ScheduleJob(cleanLog);
+            }
+        }
+
+        /// <summary>
+        /// 删除清理job
+        /// </summary>
+        /// <param name="directory"></param>
+        /// <returns></returns>
+        public static bool DeleteCleanJob(string directory)
+        {
+            if (string.IsNullOrEmpty(directory))
+            {
+                return false;
+            }
+            directory = directory.Trim().ToLower();
+            CleanLog cleanLog = null;
+            if (CleanManager.ConcurrentDict.TryRemove(directory, out cleanLog))
+            {
+                List<CleanDir> cleanDirs = CleanManager.Snapshot().Select(r => r.CleanDir).ToList();
+                //保存到配置文件
+                SerializeHelper.ToFile(cleanDirs, SerializeHelper.DestFile);
+                //删除job
+                cleanLog.CleanDir.DeleteJob();
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 

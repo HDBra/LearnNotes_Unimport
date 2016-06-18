@@ -14,13 +14,14 @@ namespace LogCleaner.Models
     /// 目录清理
     /// </summary>
     [Serializable]
-    public class CleanDir:IComparable<CleanDir>,IEquatable<CleanDir>
+    public class CleanDir : IComparable<CleanDir>, IEquatable<CleanDir>
     {
 
         public CleanDir()
         {
             this.CleanDetail = new CleanDetail();
-            this.SearchPattern = "*.log|*.txt";
+            //this.SearchPattern = "*.log|*.txt";//多个用|分割，这种方式不能使用Directory.GetFiles,通过分割单独调用，再取并集
+            this.SearchPattern = "*.log";
         }
 
         /// <summary>
@@ -87,13 +88,24 @@ namespace LogCleaner.Models
         /// <summary>
         /// 调度这个任务
         /// </summary>
-        public void ScheduleJob()
+        public void ScheduleJob(CleanLog cleanLog)
         {
             JobDataMap data = new JobDataMap();
-            data.Add(CleanLogJob.DataKey,this);
-            IJobDetail job = QuartzHelper.GetInstance().CreateJob(Directory,typeof(CleanLogJob),data);
-            ITrigger trigger = QuartzHelper.GetInstance().CreateCronTrigger(Directory + "Trigger", this.CleanDetail.CronExpression);
-            QuartzHelper.GetInstance().ScheduleJob(job,trigger);
+            data.Add(CleanLogJob.DataKey, cleanLog);
+            string key = Directory.ToLower().Trim();
+            IJobDetail job = QuartzHelper.GetInstance().CreateJob(key, typeof (CleanLogJob), data);
+            ITrigger trigger = QuartzHelper.GetInstance()
+                .CreateCronTrigger(key + "Trigger", cleanLog.CleanDir.CleanDetail.CronExpression);
+            QuartzHelper.GetInstance().ScheduleJob(job, trigger);
+        }
+
+        /// <summary>
+        /// 删除job
+        /// </summary>
+        internal void DeleteJob()
+        {
+            string key = Directory.ToLower().Trim();
+            QuartzHelper.GetInstance().Delete(key);
         }
     }
 
@@ -106,6 +118,7 @@ namespace LogCleaner.Models
         {
             CleanDir = new CleanDir();
         }
+
         /// <summary>
         /// 目录清理
         /// </summary>
@@ -114,7 +127,7 @@ namespace LogCleaner.Models
         /// <summary>
         /// 最近一次清理时间
         /// </summary>
-        public DateTime LastCleanTime { get; set; }
+        public DateTime? LastCleanTime { get; set; }
 
         /// <summary>
         /// 最近一次清理的文件数
@@ -138,9 +151,9 @@ namespace LogCleaner.Models
     /// </summary>
     public enum CleanMode
     {
-        ByDay,//按天
-        ByWeek,//按周
-        ByMonth//按月
+        ByDay, //按天
+        ByWeek, //按周
+        ByMonth //按月
     }
 
     public class CleanDetail
@@ -181,4 +194,5 @@ namespace LogCleaner.Models
         /// </summary>
         public const string MonthCronFormat = "{0} {1} {2} {3} * ?";
     }
+
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -56,8 +57,10 @@ namespace LogCleaner
 
                 if (configWindow.ShowDialog() == true)
                 {
+                    NLogHelper.Info(string.Format("目录 {0} 日志清理Job添加成功", dir));
                     //处理逻辑
-                    MessageBox.Show(string.Format("目录 {0} 日志清理添加成功", dir), "提示", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show(string.Format("目录 {0} 日志清理Job添加成功", dir), "提示", MessageBoxButton.OK, MessageBoxImage.Information);
+                    RefreshUI();
                     return;
                 }
             }
@@ -71,7 +74,30 @@ namespace LogCleaner
         /// <param name="e"></param>
         private void Btn_Delete_OnClick(object sender, RoutedEventArgs e)
         {
-
+            Button btn = sender as Button;
+            if (btn == null)
+            {
+                return;
+            }
+            //获取目录
+            String directory = btn.Tag.ToString();
+            if (CleanManager.DeleteCleanJob(directory))
+            {
+                NLogHelper.Info(string.Format("目录 {0} 日志清理Job删除成功", directory));
+                //处理逻辑
+                MessageBox.Show(string.Format("目录 {0} 日志清理Job删除成功", directory), "提示", MessageBoxButton.OK,
+                    MessageBoxImage.Information);
+                RefreshUI();
+                return;
+            }
+            else
+            {
+                //处理逻辑
+                MessageBox.Show(string.Format("目录 {0} 日志清理Job删除失败", directory), "提示", MessageBoxButton.OK,
+                    MessageBoxImage.Information);
+                RefreshUI();
+                return;
+            }
         }
 
         /// <summary>
@@ -93,7 +119,109 @@ namespace LogCleaner
         /// </summary>
         public static void Refresh()
         {
-               
+            Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+            {
+                MainWindow window = Application.Current.MainWindow as MainWindow;
+                if (window != null && window.IsLoaded)
+                {
+                    window.RefreshUI();
+                }
+            }));
         }
+        
+        /// <summary>
+        /// 刷新
+        /// </summary>
+        public void RefreshUI()
+        {
+            List<CleanLog> cleanLogs = CleanManager.Snapshot();
+            cleanLogs =
+                cleanLogs.OrderBy(r=>r.CleanDir.CleanDetail.CleanMode.ToString()).ThenByDescending(r => r.LastCleanTime ?? DateTime.MinValue)
+                    .ThenBy(r => r.CleanDir.ReserveDays)
+                    .ToList();
+            List<CleanViewModel> cleanViewModels = cleanLogs.Select(r => new CleanViewModel(r)).ToList();
+            LvDetails.ItemsSource = cleanViewModels;
+        }
+
+        /// <summary>
+        /// 加载后
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void MainWindow_OnLoaded(object sender, RoutedEventArgs e)
+        {
+            RefreshUI();
+            UpdateLogUi();
+        }
+
+
+        #region 日志相关
+
+        /// <summary>
+        /// 消息
+        /// </summary>
+        private static readonly ConcurrentQueue<string> MessageQueue = new ConcurrentQueue<string>();
+        /// <summary>
+        /// 消息最多多少
+        /// </summary>
+        private const int MessageCountLimit = 24;
+
+        /// <summary>
+        /// 上一次更新时间
+        /// </summary>
+        private static DateTime LastUiTime = DateTime.Now;
+
+        public static void AddMsg(string msg)
+        {
+            if (string.IsNullOrEmpty(msg))
+            {
+                return;
+            }
+
+            if (MessageQueue.Count > MessageCountLimit)
+            {
+                string result = null;
+
+                for (int i = 0; i < MessageCountLimit/4; i++)
+                {
+                    MessageQueue.TryDequeue(out result);
+                }
+            }
+
+            msg = String.Format("{0}>>> {1}", DateTime.Now.ToString("yyyyMMdd HH:mm:ss"), msg);
+
+            MessageQueue.Enqueue(msg);
+
+            //最少三秒更新一次UI
+            if ((DateTime.Now - LastUiTime).TotalSeconds > 3)
+            {
+                LastUiTime = DateTime.Now;
+                Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    MainWindow window = Application.Current.MainWindow as MainWindow;
+                    if (window != null && window.IsLoaded)
+                    {
+                        window.UpdateLogUi();
+                    }
+                }));
+            }
+        }
+
+        /// <summary>
+        /// updateui
+        /// </summary>
+        public void UpdateLogUi()
+        {
+            IEnumerator<string> enumerator = MessageQueue.GetEnumerator();
+            StringBuilder sb = new StringBuilder();
+            while (enumerator.MoveNext())
+            {
+                sb.AppendLine(enumerator.Current);
+            }
+
+            TbLog.Text = sb.ToString();
+        }
+
+        #endregion 
     }
 }
