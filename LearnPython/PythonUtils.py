@@ -2,9 +2,13 @@ if __name__ == "__main__":
     pass
 
 
-colors = ['black','white']
-sizes = ['S','M','L']
+coordinates = (33.84,-1)
+x,y = coordinates
 
-shirts = [(color,size) for color in colors for size in sizes if color == 'white']
+ids = [('usa','112'),('bra','121'),('esp','121')]
 
-print(shirts)
+for item in sorted(ids):
+    print('%s %s'%item)
+
+for country,_ in ids:
+    print(country)
