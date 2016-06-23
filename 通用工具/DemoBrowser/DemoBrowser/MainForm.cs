@@ -3,8 +3,10 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -69,6 +71,10 @@ namespace DemoBrowser
         /// <param name="e"></param>
         private void MainForm_Load(object sender, EventArgs e)
         {
+
+            //设置unityplayer
+            //axUnityPlayer.src = @"D:\unityweb\unityweb.unity3d";
+
             //加载消息url列表
             MessageUrlList.Clear();
             string messageUrlPairStr = ConfigUtils.GetString(Constants.MessageUrlPair);
@@ -90,6 +96,12 @@ namespace DemoBrowser
             _thread = new Thread(new ThreadStart(ThreadCallBack));
             _thread.IsBackground = true;
             _thread.Start();
+            //设置浏览器
+            MainBrowser.WebBrowserShortcutsEnabled = false;
+            MainBrowser.ScriptErrorsSuppressed = true;
+            MainBrowser.IsWebBrowserContextMenuEnabled = false;
+            MainBrowser.ScrollBarsEnabled = false;
+
             
             mInitWidth = this.Width;
             mInitHeight = this.Height;
@@ -101,9 +113,16 @@ namespace DemoBrowser
             string defaultUrl = ConfigUtils.GetString(Constants.DefaultUrl);
             if (!string.IsNullOrWhiteSpace(defaultUrl))
             {
-                MainBrowser.Navigate(defaultUrl);
+                try
+                {
+                    MainBrowser.Navigate(defaultUrl);
+                }
+                catch (Exception ex)
+                {
+                    NLogHelper.Info(string.Format("启动时加载url={0}失败：{1}",defaultUrl,ex));
+                }
             }
-
+            Zoom();
         }
 
         /// <summary>
@@ -240,6 +259,20 @@ namespace DemoBrowser
                 //等待1s
                 if(MessageQueue.TryTake(out message,1000))
                 {
+                    if (StringUtils.EqualsEx(message, ConfigUtils.GetString(Constants.UnityShowMessage)))
+                    {
+                        //接收到将unity置前的消息
+                        try
+                        {
+                           BrightUnityToFront(true);
+                        }
+                        catch (Exception ex)
+                        {
+                            NLogHelper.Error("将unity程序置前出错："+ex);
+                        }
+                        continue;
+                    }
+
                     var messageUrlPair =MessageUrlList.FirstOrDefault(r => StringUtils.EqualsEx(r.Item1, message));
                     if (messageUrlPair == null || String.IsNullOrWhiteSpace(messageUrlPair.Item2))
                     {
@@ -272,6 +305,7 @@ namespace DemoBrowser
                             {
                                 try
                                 {
+                                    
                                     MainBrowser.Navigate(messageUrlPair.Item2);
                                 }
                                 catch (Exception ex)
@@ -281,8 +315,83 @@ namespace DemoBrowser
                             }));
                         }
                     }
+
+
+                    try
+                    {
+                        BrightUnityToFront(false);
+                    }
+                    catch (Exception ex)
+                    {
+                        NLogHelper.Error("将unity最小化出错：" + ex);
+                    }
                 }
             }
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="isMaxorMin">true表示最大化，false,表示最小化</param>
+        private void BrightUnityToFront(bool isMaxorMin)
+        {
+            IntPtr intPtr = FindWindow(null, ConfigUtils.GetString(Constants.UnityWindowTitle));
+            if (intPtr == IntPtr.Zero)
+            {
+                NLogHelper.Error("未找到unity程序句柄");
+                return;
+            }
+
+            if (isMaxorMin)
+            {
+                ShowWindow(intPtr, SW_MAXIMIZE);
+            }
+            else
+            {
+                ShowWindow(intPtr, SW_MINIMIZE);
+            }
+        }
+
+        [DllImport("user32.dll", EntryPoint = "ShowWindow", CharSet = CharSet.Auto)]
+        public static extern int ShowWindow(IntPtr hwnd, int nCmdShow);
+
+        [DllImport("User32.dll", EntryPoint = "FindWindow")]
+        private static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
+        [DllImport("User32.dll", EntryPoint = "FindWindowEx")]
+        private static extern IntPtr FindWindowEx(IntPtr hwndParent, IntPtr hwndChildAfter, string lpClassName, string lpWindowName);  
+        /// <summary>
+        /// 最小化窗口，即使拥有窗口的线程被挂起也会最小化。在从其他线程最小化窗口时才使用这个参数。
+        /// </summary>
+        public const int SW_FORCEMINIMIZE = 11;
+
+        /// <summary>
+        /// 隐藏窗口并激活其他窗口。
+        /// </summary>
+        public const int SW_HIDE = 0;
+        /// <summary>
+        /// 窗口原来的位置以原来的尺寸激活和显示窗口。
+        /// </summary>
+        public const int SW_SHOW = 5;
+        /// <summary>
+        /// 最大化指定的窗口
+        /// </summary>
+        public const int SW_MAXIMIZE = 3;
+        /// <summary>
+        /// 最小化指定的窗口并且激活在Z序中的下一个顶层窗口。
+        /// </summary>
+        public const int SW_MINIMIZE = 6;
+
+        /// <summary>
+        /// 激活窗口并将其最小化
+        /// </summary>
+        public const int SW_SHOWMINIMIZED = 2;
+        /// <summary>
+        /// 激活窗口并将其最大化。
+        /// </summary>
+        public const int SW_SHOWMAXIMIZED = 3;
+        /// <summary>
+        /// 激活窗口并将其最小化。
+        /// </summary>
+        public const int SW_SHOWNOACTIVATE = 4;
     }
 }

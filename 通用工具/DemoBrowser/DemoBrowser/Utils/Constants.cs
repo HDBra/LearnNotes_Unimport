@@ -28,7 +28,14 @@ namespace DemoBrowser.Utils
         /// </summary>
         public const string MessageUrlPair = "MessageUrlPair";
 
+        /// <summary>
+        /// unity窗口标题
+        /// </summary>
+        public const string UnityWindowTitle = "UnityWindowTitle";
 
-
+        /// <summary>
+        /// 显示机位图的消息
+        /// </summary>
+        public const string UnityShowMessage = "UnityShowMessage";
     }
 }
