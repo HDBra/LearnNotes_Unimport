@@ -230,7 +230,6 @@ namespace DemoBrowser
         {
             //获取屏幕的大小
             mFullHeight = Screen.PrimaryScreen.Bounds.Height;
-            this.TopMost = true;
             if (this.Width >= 30 && mFullWidth > 10)
             {
                 MainBrowser.Zoom((int) (this.Width*100.0/mFullWidth));
@@ -261,6 +260,14 @@ namespace DemoBrowser
                 {
                     if (StringUtils.EqualsEx(message, ConfigUtils.GetString(Constants.UnityShowMessage)))
                     {
+                        if (!MainBrowser.Disposing && !MainBrowser.IsDisposed)
+                        {
+                            MainBrowser.Invoke(new Action(() =>
+                            {
+                                this.TopMost = false;
+                            }));
+                        }
+
                         //接收到将unity置前的消息
                         try
                         {
@@ -288,6 +295,7 @@ namespace DemoBrowser
                             {
                                 try
                                 {
+                                    this.TopMost = true;
                                     MainBrowser.Navigate(messageUrlPair.Item2);
                                 }
                                 catch (Exception ex)
@@ -305,7 +313,7 @@ namespace DemoBrowser
                             {
                                 try
                                 {
-                                    
+                                    this.TopMost = true;
                                     MainBrowser.Navigate(messageUrlPair.Item2);
                                 }
                                 catch (Exception ex)
@@ -341,10 +349,11 @@ namespace DemoBrowser
                 NLogHelper.Error("未找到unity程序句柄");
                 return;
             }
-
+            NLogHelper.Info("窗口置前");
             if (isMaxorMin)
             {
                 ShowWindow(intPtr, SW_MAXIMIZE);
+                SetForegroundWindow(intPtr);
             }
             else
             {
@@ -358,7 +367,15 @@ namespace DemoBrowser
         [DllImport("User32.dll", EntryPoint = "FindWindow")]
         private static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
         [DllImport("User32.dll", EntryPoint = "FindWindowEx")]
-        private static extern IntPtr FindWindowEx(IntPtr hwndParent, IntPtr hwndChildAfter, string lpClassName, string lpWindowName);  
+        private static extern IntPtr FindWindowEx(IntPtr hwndParent, IntPtr hwndChildAfter, string lpClassName, string lpWindowName);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="hwnd"></param>
+        /// <returns></returns>
+        [DllImport("user32.dll", EntryPoint = "SetForegroundWindow")]
+        public static extern IntPtr SetForegroundWindow(IntPtr hwnd);
         /// <summary>
         /// 最小化窗口，即使拥有窗口的线程被挂起也会最小化。在从其他线程最小化窗口时才使用这个参数。
         /// </summary>

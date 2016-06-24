@@ -1,14 +1,8 @@
+import sys
+
 if __name__ == "__main__":
-    pass
+    #第一个参数是文件路径本身，接下来是具体参数
+    print(sys.argv[0])
 
 
-coordinates = (33.84,-1)
-x,y = coordinates
-
-ids = [('usa','112'),('bra','121'),('esp','121')]
-
-for item in sorted(ids):
-    print('%s %s'%item)
-
-for country,_ in ids:
-    print(country)
+import  Samples.namedTupleEx
