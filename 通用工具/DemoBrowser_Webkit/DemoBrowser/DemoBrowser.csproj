@@ -133,6 +133,7 @@
     <Compile Include="Utils\NLogHelper.cs" />
     <Compile Include="Utils\StringUtils.cs" />
     <Compile Include="Utils\TimerEx.cs" />
+    <Content Include="ReadMe.txt" />
     <Content Include="References\OpenWebKitSharp.dll" />
     <Content Include="References\WebKit.Interop.dll" />
     <EmbeddedResource Include="MainForm.resx">

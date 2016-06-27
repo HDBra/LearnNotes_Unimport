@@ -106,6 +106,7 @@ namespace DemoBrowser
             this.Text = mainTitle;
             MainBrowser.Visible = true;
             MainBrowser2.Visible = false;
+            
             string defaultUrl = "";
             try
             {
