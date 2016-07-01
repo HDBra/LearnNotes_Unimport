@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
+using System.ServiceModel.Web;
 using System.Text;
 
 namespace CommonWcfServiceLibrary
@@ -16,11 +17,27 @@ namespace CommonWcfServiceLibrary
     [ServiceContract(SessionMode = SessionMode.Allowed)]
     public interface IService1
     {
-        [OperationContract]
-        string GetData(int value);
+        //[OperationContract]
+        //string GetData(int value);
 
+        //[OperationContract]
+        //CompositeType GetDataUsingDataContract(CompositeType composite);
+
+        /// <summary>
+        /// 只能使用webHttpBinding
+        /// WebGetAttribute定义了该方法的访问方式为RESTful的Get
+        /// UriTemplet描述了URL匹配的格式，当格式匹配时，{name}位置的字符串会被对应传入为方法参数。
+        /// ResponseFormat指定json或者xml
+        /// 示例
+        /// [WebGet(UriTemplate ="Sub?x={x}&y={y}")]
+        /// String Subtract(string x, string y);
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
         [OperationContract]
-        CompositeType GetDataUsingDataContract(CompositeType composite);
+        [WebGet(UriTemplate = "Persons/{name}",ResponseFormat = WebMessageFormat.Json)]
+        Person GetPerson(string name);
+
 
         // TODO: 在此添加您的服务操作
     }
@@ -46,5 +63,15 @@ namespace CommonWcfServiceLibrary
             get { return stringValue; }
             set { stringValue = value; }
         }
+    }
+
+
+    [DataContract]
+    public class Person
+    {
+        [DataMember]
+        public string Name { get; set; }
+        [DataMember]
+        public int Age { get; set; }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
+using System.ServiceModel.Web;
 using System.Text;
 
 namespace CommonWcfServiceLibrary
@@ -19,22 +20,36 @@ namespace CommonWcfServiceLibrary
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall)]
     public class Service1 : IService1
     {
-        public string GetData(int value)
-        {
-            return string.Format("You entered: {0} and time is {1}", value, DateTime.Now.ToString("yyyyMMdd HH:mm:ss"));
-        }
+    //    public string GetData(int value)
+    //    {
+    //        return string.Format("You entered: {0} and time is {1}", value, DateTime.Now.ToString("yyyyMMdd HH:mm:ss"));
+    //    }
 
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
+    //    public CompositeType GetDataUsingDataContract(CompositeType composite)
+    //    {
+    //        if (composite == null)
+    //        {
+    //            throw new ArgumentNullException("composite");
+    //        }
+    //        if (composite.BoolValue)
+    //        {
+    //            composite.StringValue += "Suffix";
+    //        }
+    //        return composite;
+    //    }
+
+        /// <summary>
+        /// 实现接口
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public Person GetPerson(string name)
         {
-            if (composite == null)
+            if (WebOperationContext.Current != null)
             {
-                throw new ArgumentNullException("composite");
+                WebOperationContext.Current.OutgoingResponse.ContentType = "text/plain";
             }
-            if (composite.BoolValue)
-            {
-                composite.StringValue += "Suffix";
-            }
-            return composite;
+            return new Person(){Name = name,Age = 12};
         }
     }
 }
