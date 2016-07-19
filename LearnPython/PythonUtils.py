@@ -7,9 +7,8 @@ if __name__ == "__main__":
     # 第一个参数是文件路径本身，接下来是具体参数
     print(sys.argv[0])
 
-def add(i):
-    i = [10]
 
-a = []
-add(a)
-print(a)
+l = [1,2,3]
+print(id(l))
+l*=2
+print(id(l))
