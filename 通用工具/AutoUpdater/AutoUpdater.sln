@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "IronPythonApp", "IronPythonApp\IronPythonApp.pyproj", "{41E504B0-2B65-4D2A-8E02-91A4A0E61EA7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoUpdater", "AutoUpdater\AutoUpdater.csproj", "{921227D2-DC16-4898-B76A-F67BE6C7A9EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,8 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{41E504B0-2B65-4D2A-8E02-91A4A0E61EA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{41E504B0-2B65-4D2A-8E02-91A4A0E61EA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{921227D2-DC16-4898-B76A-F67BE6C7A9EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{921227D2-DC16-4898-B76A-F67BE6C7A9EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{921227D2-DC16-4898-B76A-F67BE6C7A9EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{921227D2-DC16-4898-B76A-F67BE6C7A9EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
