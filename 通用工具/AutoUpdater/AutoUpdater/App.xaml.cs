@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Threading.Tasks;
 using System.Windows;
+using EnterpriseDT.Net.Ftp;
 
 namespace AutoUpdater
 {
@@ -13,5 +15,9 @@ namespace AutoUpdater
     /// </summary>
     public partial class App : Application
     {
+        private void App_OnStartup(object sender, StartupEventArgs e)
+        {
+            
+        }
     }
 }
