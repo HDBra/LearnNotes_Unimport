@@ -32,12 +32,3 @@ if __name__ == "__main__":
     # 第一个参数是文件路径本身，接下来是具体参数
     print(sys.argv[0])
 
-m_set = set()
-
-if (m_set):
-    print('hello')
-else:
-    print('world')
-
-if not m_dir:
-    print('jack')
