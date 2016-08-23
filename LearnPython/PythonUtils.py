@@ -28,6 +28,8 @@ import sys
 #empty dict {}
 #empty set set()
 
+# pypi查找python库 pip
+
 
 if __name__ == "__main__":
     # 第一个参数是文件路径本身，接下来是具体参数

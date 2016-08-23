@@ -3,7 +3,6 @@ import subprocess
 import multiprocessing
 import time
 
-
 def getpid():
     '''
     获取当前进程的pid
