@@ -1,5 +1,6 @@
 # 网络框架
 Twisted
+gevent
 # HttpClient
 requests
 # 图像处理
@@ -24,8 +25,28 @@ ApScheduler
 # 机器学习
 scikit-learn #通用机器学习
 keras #深度学习
+NLTK #自然语言处理
+NUMPY
+SCIPY
+orange #数据挖掘
+Pandas
+matplotlib
+# 日志
+logging
 
-
+#其它
+simplejson
+python-dateutil
+nose #测试
+lxml
+pycrypto #加解密
+rsa
+greenlet #并行库
+futures #并行库
+thrift #rpc
+retrying
+xlrd #excel
+path.py
 
 
 
