@@ -2,6 +2,7 @@ import os
 import subprocess
 import multiprocessing
 import time
+import sys
 
 def getpid():
     '''
@@ -39,6 +40,23 @@ def process(action,args):
     p.start()
 
 
+def system(str):
+    '''
+    执行字符串命令，实际上是调用系统内置的命令行来执行的
+    :param str:
+    :return:
+    '''
+    return os.system(str)
+
+def exit(exitCode):
+    '''
+    退出进程
+    :param exitCode:
+    :return:
+    '''
+    sys.exit(exitCode)
+
+
 def sleep(seconds):
     '''
     休眠指定时间
@@ -46,6 +64,12 @@ def sleep(seconds):
     :return:
     '''
     time.sleep(seconds)
+
+def environment():
+    '''
+    获取环境变量
+    '''
+    return os.environ
 
 
 
