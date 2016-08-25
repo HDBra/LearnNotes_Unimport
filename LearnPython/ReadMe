@@ -1,0 +1,34 @@
+# 网络框架
+Twisted
+# HttpClient
+requests
+# 图像处理
+pillow
+# orm
+SQLAlchemy
+# web框架
+Django
+Flask
+# 分布式任务队列
+Celery
+#爬虫
+Scrapy
+#rpc
+zerorpc
+#计算机视觉
+OpenCV
+# 任务调度
+TaskFlow
+Schedule
+ApScheduler
+# 机器学习
+scikit-learn #通用机器学习
+keras #深度学习
+
+
+
+
+
+
+https://github.com/vinta/awesome-python
+https://github.com/josephmisiti/awesome-machine-learning
