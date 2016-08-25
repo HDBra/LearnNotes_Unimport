@@ -48,6 +48,16 @@ def system(str):
     '''
     return os.system(str)
 
+def startProcess(str):
+    '''
+    开启进程
+    :param str:
+    :return:
+    '''
+
+    p = subprocess.Popen(str)
+    p.wait() # 等待进程结束
+
 def exit(exitCode):
     '''
     退出进程
