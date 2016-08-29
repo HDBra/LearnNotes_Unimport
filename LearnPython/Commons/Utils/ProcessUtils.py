@@ -81,6 +81,23 @@ def environment():
     '''
     return os.environ
 
+class SubProcess(multiprocessing.Process):
+    '''
+    通过集成Process来实现进程
+    '''
+
+    def __init__(self):
+        '''
+        初始化代码
+        '''
+        super(self).__init__()
+
+    def run(self):
+        '''
+        进程代码
+        :return:
+        '''
+        pass
 
 
 
