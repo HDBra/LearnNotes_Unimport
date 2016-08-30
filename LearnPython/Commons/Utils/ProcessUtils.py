@@ -100,6 +100,12 @@ class SubProcess(multiprocessing.Process):
         pass
 
 
+def poolExecute(func,iterable):
+    counter = multiprocessing.Value('i',lock=True)
+    pool = multiprocessing.Pool()
+    pool.map(func,iterable)
+
+
 
 if __name__ == '__main__':
     print(os.getcwd())
