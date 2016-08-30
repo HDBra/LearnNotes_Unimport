@@ -17,7 +17,7 @@ namespace CommonWcfServiceLibrary
     /// 注：Service类可以实现IDisposable
     /// 建议采用PerCall，不采用Session
     /// </summary>
-    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall)]
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession)]
     public class Service1 : IService1
     {
     //    public string GetData(int value)
@@ -43,13 +43,13 @@ namespace CommonWcfServiceLibrary
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public Person GetPerson(string name)
+        public Person GetPerson(string name,int? age)
         {
-            if (WebOperationContext.Current != null)
-            {
-                WebOperationContext.Current.OutgoingResponse.ContentType = "text/plain";
-            }
-            return new Person(){Name = name,Age = 12};
+            //if (WebOperationContext.Current != null)
+            //{
+            //    WebOperationContext.Current.OutgoingResponse.ContentType = "text/plain";
+            //}
+            return new Person(){Name = name,Age = age};
         }
     }
 }

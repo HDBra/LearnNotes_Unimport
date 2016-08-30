@@ -35,8 +35,8 @@ namespace CommonWcfServiceLibrary
         /// <param name="name"></param>
         /// <returns></returns>
         [OperationContract]
-        [WebGet(UriTemplate = "Persons/{name}",ResponseFormat = WebMessageFormat.Json)]
-        Person GetPerson(string name);
+        //[WebGet(UriTemplate = "Persons/{name}",ResponseFormat = WebMessageFormat.Json)]
+        Person GetPerson(string name,int? age);
 
 
         // TODO: 在此添加您的服务操作
@@ -72,6 +72,6 @@ namespace CommonWcfServiceLibrary
         [DataMember]
         public string Name { get; set; }
         [DataMember]
-        public int Age { get; set; }
+        public int? Age { get; set; }
     }
 }
