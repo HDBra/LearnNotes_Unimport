@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeliveryEasyUI", "DeliveryEasyUI\DeliveryEasyUI.csproj", "{2A7E6C9A-834A-4CA5-88D7-C16953C7AB73}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyUI", "DeliveryEasyUI\EasyUI.csproj", "{2A7E6C9A-834A-4CA5-88D7-C16953C7AB73}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
