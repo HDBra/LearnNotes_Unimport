@@ -76,6 +76,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BaseWindow.cs" />
     <Compile Include="Bindings\Db\ObjectBingding.xaml.cs">
       <DependentUpon>ObjectBingding.xaml</DependentUpon>
     </Compile>
