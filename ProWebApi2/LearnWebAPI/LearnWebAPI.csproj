@@ -121,6 +121,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Removable\Models\Link.cs" />
     <Compile Include="Removable\Models\Status.cs" />
     <Compile Include="Removable\Models\Task.cs" />
     <Compile Include="Removable\Models\User.cs" />
