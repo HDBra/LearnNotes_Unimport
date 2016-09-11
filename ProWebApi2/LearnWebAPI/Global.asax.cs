@@ -11,6 +11,7 @@ namespace LearnWebAPI
     {
         protected void Application_Start()
         {
+            //注册web api路由
             GlobalConfiguration.Configure(WebApiConfig.Register);
         }
     }
