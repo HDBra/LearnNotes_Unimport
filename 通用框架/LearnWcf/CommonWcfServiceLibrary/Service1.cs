@@ -5,6 +5,7 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using CommonWcfServiceLibrary.Removable.Models;
 
 namespace CommonWcfServiceLibrary
 {
@@ -37,6 +38,19 @@ namespace CommonWcfServiceLibrary
     //        }
     //        return composite;
     //    }
+
+
+        private readonly DisposableModel _disposableModel;
+
+        /// <summary>
+        /// 通过ninject注入
+        /// </summary>
+        /// <param name="disposableModel"></param>
+        public Service1(DisposableModel disposableModel)
+        {
+            this._disposableModel = disposableModel;
+        }
+
 
         /// <summary>
         /// 实现接口

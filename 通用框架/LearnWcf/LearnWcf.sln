@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Host", "Host", "{A8E0E9C2-B
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{64A7C0BE-EE10-469C-86C4-255614F24075}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IISServiceHost", "IISServiceHost\IISServiceHost.csproj", "{37D2EED1-F64C-445F-9CEA-DC20DB2A14AE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IISServiceLibraryHost", "IISServiceHost\IISServiceLibraryHost.csproj", "{37D2EED1-F64C-445F-9CEA-DC20DB2A14AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
