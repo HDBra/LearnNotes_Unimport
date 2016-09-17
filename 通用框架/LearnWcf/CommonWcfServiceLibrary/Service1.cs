@@ -18,7 +18,7 @@ namespace CommonWcfServiceLibrary
     /// 注：Service类可以实现IDisposable
     /// 建议采用PerCall，不采用Session
     /// </summary>
-    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerSession)]
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall)]
     public class Service1 : IService1
     {
     //    public string GetData(int value)
