@@ -83,7 +83,7 @@ namespace ProcessMonitor.Utils
         /// </summary>
         public TimerEx()
         {
-            _timer = new Timer(new TimerCallback(TimerCallback), null, 1500, 9000);
+            _timer = new Timer(new TimerCallback(TimerCallback), null, 1500, 10000);
         }
 
         /// <summary>
@@ -173,6 +173,7 @@ namespace ProcessMonitor.Utils
 
             List<Tuple<string, Process>> fileNameList = new List<Tuple<string, Process>>();
             List<Tuple<string, Process>> programNameList = new List<Tuple<string, Process>>();
+            //获取所有的进程
             foreach (var processitem in processArr)
             {
                 try

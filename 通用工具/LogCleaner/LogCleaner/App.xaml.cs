@@ -96,7 +96,7 @@ namespace LogCleaner
         private void App_OnDispatcherUnhandledException(object sender, DispatcherUnhandledExceptionEventArgs e)
         {
             e.Handled = true;
-            NLogHelper.Fatal("捕获到未处理UI异常："+e);
+            NLogHelper.Fatal("捕获到未处理UI异常："+e.Exception);
         }
     }
 }

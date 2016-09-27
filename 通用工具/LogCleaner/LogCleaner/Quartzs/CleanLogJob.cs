@@ -76,7 +76,8 @@ namespace LogCleaner.Quartzs
                 foreach (string file in fileInfos)
                 {
                     FileInfo fileInfo = new FileInfo(file);
-                    if (fileInfo.CreationTime < expireTime)
+              
+                    if (fileInfo.Exists && fileInfo.CreationTime < expireTime)
                     {
                         fileInfo.Delete();
                         deleteFileCount++;
