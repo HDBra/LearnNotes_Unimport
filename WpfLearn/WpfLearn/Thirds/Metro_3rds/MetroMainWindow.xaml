@@ -1,0 +1,29 @@
+﻿<controls:MetroWindow x:Class="WpfLearn.Thirds.Metro_3rds.MetroMainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        Title="MetroMainWindow" ShowTitleBar="True"  Height="300" Width="300" 
+                      GlowBrush="{DynamicResource AccentColorBrush}"
+                      BorderThickness="1"
+WindowTransitionsEnabled="True"
+
+                      >
+
+
+    <!-- 
+    将一个wpf的window变为MetroWindow
+    1、将开闭标签Window变为Controls:MetroWindow
+    2、添加 xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+    3、修改CS文件基类为MetroWindow
+    4、在App.xaml中添加样式
+    
+    可用控件：
+    MetroWindow
+    Buttons
+    -->
+
+    <StackPanel>
+       <Button Content="ddd" /> 
+       
+    </StackPanel>
+</controls:MetroWindow>
