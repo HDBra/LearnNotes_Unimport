@@ -6,7 +6,6 @@ using System.Linq;
 using System.Reflection.Emit;
 using System.Threading.Tasks;
 using System.Windows;
-using EnterpriseDT.Net.Ftp;
 
 namespace AutoUpdater
 {
